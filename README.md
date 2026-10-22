@@ -39,7 +39,12 @@ Notes:
 * 1.21.1 is a bug-fix release of 1.21 without gameplay code changes, so the `1.21` jar runs on it as well.
 * 26.4 is the upcoming 2026 game drop. The Gradle project, preprocessor node and dependency wiring are already
   in place (Fabric API `0.164.x+26.4`), so it starts building as soon as Minecraft 26.4 and the matching
-  `jGui`/Loom toolchain are published. Until then CI builds it as an **experimental, non-blocking** target.
+  `jGui`/Loom toolchain are published. Because Minecraft 26.4 does not exist yet, the target is opt-in and CI
+  builds it as an **experimental, non-blocking** job:
+
+  ```bash
+  ./gradlew :26.4:bundleJar -Precap.experimental=true
+  ```
 
 ## Building
 

@@ -24,23 +24,27 @@ import sys
 
 SETTINGS = pathlib.Path("settings.gradle.kts")
 
-# Versions whose build is allowed to fail without failing the workflow.
-EXPERIMENTAL = {"26.4"}
 
-
-def supported_versions() -> list[str]:
-    text = SETTINGS.read_text(encoding="utf-8")
-    match = re.search(r"val\s+supportedVersions\s*=\s*listOf\((.*?)\n\)", text, re.DOTALL)
+def _read_list(text: str, name: str) -> list[str]:
+    match = re.search(rf"val\s+{name}\s*=\s*listOf\((.*?)\n\)", text, re.DOTALL)
     if not match:
-        raise SystemExit("Could not find 'val supportedVersions = listOf(...)' in settings.gradle.kts")
-    versions = re.findall(r'"([^"]+)"', match.group(1))
-    if not versions:
+        raise SystemExit(f"Could not find 'val {name} = listOf(...)' in settings.gradle.kts")
+    return re.findall(r'"([^"]+)"', match.group(1))
+
+
+def supported_versions() -> tuple[list[str], list[str]]:
+    """Return (supported, experimental) Minecraft versions declared in settings.gradle.kts."""
+    text = SETTINGS.read_text(encoding="utf-8")
+    supported = _read_list(text, "supportedVersions")
+    experimental = _read_list(text, "experimentalVersions")
+    if not supported:
         raise SystemExit("No Minecraft versions found in settings.gradle.kts")
-    return versions
+    return supported, experimental
 
 
 def main() -> int:
-    versions = supported_versions()
+    supported, experimental = supported_versions()
+    versions = supported + experimental
 
     requested = os.environ.get("REQUESTED_VERSIONS", "").replace(",", " ").split()
     if requested:
@@ -58,7 +62,9 @@ def main() -> int:
         "include": [
             {
                 "version": version,
-                "experimental": version in EXPERIMENTAL,
+                "experimental": version in experimental,
+                # Experimental targets have to be enabled explicitly in the Gradle build.
+                "gradle_args": "-Precap.experimental=true" if version in experimental else "",
                 "artifact": f"recapmod-{version}",
             }
             for version in versions

@@ -32,8 +32,14 @@ val supportedVersions = listOf(
         "26.1",
         "26.2",
         "26.3",
-        "26.4",     // experimental - see README.md
 )
+// Declared targets which cannot be built yet (Minecraft release / tooling not published).
+// Enable them with `-Precap.experimental=true`; CI builds them as non-blocking jobs.
+val experimentalVersions = listOf(
+        "26.4",
+)
+val buildExperimental = settings.startParameter.projectProperties["recap.experimental"]
+        ?.toBoolean() ?: false
 
 val jGuiVersions = listOf(
         // "1.7.10",
@@ -107,8 +113,7 @@ val replayModVersions = listOf(
         "26.1",
         "26.2",
         "26.3",
-        "26.4",
-)
+) + (if (buildExperimental) experimentalVersions else emptyList())
 
 rootProject.buildFileName = "root.gradle.kts"
 

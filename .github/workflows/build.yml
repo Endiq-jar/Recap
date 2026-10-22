@@ -110,7 +110,7 @@ jobs:
           status=1
           for attempt in 1 2 3; do
             echo "::group::Gradle attempt $attempt"
-            ./gradlew :${{ matrix.version }}:bundleJar --no-daemon --no-parallel --stacktrace 2>&1 | tee gradle.log
+            ./gradlew :${{ matrix.version }}:bundleJar ${{ matrix.gradle_args }} --no-daemon --no-parallel --stacktrace 2>&1 | tee gradle.log
             status=${PIPESTATUS[0]}
             echo "::endgroup::"
             [ "$status" -eq 0 ] && break
