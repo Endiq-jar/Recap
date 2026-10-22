@@ -57,20 +57,39 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
-      - name: Set up JDK 8 (ReplayStudio toolchain)
+      # The preprocessor walks the whole Minecraft version chain, so every JDK used by any
+      # ancestor project has to be available: 8 (ReplayStudio / 1.16), 16 (1.17-1.18),
+      # 17 (1.19-1.20), 21 (1.21+) and 25 (newer drops, if required).
+      - name: Set up JDK 8
         id: jdk8
         uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: "8"
 
+      - name: Set up JDK 16
+        id: jdk16
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: "16"
+
+      - name: Set up JDK 17
+        id: jdk17
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: "17"
+
       - name: Set up JDK 25
+        id: jdk25
         uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: "25"
 
-      - name: Set up JDK 21
+      - name: Set up JDK 21 (default)
+        id: jdk21
         uses: actions/setup-java@v5
         with:
           distribution: temurin
@@ -82,7 +101,7 @@ jobs:
 
       - name: Build ${{ matrix.version }}
         env:
-          GRADLE_OPTS: "-Dorg.gradle.daemon=false -Dorg.gradle.parallel=true -Dorg.gradle.java.installations.paths=${{ steps.jdk8.outputs.path }}"
+          GRADLE_OPTS: "-Dorg.gradle.daemon=false -Dorg.gradle.parallel=true -Dorg.gradle.java.installations.paths=${{ steps.jdk8.outputs.path }},${{ steps.jdk16.outputs.path }},${{ steps.jdk17.outputs.path }},${{ steps.jdk25.outputs.path }},${{ steps.jdk21.outputs.path }}"
         run: |
           set +e
           ./gradlew :${{ matrix.version }}:bundleJar --no-daemon --stacktrace 2>&1 | tee gradle.log
