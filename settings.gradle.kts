@@ -16,8 +16,11 @@ pluginManagement {
     }
 }
 
-// Recap Mod targets Minecraft 1.21.1 - 26.4 (see README.md).
-// The 1.21 build also covers 1.21.1 (bug-fix release, no code changes).
+// Recap Mod: the versions that are actually released and built by CI (see README.md).
+// The 1.21 build also runs on 1.21.1 (bug-fix release, no code changes).
+// The Gradle projects below additionally contain the whole version chain (older than the
+// preprocessor's main project, versions/mainProject -> 1.16.4) because the preprocessor resolves
+// the ancestor projects while preprocessing; those extra projects are never released.
 val supportedVersions = listOf(
         "1.21",     // also runs on 1.21.1
         "1.21.2",
@@ -31,11 +34,30 @@ val supportedVersions = listOf(
         "26.3",
         "26.4",     // experimental - see README.md
 )
-// The preprocessor compiles `src/main` against the "main project" (see versions/mainProject -> 1.16.4).
-// That project has to exist in the build even though it is not part of the released version matrix.
-val toolingVersions = listOf("1.16.4")
+
 val jGuiVersions = listOf(
+        // "1.7.10",
+        // "1.8",
+        "1.8.9",
+        "1.9.4",
+        "1.12",
+        "1.14.4-forge",
+        "1.14.4",
+        "1.15.2",
+        "1.16.1",
         "1.16.4",
+        "1.17.1",
+        "1.18.1",
+        "1.18.2",
+        "1.19",
+        "1.19.1",
+        "1.19.2",
+        "1.19.3",
+        "1.19.4",
+        "1.20.1",
+        "1.20.2",
+        "1.20.4",
+        "1.20.6",
         "1.21",
         "1.21.2",
         "1.21.4",
@@ -47,7 +69,46 @@ val jGuiVersions = listOf(
         "26.2",
         "26.3",
 )
-val replayModVersions = supportedVersions + toolingVersions
+val replayModVersions = listOf(
+        // "1.7.10",
+        // "1.8",
+        "1.8.9",
+        "1.9.4",
+        "1.10.2",
+        "1.11",
+        "1.11.2",
+        "1.12",
+        "1.12.1",
+        "1.12.2",
+        "1.14.4-forge",
+        "1.14.4",
+        "1.15.2",
+        "1.16.1",
+        "1.16.4",
+        "1.17.1",
+        "1.18.1",
+        "1.18.2",
+        "1.19",
+        "1.19.1",
+        "1.19.2",
+        "1.19.3",
+        "1.19.4",
+        "1.20.1",
+        "1.20.2",
+        "1.20.4",
+        "1.20.6",
+        "1.21",
+        "1.21.2",
+        "1.21.4",
+        "1.21.5",
+        "1.21.7",
+        "1.21.10",
+        "1.21.11",
+        "26.1",
+        "26.2",
+        "26.3",
+        "26.4",
+)
 
 rootProject.buildFileName = "root.gradle.kts"
 

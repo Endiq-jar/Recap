@@ -49,14 +49,16 @@ The project is a Gradle multi-project build, one subproject per Minecraft versio
 git clone --recursive https://github.com/Endiq-jar/Recap.git
 cd Recap
 
-# build every supported version (slow: one Minecraft decompile per version)
+# build every version Gradle knows about - including the legacy projects which only exist as
+# ancestors for the preprocessor chain (very slow: one Minecraft decompile per version)
 ./gradlew build
 
 # build a single version (fast, recommended)
 ./gradlew :1.21.7:bundleJar
 ```
 
-The finished mod jars end up in `versions/<mcversion>/build/libs/recapmod-<mcversion>-<version>.jar`.
+The finished mod jars end up in `versions/<mcversion>/build/libs/recapmod-<mcversion>-<version>.jar`
+(one entry per row of the table above).
 
 Requirements:
 
