@@ -31,7 +31,11 @@ val supportedVersions = listOf(
         "26.3",
         "26.4",     // experimental - see README.md
 )
+// The preprocessor compiles `src/main` against the "main project" (see versions/mainProject -> 1.16.4).
+// That project has to exist in the build even though it is not part of the released version matrix.
+val toolingVersions = listOf("1.16.4")
 val jGuiVersions = listOf(
+        "1.16.4",
         "1.21",
         "1.21.2",
         "1.21.4",
@@ -43,7 +47,7 @@ val jGuiVersions = listOf(
         "26.2",
         "26.3",
 )
-val replayModVersions = supportedVersions
+val replayModVersions = supportedVersions + toolingVersions
 
 rootProject.buildFileName = "root.gradle.kts"
 
