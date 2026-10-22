@@ -1,0 +1,129 @@
+[
+  {
+    "modid": "replaymod",
+    "name": "Recap Mod",
+    "description": "A Mod which allows you to record, replay and share your Minecraft experience.",
+    "version": "${version}",
+    "mcversion": "${mcVersionStr}",
+    "url": "https://github.com/Endiq-jar/Recap",
+    "updateUrl": "https://github.com/Endiq-jar/Recap/releases",
+    "authorList": [
+      "TurtleOfficials"
+    ],
+    "logoFile": "replaymod_logo.png",
+    "screenshots": [],
+    "dependencies": []
+  },
+  {
+    "modid": "replaymod-recording",
+    "name": "Recap Mod - Recording",
+    "description": "Recording Module of the Recap Mod",
+    "version": "${version}",
+    "mcversion": "${mcVersionStr}",
+    "url": "https://github.com/Endiq-jar/Recap",
+    "updateUrl": "https://github.com/Endiq-jar/Recap/releases",
+    "authorList": [
+      "TurtleOfficials"
+    ],
+    "logoFile": "replaymod_logo.png",
+    "parent": "replaymod",
+    "screenshots": [],
+    "dependencies": []
+  },
+  {
+    "modid": "replaymod-replay",
+    "name": "Recap Mod - Replay",
+    "description": "Replay Module of the Recap Mod",
+    "version": "${version}",
+    "mcversion": "${mcVersionStr}",
+    "url": "https://github.com/Endiq-jar/Recap",
+    "updateUrl": "https://github.com/Endiq-jar/Recap/releases",
+    "authorList": [
+      "TurtleOfficials"
+    ],
+    "logoFile": "replaymod_logo.png",
+    "parent": "replaymod",
+    "screenshots": [],
+    "dependencies": []
+  },
+  {
+    "modid": "replaymod-simplepathing",
+    "name": "Recap Mod - Simple Pathing",
+    "description": "Simple Pathing Module of the Recap Mod - aka the original pathing",
+    "version": "${version}",
+    "mcversion": "${mcVersionStr}",
+    "url": "https://github.com/Endiq-jar/Recap",
+    "updateUrl": "https://github.com/Endiq-jar/Recap/releases",
+    "authorList": [
+      "TurtleOfficials"
+    ],
+    "logoFile": "replaymod_logo.png",
+    "parent": "replaymod",
+    "screenshots": [],
+    "dependencies": ["required-after:replaymod-replay", "required-after:replaymod-render"]
+  },
+  {
+    "modid": "replaymod-render",
+    "name": "Recap Mod - Render",
+    "description": "Render Module of the Recap Mod",
+    "version": "${version}",
+    "mcversion": "${mcVersionStr}",
+    "url": "https://github.com/Endiq-jar/Recap",
+    "updateUrl": "https://github.com/Endiq-jar/Recap/releases",
+    "authorList": [
+      "TurtleOfficials"
+    ],
+    "logoFile": "replaymod_logo.png",
+    "parent": "replaymod",
+    "screenshots": [],
+    "dependencies": ["required-after:replaymod-replay"]
+  },
+  {
+    "modid": "replaymod-editor",
+    "name": "Recap Mod - Replay Editor",
+    "description": "Replay Editor Module of the Recap Mod",
+    "version": "${version}",
+    "mcversion": "${mcVersionStr}",
+    "url": "https://github.com/Endiq-jar/Recap",
+    "updateUrl": "https://github.com/Endiq-jar/Recap/releases",
+    "authorList": [
+      "TurtleOfficials"
+    ],
+    "logoFile": "replaymod_logo.png",
+    "parent": "replaymod",
+    "screenshots": [],
+    "dependencies": []
+  },
+  {
+    "modid": "replaymod-extras",
+    "name": "Recap Mod - Extras",
+    "description": "Extras Module of the Recap Mod - Small but neat additions",
+    "version": "${version}",
+    "mcversion": "${mcVersionStr}",
+    "url": "https://github.com/Endiq-jar/Recap",
+    "updateUrl": "https://github.com/Endiq-jar/Recap/releases",
+    "authorList": [
+      "TurtleOfficials"
+    ],
+    "logoFile": "replaymod_logo.png",
+    "parent": "replaymod",
+    "screenshots": [],
+    "dependencies": []
+  },
+  {
+      "modid": "replaymod-compat",
+      "name": "Recap Mod - Compatibility",
+      "description": "Compatibility Module of the Recap Mod - Adds compatibility with other mods",
+      "version": "${version}",
+      "mcversion": "${mcVersionStr}",
+      "url": "https://github.com/Endiq-jar/Recap",
+      "updateUrl": "https://github.com/Endiq-jar/Recap/releases",
+      "authorList": [
+      "TurtleOfficials"
+    ],
+      "logoFile": "replaymod_logo.png",
+      "parent": "replaymod",
+      "screenshots": [],
+      "dependencies": []
+    }
+]
