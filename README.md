@@ -62,7 +62,11 @@ The finished mod jars end up in `versions/<mcversion>/build/libs/recapmod-<mcver
 
 Requirements:
 
-* JDK 21 (JDK 25 is picked up automatically for newer Minecraft versions when present)
+* JDK 21 to run Gradle (JDK 25 is used for newer drops when it is installed)
+* JDK 8, 16 and 17 installed as well: the preprocessor compiles the older projects of the version chain
+  (ReplayStudio/1.16, 1.17-1.18, 1.19-1.20) with them. Point Gradle at them with
+  `-Dorg.gradle.java.installations.paths=/path/to/jdk8,/path/to/jdk16,/path/to/jdk17` if they are not in a
+  standard location. GitHub Actions does exactly that, see `.github/workflows/build.yml`.
 * ~8 GB of RAM for the Gradle daemon (`org.gradle.jvmargs=-Xmx8G` in `gradle.properties`)
 * Git submodules, see below
 

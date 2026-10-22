@@ -101,11 +101,22 @@ jobs:
 
       - name: Build ${{ matrix.version }}
         env:
-          GRADLE_OPTS: "-Dorg.gradle.daemon=false -Dorg.gradle.parallel=true -Dorg.gradle.java.installations.paths=${{ steps.jdk8.outputs.path }},${{ steps.jdk16.outputs.path }},${{ steps.jdk17.outputs.path }},${{ steps.jdk25.outputs.path }},${{ steps.jdk21.outputs.path }}"
+          # Parallel execution is disabled on purpose: the multi-version tooling resolves
+          # configurations of other projects during task execution, which Gradle 9 only allows
+          # in a single-threaded build ("resolution ... without an exclusive lock").
+          GRADLE_OPTS: "-Dorg.gradle.daemon=false -Dorg.gradle.parallel=false -Dorg.gradle.configureondemand=false -Dorg.gradle.caching=true -Dorg.gradle.java.installations.paths=${{ steps.jdk8.outputs.path }},${{ steps.jdk16.outputs.path }},${{ steps.jdk17.outputs.path }},${{ steps.jdk25.outputs.path }},${{ steps.jdk21.outputs.path }}"
         run: |
           set +e
-          ./gradlew :${{ matrix.version }}:bundleJar --no-daemon --stacktrace 2>&1 | tee gradle.log
-          status=${PIPESTATUS[0]}
+          status=1
+          for attempt in 1 2 3; do
+            echo "::group::Gradle attempt $attempt"
+            ./gradlew :${{ matrix.version }}:bundleJar --no-daemon --no-parallel --stacktrace 2>&1 | tee gradle.log
+            status=${PIPESTATUS[0]}
+            echo "::endgroup::"
+            [ "$status" -eq 0 ] && break
+            echo "::warning::Attempt $attempt for ${{ matrix.version }} failed (exit code $status)"
+            sleep 20
+          done
           if [ "$status" -ne 0 ]; then
             echo "::error::Gradle build failed for ${{ matrix.version }} (exit code $status)"
             { grep -m1 -A 25 "What went wrong" gradle.log || tail -n 25 gradle.log; } | sed 's/^/::error::/' | head -n 26
