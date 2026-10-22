@@ -74,7 +74,15 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Build ${{ matrix.version }}
-        run: ./gradlew :${{ matrix.version }}:bundleJar --no-daemon --stacktrace
+        run: |
+          set +e
+          ./gradlew :${{ matrix.version }}:bundleJar --no-daemon --stacktrace 2>&1 | tee gradle.log
+          status=${PIPESTATUS[0]}
+          if [ "$status" -ne 0 ]; then
+            echo "::error::Gradle build failed for ${{ matrix.version }} (exit code $status)"
+            { grep -m1 -A 25 "What went wrong" gradle.log || tail -n 25 gradle.log; } | sed 's/^/::error::/' | head -n 26
+          fi
+          exit "$status"
 
       - name: Collect final jar (${{ matrix.version }})
         if: always()
