@@ -20,8 +20,9 @@ val recapMcRange: String? = providers.gradleProperty("recap.mcRange").orNull
 if (recapMcRange != null) {
     tasks.named<org.gradle.language.jvm.tasks.ProcessResources>("processResources") {
         inputs.property("recapMcRange", recapMcRange)
+        val resourcesOutput = destinationDirectory
         doLast {
-            val modJsonFile = destinationDirectory.get().asFile.resolve("fabric.mod.json")
+            val modJsonFile = resourcesOutput.get().asFile.resolve("fabric.mod.json")
             if (modJsonFile.exists()) {
                 val text = modJsonFile.readText()
                 if (!text.contains("\"minecraft\":")) {
