@@ -149,6 +149,30 @@ jobs:
             python3 .github/scripts/set-mc-range.py "$RECAP_MC_RANGE" dist/*.jar
           fi
 
+      - name: Verify mod metadata (${{ matrix.version }})
+        if: always()
+        env:
+          RECAP_MC_RANGE: ${{ matrix.mc_range }}
+        run: |
+          python3 - "$RECAP_MC_RANGE" <<'PY'
+          import glob, json, sys, zipfile
+
+          expected = sys.argv[1]
+          jars = glob.glob("dist/*.jar")
+          if not jars:
+              print("no jar produced (build failed) - nothing to verify")
+              raise SystemExit(0)
+          for jar in jars:
+              with zipfile.ZipFile(jar) as archive:
+                  metadata = json.loads(archive.read("fabric.mod.json").decode("utf-8"))
+              range_ = metadata.get("depends", {}).get("minecraft")
+              print(f"{jar}: id={metadata['id']} name={metadata['name']} minecraft={range_}")
+              assert metadata["id"] == "replaymod"
+              assert metadata["name"] == "Recap Mod", metadata["name"]
+              if expected:
+                  assert range_ == expected, f"expected minecraft={expected}, got {range_}"
+          PY
+
       - name: Upload jar (${{ matrix.version }})
         if: always()
         uses: actions/upload-artifact@v4

@@ -126,6 +126,13 @@ recapmod-universal-1.0.0.jar
 Extract the jar matching your Minecraft version into `.minecraft/mods` (Fabric). Every contained jar is
 listed above as its own row, so the universal bundle never contains versions that are not supported.
 
+CI verifies every produced jar before uploading it: mod id `replaymod`, name `Recap Mod` and the declared
+Minecraft range must match the build matrix. To apply a range to a jar manually:
+
+```bash
+python3 .github/scripts/set-mc-range.py ">=1.21 <1.21.2" versions/1.21/build/libs/recapmod-1.21-*.jar
+```
+
 ## Interface
 
 The interface is a single design system instead of per-screen vanilla widgets, implemented in
