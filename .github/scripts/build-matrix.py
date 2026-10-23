@@ -6,7 +6,8 @@ so that the workflow and the Gradle build can never drift apart.
 
 Outputs a GitHub Actions matrix of the form::
 
-    {"include": [{"version": "1.21", "experimental": false, "artifact": "recapmod-1.21"}, ...]}
+    {"include": [{"version": "1.21", "experimental": false, "gradle_args": "",
+                  "mc_range": ">=1.21 <1.21.2", "artifact": "recapmod-1.21"}, ...]}
 
 Environment variables:
 
@@ -71,12 +72,11 @@ def main() -> int:
                 "version": version,
                 "experimental": version in experimental,
                 # Experimental targets have to be enabled explicitly in the Gradle build.
-                # Args are "-" separated on purpose: some values contain spaces (version ranges)
-                # and GitHub would otherwise split them into separate shell words.
+                # Args are "|" separated on purpose: some values contain spaces (version ranges) and
+                # GitHub would otherwise split them into separate shell words.
                 "gradle_args": "|".join(
                     args for args in [
                         "-Precap.experimental=true" if version in experimental else "",
-                        f"-Precap.mcRange={MC_RANGES[version]}" if version in MC_RANGES else "",
                     ] if args
                 ),
                 "mc_range": MC_RANGES.get(version, version),

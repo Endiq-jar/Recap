@@ -1,5 +1,9 @@
 package com.replaymod.render.gui;
 
+import de.johni0702.minecraft.gui.GuiRenderer;
+import de.johni0702.minecraft.gui.RenderInfo;
+import de.johni0702.minecraft.gui.utils.lwjgl.ReadableDimension;
+import com.replaymod.core.gui.RecapTheme;
 import com.replaymod.core.ReplayMod;
 import com.replaymod.render.RenderSettings;
 import com.replaymod.render.FFmpegWriter;
@@ -22,6 +26,16 @@ import java.util.function.Consumer;
 import static com.replaymod.render.ReplayModRender.LOGGER;
 
 public class GuiExportFailed extends GuiScreen {
+
+    @Override
+    public void draw(GuiRenderer renderer, ReadableDimension size, RenderInfo renderInfo) {
+        if (renderInfo.getLayer() == 0) {
+            // Recap Mod: themed backdrop instead of the vanilla dirt background.
+            RecapTheme.screen(renderer, size.getWidth(), size.getHeight());
+        }
+        super.draw(renderer, size, renderInfo);
+    }
+
     public static GuiExportFailed tryToRecover(FFmpegWriter.FFmpegStartupException e, Consumer<RenderSettings> doRestart) {
         // Always log the error first
         LOGGER.error("Rendering video:", e);
@@ -70,7 +84,7 @@ public class GuiExportFailed extends GuiScreen {
         });
 
         setTitle(new GuiLabel().setI18nText("replaymod.gui.rendering.error.title"));
-        setBackground(Background.DIRT);
+        setBackground(Background.NONE);
     }
 
     public GuiExportFailed(FFmpegWriter.FFmpegStartupException e, Consumer<RenderSettings> doRestart) {

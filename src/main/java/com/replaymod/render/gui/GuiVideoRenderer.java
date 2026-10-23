@@ -1,5 +1,6 @@
 package com.replaymod.render.gui;
 
+import com.replaymod.core.gui.RecapTheme;
 import com.replaymod.core.utils.Utils;
 import com.replaymod.render.frame.BitmapFrame;
 import com.replaymod.render.rendering.VideoRenderer;
@@ -31,6 +32,16 @@ import java.nio.ByteBuffer;
 import static de.johni0702.minecraft.gui.versions.MCVer.identifier;
 
 public class GuiVideoRenderer extends GuiScreen implements Tickable {
+
+    @Override
+    public void draw(GuiRenderer renderer, ReadableDimension size, RenderInfo renderInfo) {
+        if (renderInfo.getLayer() == 0) {
+            // Recap Mod: themed backdrop instead of the vanilla dirt background.
+            RecapTheme.screen(renderer, size.getWidth(), size.getHeight());
+        }
+        super.draw(renderer, size, renderInfo);
+    }
+
     private static final Identifier NO_PREVIEW_TEXTURE = identifier("replaymod", "logo.png");
 
     private final VideoRenderer renderer;
@@ -120,7 +131,7 @@ public class GuiVideoRenderer extends GuiScreen implements Tickable {
         //$$ setBackground(Background.NONE);
         //$$ setBackgroundColor(new de.johni0702.minecraft.gui.utils.lwjgl.Color(32, 32, 32));
         //#else
-        setBackground(Background.DIRT);
+        setBackground(Background.NONE);
         //#endif
     }
 

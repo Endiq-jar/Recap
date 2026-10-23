@@ -1,5 +1,9 @@
 package com.replaymod.render.gui;
 
+import de.johni0702.minecraft.gui.GuiRenderer;
+import de.johni0702.minecraft.gui.RenderInfo;
+import de.johni0702.minecraft.gui.utils.lwjgl.ReadableDimension;
+import com.replaymod.core.gui.RecapTheme;
 import de.johni0702.minecraft.gui.container.GuiPanel;
 import de.johni0702.minecraft.gui.container.GuiScreen;
 import de.johni0702.minecraft.gui.element.GuiButton;
@@ -13,6 +17,16 @@ import static com.replaymod.core.versions.MCVer.openURL;
 import static de.johni0702.minecraft.gui.versions.MCVer.setClipboardString;
 
 public class GuiNoFfmpeg extends GuiScreen {
+
+    @Override
+    public void draw(GuiRenderer renderer, ReadableDimension size, RenderInfo renderInfo) {
+        if (renderInfo.getLayer() == 0) {
+            // Recap Mod: themed backdrop instead of the vanilla dirt background.
+            RecapTheme.screen(renderer, size.getWidth(), size.getHeight());
+        }
+        super.draw(renderer, size, renderInfo);
+    }
+
 
     private static final String LINK = "https://www.replaymod.com/docs/#installing-ffmpeg";
 
@@ -36,7 +50,7 @@ public class GuiNoFfmpeg extends GuiScreen {
             .addElements(null, openLinkButton, copyToClipboardButton, backButton);
 
     {
-        setBackground(Background.DIRT);
+        setBackground(Background.NONE);
         setTitle(new GuiLabel().setI18nText("replaymod.gui.rendering.error.title"));
         setLayout(new VerticalLayout(VerticalLayout.Alignment.CENTER).setSpacing(30));
         addElements(new VerticalLayout.Data(0.5), message, link, buttons);

@@ -1,5 +1,7 @@
 package com.replaymod.editor.gui;
 
+import com.replaymod.core.gui.RecapButton;
+import com.replaymod.core.gui.RecapTheme;
 import com.replaymod.core.ReplayMod;
 import com.replaymod.core.utils.Utils;
 import com.replaymod.editor.ReplayModEditor;
@@ -83,6 +85,7 @@ public class GuiEditReplay extends AbstractGuiPopup<GuiEditReplay> {
         }).setZoom(1);
 
         GuiPanel timelinePanel = new GuiPanel()
+                .setBackgroundColor(RecapTheme.HUD_COLOR)
                 .setSize(300, 40)
                 .setLayout(new CustomLayout<GuiPanel>() {
                     @Override
@@ -98,7 +101,7 @@ public class GuiEditReplay extends AbstractGuiPopup<GuiEditReplay> {
                 })
                 .addElements(null, timelineTime, timeline, scrollbar, zoomButtonPanel);
 
-        GuiButton buttonAddSplit = new GuiButton()
+        GuiButton buttonAddSplit = new RecapButton().setPrimary(false)
                 .setSize(100, 20)
                 .setI18nLabel("replaymod.gui.edit.split")
                 .setTooltip(new GuiTooltip().setI18nText("replaymod.gui.edit.split.tooltip"))
@@ -109,7 +112,7 @@ public class GuiEditReplay extends AbstractGuiPopup<GuiEditReplay> {
                     timeline.addMarker(marker);
                 });
 
-        GuiButton buttonInsertCut = new GuiButton()
+        GuiButton buttonInsertCut = new RecapButton().setPrimary(false)
                 .setSize(100, 20)
                 .setI18nLabel("replaymod.gui.edit.cut.start")
                 .setTooltip(new GuiTooltip().setI18nText("replaymod.gui.edit.cut.tooltip"))
@@ -120,7 +123,7 @@ public class GuiEditReplay extends AbstractGuiPopup<GuiEditReplay> {
                     timeline.addMarker(marker);
                 });
 
-        GuiButton buttonEndCut = new GuiButton()
+        GuiButton buttonEndCut = new RecapButton().setPrimary(false)
                 .setSize(100, 20)
                 .setI18nLabel("replaymod.gui.edit.cut.end")
                 .setTooltip(new GuiTooltip().setI18nText("replaymod.gui.edit.cut.tooltip"))
@@ -135,8 +138,8 @@ public class GuiEditReplay extends AbstractGuiPopup<GuiEditReplay> {
                 .setLayout(new HorizontalLayout().setSpacing(4))
                 .addElements(null, buttonAddSplit, buttonInsertCut, buttonEndCut);
 
-        GuiButton applyButton = new GuiButton().setI18nLabel("replaymod.gui.edit.apply").setSize(150, 20).onClick(this::apply);
-        GuiButton closeButton = new GuiButton().setI18nLabel("replaymod.gui.close").setSize(150, 20).onClick(this::close);
+        GuiButton applyButton = new RecapButton().setI18nLabel("replaymod.gui.edit.apply").setSize(150, 20).onClick(this::apply);
+        GuiButton closeButton = new RecapButton().setPrimary(false).setI18nLabel("replaymod.gui.close").setSize(150, 20).onClick(this::close);
         GuiPanel buttonPanel = new GuiPanel()
                 .setLayout(new HorizontalLayout().setSpacing(8))
                 .addElements(null, applyButton, closeButton);

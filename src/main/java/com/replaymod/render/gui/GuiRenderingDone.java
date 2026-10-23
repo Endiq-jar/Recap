@@ -1,5 +1,9 @@
 package com.replaymod.render.gui;
 
+import de.johni0702.minecraft.gui.GuiRenderer;
+import de.johni0702.minecraft.gui.RenderInfo;
+import de.johni0702.minecraft.gui.utils.lwjgl.ReadableDimension;
+import com.replaymod.core.gui.RecapTheme;
 import com.replaymod.core.SettingsRegistry;
 import com.replaymod.core.versions.MCVer;
 import com.replaymod.render.RenderSettings;
@@ -17,6 +21,16 @@ import de.johni0702.minecraft.gui.layout.VerticalLayout;
 import java.io.File;
 
 public class GuiRenderingDone extends GuiScreen {
+
+    @Override
+    public void draw(GuiRenderer renderer, ReadableDimension size, RenderInfo renderInfo) {
+        if (renderInfo.getLayer() == 0) {
+            // Recap Mod: themed backdrop instead of the vanilla dirt background.
+            RecapTheme.screen(renderer, size.getWidth(), size.getHeight());
+        }
+        super.draw(renderer, size, renderInfo);
+    }
+
     public final ReplayModRender mod;
     public final File videoFile;
     public final int videoFrames;
@@ -67,7 +81,7 @@ public class GuiRenderingDone extends GuiScreen {
             }
         });
         setTitle(new GuiLabel().setI18nText("replaymod.gui.renderdonetitle"));
-        setBackground(Background.DIRT);
+        setBackground(Background.NONE);
     }
 
     public GuiRenderingDone(ReplayModRender mod, File videoFile, int videoFrames, RenderSettings settings) {
