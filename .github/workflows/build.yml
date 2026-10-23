@@ -153,11 +153,12 @@ jobs:
         if: always()
         env:
           RECAP_MC_RANGE: ${{ matrix.mc_range }}
+          RECAP_MC_VERSION: ${{ matrix.version }}
         run: |
-          python3 - "$RECAP_MC_RANGE" <<'PY'
+          python3 - "$RECAP_MC_VERSION" "$RECAP_MC_RANGE" <<'PY'
           import glob, json, sys, zipfile
 
-          expected = sys.argv[1]
+          version, expected_range = sys.argv[1], sys.argv[2]
           jars = glob.glob("dist/*.jar")
           if not jars:
               print("no jar produced (build failed) - nothing to verify")
@@ -165,12 +166,15 @@ jobs:
           for jar in jars:
               with zipfile.ZipFile(jar) as archive:
                   metadata = json.loads(archive.read("fabric.mod.json").decode("utf-8"))
-              range_ = metadata.get("depends", {}).get("minecraft")
-              print(f"{jar}: id={metadata['id']} name={metadata['name']} minecraft={range_}")
-              assert metadata["id"] == "replaymod"
+              declared = metadata.get("depends", {}).get("minecraft")
+              print(f"{jar}: id={metadata['id']} name={metadata['name']} minecraft={declared}")
+              assert metadata["id"] == "replaymod", metadata["id"]
               assert metadata["name"] == "Recap Mod", metadata["name"]
-              if expected:
-                  assert range_ == expected, f"expected minecraft={expected}, got {range_}"
+              if expected_range and expected_range != version:
+                  assert declared == expected_range, f"expected {expected_range}, got {declared}"
+              else:
+                  assert declared in (None, version), f"unexpected range {declared}"
+          print("metadata ok")
           PY
 
       - name: Upload jar (${{ matrix.version }})
