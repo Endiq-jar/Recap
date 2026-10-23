@@ -25,8 +25,8 @@ public class GuiModCompatWarning extends RecapScreen<GuiModCompatWarning> {
             .addElements(null, loadButton, cancelButton);
 
     {
-        setHeader(I18n.translate("replaymod.gui.modwarning.title"),
-                I18n.translate("replaymod.gui.modwarning.subtitle"));
+        setHeader(net.minecraft.client.resource.language.I18n.translate("replaymod.gui.modwarning.title"),
+                net.minecraft.client.resource.language.I18n.translate("replaymod.gui.modwarning.subtitle"));
         setLayout(new CustomLayout<GuiModCompatWarning>() {
             @Override
             protected void layout(GuiModCompatWarning container, int width, int height) {
