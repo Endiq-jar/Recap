@@ -1,9 +1,11 @@
 package com.replaymod.replay.gui.screen;
 
+import com.replaymod.core.gui.RecapButton;
+import com.replaymod.core.gui.RecapScreen;
+import com.replaymod.core.gui.RecapTheme;
 import com.replaymod.core.utils.ModCompat;
 import com.replaymod.replaystudio.data.ModInfo;
 import com.replaymod.replaystudio.util.I18n;
-import de.johni0702.minecraft.gui.container.AbstractGuiScreen;
 import de.johni0702.minecraft.gui.container.GuiPanel;
 import de.johni0702.minecraft.gui.container.GuiVerticalList;
 import de.johni0702.minecraft.gui.element.GuiButton;
@@ -14,21 +16,23 @@ import de.johni0702.minecraft.gui.layout.VerticalLayout;
 
 import java.util.Map;
 
-public class GuiModCompatWarning extends AbstractGuiScreen<GuiModCompatWarning> {
+public class GuiModCompatWarning extends RecapScreen<GuiModCompatWarning> {
     public final GuiVerticalList content = new GuiVerticalList(this).setDrawShadow(true).setDrawSlider(true);
-    public final GuiButton loadButton = new GuiButton().setI18nLabel("replaymod.gui.load").setSize(200, 20);
-    public final GuiButton cancelButton = new GuiButton().setI18nLabel("gui.cancel").setSize(200, 20);
+    public final RecapButton loadButton = new RecapButton().setI18nLabel("replaymod.gui.load").setSize(200, 20);
+    public final RecapButton cancelButton = new RecapButton().setI18nLabel("gui.cancel")
+            .setSize(200, 20).setPrimary(false);
     public final GuiPanel closeButtons = new GuiPanel(this).setLayout(new HorizontalLayout().setSpacing(5))
             .addElements(null, loadButton, cancelButton);
 
     {
-        setTitle(new GuiLabel().setI18nText("replaymod.gui.modwarning.title"));
+        setHeader(I18n.translate("replaymod.gui.modwarning.title"),
+                I18n.translate("replaymod.gui.modwarning.subtitle"));
         setLayout(new CustomLayout<GuiModCompatWarning>() {
             @Override
             protected void layout(GuiModCompatWarning container, int width, int height) {
-                pos(content, 10, 35);
+                pos(content, 18, 52);
                 pos(closeButtons, width / 2 - width(closeButtons) / 2, height - 10 - height(closeButtons));
-                size(content, width - 20, y(closeButtons) - 10 - y(content));
+                size(content, width - 36, y(closeButtons) - 12 - y(content));
             }
         });
 

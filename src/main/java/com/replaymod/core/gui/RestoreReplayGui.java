@@ -10,6 +10,7 @@ import com.replaymod.replaystudio.io.ReplayOutputStream;
 import com.replaymod.replaystudio.lib.viaversion.api.protocol.packet.State;
 import com.replaymod.replaystudio.replay.ReplayFile;
 import com.replaymod.replaystudio.replay.ReplayMetaData;
+import net.minecraft.client.resource.language.I18n;
 import de.johni0702.minecraft.gui.container.AbstractGuiScreen;
 import de.johni0702.minecraft.gui.container.GuiPanel;
 import de.johni0702.minecraft.gui.container.GuiScreen;
@@ -35,7 +36,7 @@ import java.util.function.Consumer;
 import static com.replaymod.replaystudio.util.Utils.readInt;
 import static com.replaymod.replaystudio.util.Utils.writeInt;
 
-public class RestoreReplayGui extends AbstractGuiScreen<RestoreReplayGui> {
+public class RestoreReplayGui extends RecapScreen<RestoreReplayGui> {
     private static Logger LOGGER = LogManager.getLogger();
 
     public final GuiScreen parent;
@@ -44,12 +45,17 @@ public class RestoreReplayGui extends AbstractGuiScreen<RestoreReplayGui> {
     public final GuiPanel buttonPanel = new GuiPanel().setLayout(new HorizontalLayout().setSpacing(5));
     public final GuiPanel contentPanel = new GuiPanel(this).addElements(new VerticalLayout.Data(0.5),
             textPanel, buttonPanel).setLayout(new VerticalLayout().setSpacing(20));
-    public final GuiButton yesButton = new GuiButton(buttonPanel).setSize(150, 20).setI18nLabel("gui.yes");
-    public final GuiButton noButton = new GuiButton(buttonPanel).setSize(150, 20).setI18nLabel("gui.no");
+    public final RecapButton yesButton = new RecapButton(buttonPanel).setSize(150, 20).setI18nLabel("gui.yes");
+    public final RecapButton noButton = new RecapButton(buttonPanel).setSize(150, 20)
+            .setI18nLabel("gui.no").setPrimary(false);
+    private int cardX, cardY, cardWidth, cardHeight;
     private final ReplayMod core;
 
     public RestoreReplayGui(ReplayMod core, GuiScreen parent, File file) {
         this.core = core;
+        setHeader(I18n.translate("replaymod.gui.restorereplay.title"),
+                I18n.translate("replaymod.gui.restorereplay.subtitle"));
+        setFooterHint(I18n.translate("replaymod.gui.restorereplay.hint"));
         this.parent = parent;
         this.file = file;
 
@@ -83,9 +89,25 @@ public class RestoreReplayGui extends AbstractGuiScreen<RestoreReplayGui> {
         setLayout(new CustomLayout<RestoreReplayGui>() {
             @Override
             protected void layout(RestoreReplayGui container, int width, int height) {
-                pos(contentPanel, width / 2 - width(contentPanel) / 2, height / 2 - height(contentPanel) / 2);
+                int panelWidth = width(contentPanel);
+                int panelHeight = height(contentPanel);
+                cardWidth = Math.max(360, panelWidth + 48);
+                cardHeight = panelHeight + 48;
+                cardX = (width - cardWidth) / 2;
+                cardY = (height - cardHeight) / 2;
+                pos(contentPanel, width / 2 - panelWidth / 2, height / 2 - panelHeight / 2);
             }
         });
+    }
+
+    @Override
+    public void draw(de.johni0702.minecraft.gui.GuiRenderer renderer,
+                     de.johni0702.minecraft.gui.utils.lwjgl.ReadableDimension size,
+                     de.johni0702.minecraft.gui.RenderInfo renderInfo) {
+        if (renderInfo.getLayer() == 0 && cardWidth > 0) {
+            RecapTheme.card(renderer, cardX, cardY, cardWidth, cardHeight);
+        }
+        super.draw(renderer, size, renderInfo);
     }
 
     @Override

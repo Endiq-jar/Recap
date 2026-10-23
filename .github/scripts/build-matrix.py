@@ -24,6 +24,13 @@ import sys
 
 SETTINGS = pathlib.Path("settings.gradle.kts")
 
+# Builds which also run on their patch-level successors, and the Fabric version range they declare.
+# Only ranges we are confident about are listed; everything else produces an exact-version jar.
+MC_RANGES = {
+    # 1.21.1 is a bug-fix release of 1.21 without code changes
+    "1.21": ">=1.21 <1.21.2",
+}
+
 
 def _read_list(text: str, name: str) -> list[str]:
     match = re.search(rf"val\s+{name}\s*=\s*listOf\((.*?)\n\)", text, re.DOTALL)
@@ -64,7 +71,15 @@ def main() -> int:
                 "version": version,
                 "experimental": version in experimental,
                 # Experimental targets have to be enabled explicitly in the Gradle build.
-                "gradle_args": "-Precap.experimental=true" if version in experimental else "",
+                # Args are "-" separated on purpose: some values contain spaces (version ranges)
+                # and GitHub would otherwise split them into separate shell words.
+                "gradle_args": "|".join(
+                    args for args in [
+                        "-Precap.experimental=true" if version in experimental else "",
+                        f"-Precap.mcRange={MC_RANGES[version]}" if version in MC_RANGES else "",
+                    ] if args
+                ),
+                "mc_range": MC_RANGES.get(version, version),
                 "artifact": f"recapmod-{version}",
             }
             for version in versions

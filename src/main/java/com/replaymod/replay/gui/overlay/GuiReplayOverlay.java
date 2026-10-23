@@ -1,6 +1,7 @@
 package com.replaymod.replay.gui.overlay;
 
 import com.replaymod.core.ReplayMod;
+import com.replaymod.core.gui.RecapTheme;
 import com.replaymod.core.events.KeyBindingEventCallback;
 import com.replaymod.core.events.KeyEventCallback;
 import com.replaymod.core.versions.MCVer.Keyboard;
@@ -76,11 +77,11 @@ public class GuiReplayOverlay extends AbstractGuiOverlay<GuiReplayOverlay> {
         setLayout(new CustomLayout<GuiReplayOverlay>() {
             @Override
             protected void layout(GuiReplayOverlay container, int width, int height) {
-                pos(topPanel, 10, 10);
-                size(topPanel, width - 20, 20);
+                pos(topPanel, 16, 11);
+                size(topPanel, width - 32, 20);
 
-                pos(statusIndicatorPanel, width / 2, height - 21);
-                width(statusIndicatorPanel, width / 2 - 5);
+                pos(statusIndicatorPanel, width / 2, height - 22);
+                width(statusIndicatorPanel, width / 2 - 16);
             }
         });
 
@@ -163,7 +164,28 @@ public class GuiReplayOverlay extends AbstractGuiOverlay<GuiReplayOverlay> {
             // the draw method isn't called in the first place
             return;
         }
+        if (renderInfo.getLayer() == 0) {
+            drawControlBar(renderer, size);
+        }
         super.draw(renderer, size, renderInfo);
+    }
+
+    /**
+     * Draws the Recap control bar behind the play/pause button, the speed slider and the timeline, so
+     * that the controls stay readable on bright scenes without hiding the world.
+     */
+    private void drawControlBar(GuiRenderer renderer, ReadableDimension size) {
+        int barHeight = 28;
+        RecapTheme.hudBar(renderer, 8, 6, size.getWidth() - 16, barHeight);
+        // Accent rail marks the start of the bar
+        renderer.drawRect(8, 6 + 6, 2, barHeight - 12, RecapTheme.ACCENT);
+        if (statusIndicatorPanel.getChildren().size() > 0) {
+            int statusWidth = 120;
+            int x = size.getWidth() / 2 - 4;
+            int y = size.getHeight() - 24;
+            RecapTheme.hudBar(renderer, x, y, Math.min(statusWidth, size.getWidth() / 2), 18);
+            renderer.drawRect(x, y + 5, 2, 8, RecapTheme.ACCENT);
+        }
     }
 
     @Override

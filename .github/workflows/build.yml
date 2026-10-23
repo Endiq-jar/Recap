@@ -105,12 +105,19 @@ jobs:
           # configurations of other projects during task execution, which Gradle 9 only allows
           # in a single-threaded build ("resolution ... without an exclusive lock").
           GRADLE_OPTS: "-Dorg.gradle.daemon=false -Dorg.gradle.parallel=false -Dorg.gradle.configureondemand=false -Dorg.gradle.caching=true -Dorg.gradle.java.installations.paths=${{ steps.jdk8.outputs.path }},${{ steps.jdk16.outputs.path }},${{ steps.jdk17.outputs.path }},${{ steps.jdk25.outputs.path }},${{ steps.jdk21.outputs.path }}"
+          # "-" separated so version ranges containing spaces survive as a single argument
+          RECAP_GRADLE_ARGS: ${{ matrix.gradle_args }}
         run: |
           set +e
+          GRADLE_ARGS=()
+          if [ -n "$RECAP_GRADLE_ARGS" ]; then
+            IFS='|' read -r -a GRADLE_ARGS <<< "$RECAP_GRADLE_ARGS"
+          fi
+          echo "Extra Gradle arguments: ${GRADLE_ARGS[*]:-(none)}"
           status=1
           for attempt in 1 2 3; do
             echo "::group::Gradle attempt $attempt"
-            ./gradlew :${{ matrix.version }}:bundleJar ${{ matrix.gradle_args }} --no-daemon --no-parallel --stacktrace 2>&1 | tee gradle.log
+            ./gradlew :${{ matrix.version }}:bundleJar "${GRADLE_ARGS[@]}" --no-daemon --no-parallel --stacktrace 2>&1 | tee gradle.log
             status=${PIPESTATUS[0]}
             echo "::endgroup::"
             [ "$status" -eq 0 ] && break
@@ -142,11 +149,14 @@ jobs:
           retention-days: 30
 
   collect:
-    name: Collect all jars
+    name: Assemble single download
     needs: build
     if: always() && needs.build.result != 'skipped' && needs.build.result != 'cancelled'
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
       - name: Download all jars
         uses: actions/download-artifact@v4
         with:
@@ -157,14 +167,51 @@ jobs:
       - name: Upload combined artifact
         uses: actions/upload-artifact@v4
         with:
-          name: recapmod-all
+          name: recapmod
           path: jars/*.jar
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Assemble universal bundle
+        run: |
+          set -euo pipefail
+          VERSION="$(head -n1 version.txt)"
+          BUNDLE="recapmod-universal-${VERSION}"
+          mkdir -p "stage/${BUNDLE}/META-INF/recap"
+          for jar in jars/*.jar; do
+            base="$(basename "$jar")"
+            # recapmod-<minecraft>-<mod version>.jar -> <minecraft>
+            mc="${base#recapmod-}"
+            mc="${mc%-${VERSION}.jar}"
+            mkdir -p "stage/${BUNDLE}/META-INF/recap/${mc}"
+            cp "$jar" "stage/${BUNDLE}/META-INF/recap/${mc}/"
+          done
+          {
+            echo "Recap Mod ${VERSION} - every supported Minecraft version in one file"
+            echo
+            echo "This jar is a distribution bundle, not a mod: Minecraft cannot load it directly."
+            echo "Pick the jar for your Minecraft version from META-INF/recap/<minecraft>/ and drop it"
+            echo "into your .minecraft/mods folder (Fabric)."
+            echo
+            echo "Contained Minecraft versions:"
+            ls -1 "stage/${BUNDLE}/META-INF/recap" | sed 's/^/  - /'
+          } > "stage/${BUNDLE}/INSTALL.txt"
+          cp version.txt "stage/${BUNDLE}/VERSION.txt"
+          (cd stage && jar --create --file "../${BUNDLE}.jar" -C . "${BUNDLE}")
+          jar --list --file "${BUNDLE}.jar" | head -n 40
+          ls -lh "${BUNDLE}.jar"
+
+      - name: Upload universal bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: recapmod-universal
+          path: recapmod-universal-*.jar
           if-no-files-found: warn
           retention-days: 30
 
   release:
     name: Release
-    needs: build
+    needs: [build, collect]
     if: startsWith(github.ref, 'refs/tags/v')
     runs-on: ubuntu-latest
     permissions:
@@ -177,9 +224,17 @@ jobs:
           pattern: recapmod-*
           merge-multiple: true
 
+      - name: Download universal bundle
+        uses: actions/download-artifact@v4
+        with:
+          name: recapmod-universal
+          path: universal
+
       - name: Create GitHub release
         uses: softprops/action-gh-release@v2
         with:
-          files: jars/*.jar
+          files: |
+            jars/*.jar
+            universal/*.jar
           generate_release_notes: true
           fail_on_unmatched_files: false

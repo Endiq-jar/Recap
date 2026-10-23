@@ -344,3 +344,17 @@ replaymod.gui.advancedscreenshots.finished.description.360=You successfully crea
 replaymod.gui.advancedscreenshots.finished.description.veer=Upload and view the image in VR on VeeR.tv or open it on your disk.
 replaymod.gui.advancedscreenshots.finished.upload.veer=Upload to VeeR.tv
 replaymod.gui.advancedscreenshots.finished.showfile=Show file on disk
+
+#Recap Mod - redesigned interface
+replaymod.gui.settings.subtitle=Recording, replays and rendering - grouped by topic
+replaymod.gui.settings.hint=Click a value to change it. Changes are saved immediately.
+replaymod.gui.settings.category.core=General
+replaymod.gui.settings.category.recording=Recording
+replaymod.gui.settings.category.replay=Replay Viewer
+replaymod.gui.settings.category.render=Rendering
+replaymod.gui.settings.category.pathing=Camera Paths
+replaymod.gui.settings.category.advanced=Advanced
+replaymod.gui.restorereplay.title=Unfinished replay found
+replaymod.gui.restorereplay.subtitle=Recap Mod can try to recover the recording below
+replaymod.gui.restorereplay.hint=Recovery keeps the replay file on disk and only repairs its index.
+replaymod.gui.modwarning.subtitle=This replay was recorded with a different set of mods

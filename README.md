@@ -36,7 +36,8 @@ Every supported Minecraft version gets its own jar, built from the same code bas
 
 Notes:
 
-* 1.21.1 is a bug-fix release of 1.21 without gameplay code changes, so the `1.21` jar runs on it as well.
+* 1.21.1 is a bug-fix release of 1.21 without code changes, so the `1.21` jar runs on it as well. That jar
+  declares the Fabric range `>=1.21 <1.21.2` instead of a single version (`-Precap.mcRange=...`).
 * 26.4 is the upcoming 2026 game drop. The Gradle project, preprocessor node and dependency wiring are already
   in place (Fabric API `0.164.x+26.4`), so it starts building as soon as Minecraft 26.4 and the matching
   `jGui`/Loom toolchain are published. Because Minecraft 26.4 does not exist yet, the target is opt-in and CI
@@ -94,14 +95,68 @@ The translation files used to be a submodule as well; they are vendored under
 `src/main/resources/assets/replaymod/lang` in this repository so that the Replay Mod → Recap Mod rename is
 applied consistently to every language.
 
+## One download, every Minecraft version
+
+Minecraft mods are not portable across game versions: Replay/Recap Mod compiles against the Minecraft
+classes and mappings of each release, and Fabric applies the mixins of exactly one version. A single jar
+that Minecraft itself loads on 1.21.1 *and* on 26.4 is therefore not possible — pretending otherwise
+would just produce a jar that crashes.
+
+What Recap Mod does instead is collapse everything into **one file to download**:
+
+| Artifact | Contents | Use it when |
+|---|---|---|
+| `recapmod-universal-<version>.jar` | **every** supported Minecraft version in one file | you just want one download |
+| `recapmod` | the same sets of jars, one per Minecraft version | you know your Minecraft version |
+| `recapmod-<minecraft>-<version>.jar` | a single version, installable directly | you want a drop-in mod jar |
+
+The universal jar is a **bundle** (a jar/zip container, exactly like a `.zip` that is named `.jar`):
+
+```
+recapmod-universal-1.0.0.jar
+├── INSTALL.txt                # which jar to pick
+├── VERSION.txt
+└── META-INF/recap/
+    ├── 1.21/recapmod-1.21-1.0.0.jar
+    ├── 1.21.2/recapmod-1.21.2-1.0.0.jar
+    ├── ...
+    └── 26.3/recapmod-26.3-1.0.0.jar
+```
+
+Extract the jar matching your Minecraft version into `.minecraft/mods` (Fabric). Every contained jar is
+listed above as its own row, so the universal bundle never contains versions that are not supported.
+
+## Interface
+
+The interface is a single design system instead of per-screen vanilla widgets, implemented in
+`com.replaymod.core.gui`:
+
+* `RecapTheme` — colours, spacing and drawing primitives (gradient background, cards, header rails, HUD
+  bars, chamfered corners). One place to change the look of the whole mod.
+* `RecapScreen` — the base screen: themed background, header with title/subtitle/version badge, footer hint.
+* `RecapCard` — a titled card with settings rows that highlight on hover.
+* `RecapButton` — flat primary (accent) and secondary buttons.
+
+Applied to:
+
+| Screen / overlay | Redesign |
+|---|---|
+| Settings | grouped into cards per category (General, Recording, Replay Viewer, Rendering, Camera Paths, Advanced) in a scrollable list instead of two bare columns |
+| Recording indicator | compact HUD pill with status dot, accent rail and blinking dot instead of the old texture icon |
+| Replay controls | themed HUD bar behind play/pause, speed and timeline plus a status bar |
+| Replay recovery | themed card with header/footer copy and themed buttons |
+| Mod compatibility warning | themed screen chrome, scrollable content, themed buttons |
+
 ## Automatic builds (GitHub Actions)
 
 `.github/workflows/build.yml` builds, on every push and pull request:
 
 * one job per Minecraft version in a parallel matrix (`:1.21` … `:26.4`),
 * each job uploads `recapmod-<mcversion>-<version>.jar` as a workflow artifact,
-* a `collect` job bundles all jars into a single `recapmod-all` artifact,
-* the 26.4 target is marked experimental and never fails the pipeline.
+* a `collect` job publishes one `recapmod` artifact with all jars and builds the single-file
+  `recapmod-universal-<version>.jar` bundle,
+* the 26.4 target is marked experimental and never fails the pipeline,
+* the 1.21 jar declares the Fabric range `>=1.21 <1.21.2` so it also loads on 1.21.1.
 
 Pushing a tag like `v1.0.0` additionally creates a GitHub release and attaches every jar to it.
 You can also start a manual build from the *Actions* tab (`workflow_dispatch`) and optionally restrict it to a
@@ -127,6 +182,10 @@ docs/                    sources of the user documentation website
   `versions/` source trees are kept because the preprocessor inherits version specific sources along the
   version chain, but only 1.21+ are built.
 * GitHub Actions workflow for automatic per-version builds and tag releases (replaces the old Jenkinsfile).
+* A single `recapmod-universal-<version>.jar` bundle with every supported Minecraft version, plus a single
+  `recapmod` artifact, so a release never means hunting through eleven downloads.
+* Redesigned interface: shared theme, themed settings screen grouped by category, recording HUD pill,
+  replay control bar and rethemed recovery/compatibility screens.
 * Translations vendored into the repository instead of being a Git submodule.
 
 The internal mod id (`replaymod`), the Java package (`com.replaymod.*`) and the resource namespace
