@@ -75,8 +75,15 @@ public class GuiReplaySettings extends RecapScreen<GuiReplaySettings> {
             }
         }
 
-        RecapButton doneButton = new RecapButton().setI18nLabel("gui.done").setSize(160, 20);
-        doneButton.onClick(() -> getMinecraft().openScreen(parent));
+        final RecapButton doneButton = new RecapButton(this).setI18nLabel("gui.done").setSize(160, 20);
+        // Note: must be an anonymous class with a block body - the openScreen -> gui.setScreen
+        // pattern of the preprocessor is only applied to statements inside a block.
+        doneButton.onClick(new Runnable() {
+            @Override
+            public void run() {
+                getMinecraft().openScreen(parent);
+            }
+        });
 
         setLayout(new CustomLayout<GuiReplaySettings>() {
             @Override
