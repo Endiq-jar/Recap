@@ -6,11 +6,11 @@
   "name": "Recap Mod",
   "description": "Recap Mod - a Minecraft mod which allows you to record, replay and share your Minecraft experience. Forked from Replay Mod.",
   "authors": [
-    "TurtleOfficials"
+    "TurtleOfficials",
+    "Endiq"
   ],
   "contributors": [
-    "CrushedPixel",
-    "johni0702"
+    "Endiq"
   ],
   "contact": {
     "homepage": "https://github.com/Endiq-jar/Recap",
