@@ -127,8 +127,10 @@ jobs:
           done
           if [ "$status" -ne 0 ]; then
             echo "::error::Gradle build failed for ${{ matrix.version }} (exit code $status)"
-            { grep -m1 -A 40 "What went wrong" gradle.log || tail -n 40 gradle.log; } | sed 's/^/::error::/' | head -n 41
-            grep -E "^(e|w): |error: |Unresolved reference" gradle.log | head -n 20 | sed 's/^/::error::/' || true
+            # javac/mixin errors first (file:line + symbol), then the Gradle failure block
+            grep -E "\.java:[0-9]+: |^symbol:|^location:|cannot find symbol|Unresolved reference" gradle.log \
+              | head -n 40 | sed 's/^/::error::/' || true
+            { grep -m1 -A 35 "What went wrong" gradle.log || tail -n 35 gradle.log; } | sed 's/^/::error::/' | head -n 36 || true
           fi
           exit "$status"
 
