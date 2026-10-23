@@ -17,6 +17,8 @@ import net.minecraft.util.Formatting;
 import com.replaymod.core.ReplayMod;
 import com.replaymod.core.SettingsRegistry;
 import com.replaymod.core.gui.GuiReplaySettings;
+import com.replaymod.core.gui.RecapButton;
+import com.replaymod.core.gui.RecapTheme;
 import com.replaymod.core.utils.Utils;
 import com.replaymod.core.versions.MCVer;
 import com.replaymod.core.versions.MCVer.Keyboard;
@@ -38,6 +40,7 @@ import de.johni0702.minecraft.gui.popup.GuiYesNoPopup;
 import de.johni0702.minecraft.gui.utils.Colors;
 import de.johni0702.minecraft.gui.utils.Consumer;
 import de.johni0702.minecraft.gui.utils.lwjgl.Dimension;
+import de.johni0702.minecraft.gui.utils.lwjgl.Point;
 import de.johni0702.minecraft.gui.utils.lwjgl.ReadableDimension;
 import net.minecraft.client.gui.screen.NoticeScreen;
 import net.minecraft.util.crash.CrashReport;
@@ -86,7 +89,7 @@ public class GuiReplayViewer extends GuiScreen {
         }
     });
 
-    public final GuiButton loadButton = new GuiButton().onClick(new Runnable() {
+    public final GuiButton loadButton = new RecapButton().onClick(new Runnable() {
         private boolean loading = false;
 
         @Override
@@ -121,7 +124,7 @@ public class GuiReplayViewer extends GuiScreen {
         }
     }).setSize(150, 20);
 
-    public final GuiButton folderButton = new GuiButton().onClick(new Runnable() {
+    public final GuiButton folderButton = new RecapButton().setPrimary(false).onClick(new Runnable() {
         @Override
         public void run() {
             try {
@@ -134,14 +137,14 @@ public class GuiReplayViewer extends GuiScreen {
         }
     }).setSize(150, 20).setI18nLabel("replaymod.gui.viewer.replayfolder");
 
-    public final GuiButton renameButton = new GuiButton().onClick(new Runnable() {
+    public final GuiButton renameButton = new RecapButton().setPrimary(false).onClick(new Runnable() {
         @Override
         public void run() {
             final Path path = list.getSelected().get(0).file.toPath();
             String name = Utils.fileNameToReplayName(path.getFileName().toString());
             final GuiTextField nameField = new GuiTextField().setSize(200, 20).setFocused(true).setText(name);
             final GuiYesNoPopup popup = GuiYesNoPopup.open(GuiReplayViewer.this,
-                    new GuiLabel().setI18nText("replaymod.gui.viewer.rename.name").setColor(Colors.BLACK),
+                    new GuiLabel().setI18nText("replaymod.gui.viewer.rename.name").setColor(RecapTheme.TEXT_COLOR),
                     nameField
             ).setYesI18nLabel("replaymod.gui.rename").setNoI18nLabel("replaymod.gui.cancel");
             ((VerticalLayout) popup.getInfo().getLayout()).setSpacing(7);
@@ -183,12 +186,12 @@ public class GuiReplayViewer extends GuiScreen {
             });
         }
     }).setSize(73, 20).setI18nLabel("replaymod.gui.rename").setDisabled();
-    public final GuiButton deleteButton = new GuiButton().onClick(() -> {
+    public final GuiButton deleteButton = new RecapButton().setPrimary(false).onClick(() -> {
         for (GuiReplayEntry entry : list.getSelected()) {
             String name = entry.name.getText();
             GuiYesNoPopup.open(GuiReplayViewer.this,
-                    new GuiLabel().setI18nText("replaymod.gui.viewer.delete.linea").setColor(Colors.BLACK),
-                    new GuiLabel().setI18nText("replaymod.gui.viewer.delete.lineb", name + Formatting.RESET).setColor(Colors.BLACK)
+                    new GuiLabel().setI18nText("replaymod.gui.viewer.delete.linea").setColor(RecapTheme.TEXT_COLOR),
+                    new GuiLabel().setI18nText("replaymod.gui.viewer.delete.lineb", name + Formatting.RESET).setColor(RecapTheme.TEXT_COLOR)
             ).setYesI18nLabel("replaymod.gui.delete").setNoI18nLabel("replaymod.gui.cancel").onAccept(() -> {
                 try {
                     FileUtils.forceDelete(entry.file);
@@ -200,13 +203,17 @@ public class GuiReplayViewer extends GuiScreen {
         }
     }).setSize(73, 20).setI18nLabel("replaymod.gui.delete").setDisabled();
 
-    public final GuiButton settingsButton = new GuiButton(this)
-            .setSize(20, 20)
-            .setTexture(ReplayMod.TEXTURE, ReplayMod.TEXTURE_SIZE).setSpriteUV(20, 0)
-            .setTooltip(new GuiTooltip().setI18nText("replaymod.gui.settings"))
-            .onClick(() -> new GuiReplaySettings(toMinecraft(), getMod().getCore().getSettingsRegistry()).display());
+    public final RecapButton settingsButton = new RecapButton(this);
+    {
+        settingsButton.setPrimary(false);
+        settingsButton.setSize(84, 20);
+        settingsButton.setI18nLabel("replaymod.gui.settings");
+        settingsButton.setTooltip(new GuiTooltip().setI18nText("replaymod.gui.settings"));
+        settingsButton.onClick(() ->
+                new GuiReplaySettings(toMinecraft(), getMod().getCore().getSettingsRegistry()).display());
+    }
 
-    public final GuiButton cancelButton = new GuiButton().onClick(new Runnable() {
+    public final GuiButton cancelButton = new RecapButton().setPrimary(false).onClick(new Runnable() {
         @Override
         public void run() {
             getMinecraft().openScreen(null);
@@ -233,17 +240,18 @@ public class GuiReplayViewer extends GuiScreen {
             throw new CrashException(CrashReport.create(e, "Getting replay folder"));
         }
 
-        setTitle(new GuiLabel().setI18nText("replaymod.gui.replayviewer"));
+        // Recap Mod: the mod draws its own header, so the vanilla blur title is not used.
+        setBackground(Background.NONE);
 
         setLayout(new CustomLayout<GuiScreen>() {
             @Override
             protected void layout(GuiScreen container, int width, int height) {
-                pos(buttonPanel, width / 2 - width(buttonPanel) / 2, height - 10 - height(buttonPanel));
+                pos(buttonPanel, 18, height - 14 - height(buttonPanel));
 
-                pos(list, 0, 30);
-                size(list, width, y(buttonPanel) - 10 - y(list));
+                pos(list, 18, 58);
+                size(list, width - 36, y(buttonPanel) - 12 - y(list));
 
-                pos(settingsButton, width - width(settingsButton) - 5, 5);
+                pos(settingsButton, width - width(settingsButton) - 18, 12);
             }
         });
 
@@ -252,6 +260,20 @@ public class GuiReplayViewer extends GuiScreen {
 
     public ReplayModReplay getMod() {
         return mod;
+    }
+
+    @Override
+    public void draw(GuiRenderer renderer, ReadableDimension size, RenderInfo renderInfo) {
+        if (renderInfo.getLayer() == 0) {
+            RecapTheme.screen(renderer, size.getWidth(), size.getHeight());
+            RecapTheme.header(renderer, size.getWidth(),
+                    net.minecraft.client.resource.language.I18n.translate("replaymod.gui.replayviewer"),
+                    net.minecraft.client.resource.language.I18n.translate("replaymod.gui.viewer.subtitle"),
+                    null);
+            RecapTheme.footer(renderer, size.getWidth(), size.getHeight(),
+                    net.minecraft.client.resource.language.I18n.translate("replaymod.gui.viewer.footer"));
+        }
+        super.draw(renderer, size, renderInfo);
     }
 
     private void updateButtons() {
@@ -467,17 +489,16 @@ public class GuiReplayViewer extends GuiScreen {
                 TextRenderer fontRenderer = getFontRenderer();
                 int filterTextWidth = fontRenderer.getWidth(filter);
                 int filterTextHeight = fontRenderer.fontHeight;
-                renderer.drawRect(
-                        size.getWidth() - 3 - 2 - filterTextWidth - 2,
-                        size.getHeight() - 3 - 2 - filterTextHeight - 2,
-                        2 + filterTextWidth + 2,
-                        2 + filterTextHeight + 2,
-                        Colors.WHITE
-                );
+                RecapTheme.roundedRect(renderer,
+                        size.getWidth() - 3 - 2 - filterTextWidth - 4,
+                        size.getHeight() - 3 - 2 - filterTextHeight - 4,
+                        2 + filterTextWidth + 6,
+                        2 + filterTextHeight + 6,
+                        anyMatches ? RecapTheme.CARD : 0xFF3A1620);
                 renderer.drawString(
                         size.getWidth() - 3 - 2 - filterTextWidth,
                         size.getHeight() - 3 - 2 - filterTextHeight,
-                        anyMatches ? Colors.BLACK : Colors.DARK_RED,
+                        anyMatches ? RecapTheme.TEXT : RecapTheme.RECORDING,
                         filter
                 );
             }
@@ -492,14 +513,14 @@ public class GuiReplayViewer extends GuiScreen {
     public static class GuiReplayEntry extends AbstractGuiContainer<GuiReplayEntry> implements Comparable<GuiReplayEntry> {
         public final File file;
         public final GuiLabel name = new GuiLabel();
-        public final GuiLabel server = new GuiLabel().setColor(Colors.LIGHT_GRAY);
-        public final GuiLabel date = new GuiLabel().setColor(Colors.LIGHT_GRAY);
+        public final GuiLabel server = new GuiLabel().setColor(RecapTheme.TEXT_DIM_COLOR);
+        public final GuiLabel date = new GuiLabel().setColor(RecapTheme.TEXT_DIM_COLOR);
         public final GuiPanel infoPanel = new GuiPanel(this).setLayout(new VerticalLayout().setSpacing(2))
                 .addElements(null, name, server, date);
-        public final GuiLabel version = new GuiLabel(this).setColor(Colors.RED);
+        public final GuiLabel version = new GuiLabel(this).setColor(RecapTheme.RECORDING_COLOR);
         public final GuiImage thumbnail;
         public final GuiLabel duration = new GuiLabel();
-        public final GuiPanel durationPanel = new GuiPanel().setBackgroundColor(Colors.HALF_TRANSPARENT)
+        public final GuiPanel durationPanel = new GuiPanel().setBackgroundColor(RecapTheme.HUD_COLOR)
                 .addElements(null, duration).setLayout(new CustomLayout<GuiPanel>() {
                     @Override
                     protected void layout(GuiPanel container, int width, int height) {
@@ -574,6 +595,27 @@ public class GuiReplayViewer extends GuiScreen {
                     return new Dimension(300, thumbnail.getMinSize().getHeight());
                 }
             });
+        }
+
+        @Override
+        public void draw(GuiRenderer renderer, ReadableDimension size, RenderInfo renderInfo) {
+            if (renderInfo.getLayer() == 0) {
+                int w = size.getWidth();
+                int h = size.getHeight();
+
+                Point mouse = new Point(renderInfo.getMouseX(), renderInfo.getMouseY());
+                if (getContainer() != null) {
+                    getContainer().convertFor(this, mouse);
+                }
+                boolean hovered = mouse.getX() >= 0 && mouse.getY() >= 0
+                        && mouse.getX() < w && mouse.getY() < h;
+
+                // Recap Mod: every replay is a card with an accent rail on hover.
+                RecapTheme.roundedRect(renderer, 0, 0, w, h, hovered ? RecapTheme.ROW_HOVER : RecapTheme.ROW);
+                renderer.drawRect(0, 0, 2, h, hovered ? RecapTheme.ACCENT : RecapTheme.BORDER);
+                renderer.drawRect(2, h - 1, w - 2, 1, RecapTheme.withAlpha(RecapTheme.BORDER, 0.6f));
+            }
+            super.draw(renderer, size, renderInfo);
         }
 
         @Override

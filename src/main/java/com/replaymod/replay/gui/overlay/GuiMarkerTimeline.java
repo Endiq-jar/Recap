@@ -1,6 +1,6 @@
 package com.replaymod.replay.gui.overlay;
 
-import com.replaymod.core.ReplayMod;
+import com.replaymod.core.gui.RecapTheme;
 import com.replaymod.core.versions.MCVer.Keyboard;
 import com.replaymod.replay.ReplayHandler;
 import com.replaymod.replay.ReplayModReplay;
@@ -30,10 +30,6 @@ import java.util.function.Consumer;
 import static de.johni0702.minecraft.gui.utils.Utils.clamp;
 
 public class GuiMarkerTimeline extends AbstractGuiTimeline<GuiMarkerTimeline> implements Draggable, KeyHandler {
-    protected static final int TEXTURE_MARKER_X = 109;
-    protected static final int TEXTURE_MARKER_Y = 20;
-    protected static final int TEXTURE_MARKER_SELECTED_X = 114;
-    protected static final int TEXTURE_MARKER_SELECTED_Y = 20;
     protected static final int MARKER_SIZE = 5;
 
     @Nullable
@@ -86,8 +82,6 @@ public class GuiMarkerTimeline extends AbstractGuiTimeline<GuiMarkerTimeline> im
     }
 
     protected void drawMarkers(GuiRenderer renderer, ReadableDimension size) {
-        renderer.bindTexture(ReplayMod.TEXTURE);
-
         for (Marker marker : markers) {
             drawMarker(renderer, size, marker);
         }
@@ -103,16 +97,15 @@ public class GuiMarkerTimeline extends AbstractGuiTimeline<GuiMarkerTimeline> im
     }
 
     protected void drawMarker(GuiRenderer renderer, ReadableDimension size, Marker marker, int markerX) {
-        int textureX, textureY;
-        if (marker.equals(selectedMarker)) {
-            textureX = TEXTURE_MARKER_SELECTED_X;
-            textureY = TEXTURE_MARKER_SELECTED_Y;
-        } else {
-            textureX = TEXTURE_MARKER_X;
-            textureY = TEXTURE_MARKER_Y;
-        }
-        renderer.drawTexturedRect(markerX - 2, size.getHeight() - BORDER_BOTTOM - MARKER_SIZE,
-                textureX, textureY, MARKER_SIZE, MARKER_SIZE);
+        // Recap Mod: markers are drawn as accent pins instead of the original ReplayMod sprite, so they
+        // match the settings/HUD chrome and stay readable on top of the timeline track.
+        boolean selected = marker.equals(selectedMarker);
+        int headX = markerX - MARKER_SIZE / 2;
+        int headY = size.getHeight() - BORDER_BOTTOM - MARKER_SIZE;
+        int stemColor = selected ? RecapTheme.ACCENT_HOVER : RecapTheme.ACCENT;
+        renderer.drawRect(markerX, headY + MARKER_SIZE - 1, 1, Math.max(1, BORDER_BOTTOM - 1),
+                RecapTheme.withAlpha(stemColor, 0.55f));
+        RecapTheme.timelineMarker(renderer, headX, headY, MARKER_SIZE, RecapTheme.ACCENT, selected);
     }
 
 

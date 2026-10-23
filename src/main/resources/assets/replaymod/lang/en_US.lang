@@ -358,3 +358,5 @@ replaymod.gui.restorereplay.title=Unfinished replay found
 replaymod.gui.restorereplay.subtitle=Recap Mod can try to recover the recording below
 replaymod.gui.restorereplay.hint=Recovery keeps the replay file on disk and only repairs its index.
 replaymod.gui.modwarning.subtitle=This replay was recorded with a different set of mods
+replaymod.gui.viewer.subtitle=All recordings in your replay folder - double click to play
+replaymod.gui.viewer.footer=Ctrl+F filter | Del remove | Enter play

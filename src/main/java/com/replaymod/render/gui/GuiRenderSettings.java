@@ -1,5 +1,7 @@
 package com.replaymod.render.gui;
 
+import com.replaymod.core.gui.RecapButton;
+import com.replaymod.core.gui.RecapTheme;
 import com.google.common.base.Preconditions;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
@@ -55,7 +57,7 @@ import net.minecraft.text.TranslatableText;
 
 public class GuiRenderSettings extends AbstractGuiPopup<GuiRenderSettings> {
     { disablePopupBackground(); }
-    public final GuiPanel contentPanel = new GuiPanel(popup).setBackgroundColor(new Color(0, 0, 0, 230));
+    public final GuiPanel contentPanel = new GuiPanel(popup).setBackgroundColor(RecapTheme.CARD_COLOR);
     public final GuiVerticalList settingsList = new GuiVerticalList(contentPanel).setDrawSlider(true);
 
     public final GuiDropdownMenu<RenderSettings.RenderMethod> renderMethodDropdown =
@@ -230,10 +232,10 @@ public class GuiRenderSettings extends AbstractGuiPopup<GuiRenderSettings> {
 
 
     public final GuiPanel buttonPanel = new GuiPanel(contentPanel).setLayout(new HorizontalLayout().setSpacing(4));
-    public final GuiButton queueButton = new GuiButton(buttonPanel)
+    public final GuiButton queueButton = new RecapButton(buttonPanel).setPrimary(false)
             .setSize(100, 20)
             .setI18nLabel("replaymod.gui.rendersettings.addtoqueue");
-    public final GuiButton renderButton = new GuiButton(buttonPanel).onClick(click -> ReplayMod.instance.runLaterWithoutLock(new Runnable() {
+    public final GuiButton renderButton = new RecapButton(buttonPanel).onClick(click -> ReplayMod.instance.runLaterWithoutLock(new Runnable() {
         @Override
         public void run() {
             // Closing this GUI ensures that settings are saved
@@ -257,7 +259,7 @@ public class GuiRenderSettings extends AbstractGuiPopup<GuiRenderSettings> {
             }
         }
     })).setSize(100, 20).setI18nLabel("replaymod.gui.render");
-    public final GuiButton cancelButton = new GuiButton(buttonPanel)
+    public final GuiButton cancelButton = new RecapButton(buttonPanel).setPrimary(false)
             .onClick(this::close)
             .setSize(100, 20)
             .setI18nLabel("replaymod.gui.cancel");
@@ -282,9 +284,12 @@ public class GuiRenderSettings extends AbstractGuiPopup<GuiRenderSettings> {
 
         settingsList.getListPanel().setLayout(new VerticalLayout().setSpacing(10))
                 .addElements(new VerticalLayout.Data(0.5),
-                        new GuiLabel().setI18nText("replaymod.gui.rendersettings.video"), mainPanel, new GuiPanel(),
-                        new GuiLabel().setI18nText("replaymod.gui.rendersettings.advanced"), advancedPanel, new GuiPanel(),
-                        new GuiLabel().setI18nText("replaymod.gui.rendersettings.commandline"), commandlinePanel);
+                        new GuiLabel().setI18nText("replaymod.gui.rendersettings.video")
+                                .setColor(RecapTheme.ACCENT_COLOR), mainPanel, new GuiPanel(),
+                        new GuiLabel().setI18nText("replaymod.gui.rendersettings.advanced")
+                                .setColor(RecapTheme.ACCENT_COLOR), advancedPanel, new GuiPanel(),
+                        new GuiLabel().setI18nText("replaymod.gui.rendersettings.commandline")
+                                .setColor(RecapTheme.ACCENT_COLOR), commandlinePanel);
 
         videoWidth.onTextChanged(new Consumer<String>() {
             @Override

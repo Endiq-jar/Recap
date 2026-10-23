@@ -116,7 +116,7 @@ public class RestoreReplayGui extends RecapScreen<RestoreReplayGui> {
     }
 
     private void recoverInBackground() {
-        GuiLabel label = new GuiLabel().setI18nText("replaymod.gui.replaysaving.title").setColor(Colors.BLACK);
+        GuiLabel label = new GuiLabel().setI18nText("replaymod.gui.replaysaving.title").setColor(RecapTheme.TEXT_COLOR);
         GuiProgressBar progressBar = new GuiProgressBar().setHeight(14);
         GuiPanel savingProcess = new GuiPanel()
                 .setLayout(new VerticalLayout())

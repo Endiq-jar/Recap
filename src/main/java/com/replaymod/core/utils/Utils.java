@@ -1,5 +1,6 @@
 package com.replaymod.core.utils;
 
+import com.replaymod.core.gui.RecapTheme;
 import com.google.common.base.Throwables;
 import com.google.common.net.PercentEscaper;
 import com.google.common.util.concurrent.FutureCallback;
@@ -301,15 +302,15 @@ public class Utils {
 
         public GuiCrashReportPopup(GuiContainer container, String crashReport) {
             super(container);
-            setBackgroundColor(Colors.DARK_TRANSPARENT);
+            setBackgroundColor(RecapTheme.CARD_COLOR);
 
             // Add crash report to scrollable info
             getInfo().addElements(new VerticalLayout.Data(0.5),
-                    new GuiLabel().setColor(Colors.BLACK).setI18nText("replaymod.gui.unknownerror"),
+                    new GuiLabel().setColor(RecapTheme.TEXT_COLOR).setI18nText("replaymod.gui.unknownerror"),
                     scrollable = new GuiScrollable().setScrollDirection(AbstractGuiScrollable.Direction.VERTICAL)
                             .setLayout(new VerticalLayout().setSpacing(2))
                             .addElements(null,Arrays.stream(crashReport.replace("\t", "    ").split("\n")).map(
-                                    l -> new GuiLabel().setText(l).setColor(Colors.BLACK)).toArray(GuiElement[]::new)));
+                                    l -> new GuiLabel().setText(l).setColor(RecapTheme.TEXT_COLOR)).toArray(GuiElement[]::new)));
 
             // Replace close button with panel containing close and copy buttons
             GuiButton copyToClipboardButton = new GuiButton().setI18nLabel("chat.copy").onClick(() ->
@@ -375,7 +376,7 @@ public class Utils {
     private static class MinimalModeUnsupportedPopup extends GuiInfoPopup {
         private MinimalModeUnsupportedPopup(GuiContainer container) {
             super(container);
-            setBackgroundColor(Colors.DARK_TRANSPARENT);
+            setBackgroundColor(RecapTheme.CARD_COLOR);
 
             ProtocolVersion latestVersion = ProtocolVersion.getProtocols()
                     .stream()
@@ -383,10 +384,10 @@ public class Utils {
                     .orElseThrow(RuntimeException::new);
             getInfo().addElements(new VerticalLayout.Data(0.5),
                     new GuiLabel()
-                            .setColor(Colors.BLACK)
+                            .setColor(RecapTheme.TEXT_COLOR)
                             .setI18nText("replaymod.gui.minimalmode.unsupported"),
                     new GuiLabel()
-                            .setColor(Colors.BLACK)
+                            .setColor(RecapTheme.TEXT_COLOR)
                             .setI18nText("replaymod.gui.minimalmode.supportedversion",
                                     "1.7.10 - " + latestVersion.getName()));
 

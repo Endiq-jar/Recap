@@ -1,5 +1,6 @@
 package com.replaymod.pathing.gui;
 
+import com.replaymod.core.gui.RecapTheme;
 import com.google.common.util.concurrent.SettableFuture;
 import com.replaymod.core.ReplayMod;
 import com.replaymod.core.utils.Utils;
@@ -58,14 +59,14 @@ import static de.johni0702.minecraft.gui.versions.MCVer.setClipboardString;
 public class GuiKeyframeRepository extends GuiScreen implements Closeable, KeyHandler {
     private static final Logger LOGGER = LogManager.getLogger();
 
-    public final GuiPanel contentPanel = new GuiPanel(this).setBackgroundColor(Colors.DARK_TRANSPARENT);
+    public final GuiPanel contentPanel = new GuiPanel(this).setBackgroundColor(RecapTheme.CARD_COLOR);
     public final GuiLabel title = new GuiLabel(contentPanel).setI18nText("replaymod.gui.keyframerepository.title");
     public final GuiVerticalList list = new GuiVerticalList(contentPanel).setDrawShadow(true).setDrawSlider(true);
     public final GuiButton overwriteButton = new GuiButton().onClick(new Runnable() {
         @Override
         public void run() {
             GuiYesNoPopup.open(GuiKeyframeRepository.this,
-                    new GuiLabel().setI18nText("replaymod.gui.keyframerepo.overwrite").setColor(Colors.BLACK)
+                    new GuiLabel().setI18nText("replaymod.gui.keyframerepo.overwrite").setColor(RecapTheme.TEXT_COLOR)
             ).setYesI18nLabel("gui.yes").setNoI18nLabel("gui.no").onAccept(() -> {
                 for (Entry entry : selectedEntries) {
                     timelines.put(entry.name, currentTimeline);
@@ -80,7 +81,7 @@ public class GuiKeyframeRepository extends GuiScreen implements Closeable, KeyHa
         public void run() {
             final GuiTextField nameField = new GuiTextField().setSize(200, 20).setFocused(true);
             final GuiYesNoPopup popup = GuiYesNoPopup.open(GuiKeyframeRepository.this,
-                    new GuiLabel().setI18nText("replaymod.gui.saveas").setColor(Colors.BLACK),
+                    new GuiLabel().setI18nText("replaymod.gui.saveas").setColor(RecapTheme.TEXT_COLOR),
                     nameField
             ).setYesI18nLabel("replaymod.gui.save").setNoI18nLabel("replaymod.gui.cancel");
             popup.getYesButton().setDisabled();
@@ -128,7 +129,7 @@ public class GuiKeyframeRepository extends GuiScreen implements Closeable, KeyHa
             Entry selectedEntry = selectedEntries.iterator().next();
             final GuiTextField nameField = new GuiTextField().setSize(200, 20).setFocused(true).setText(selectedEntry.name);
             final GuiYesNoPopup popup = GuiYesNoPopup.open(GuiKeyframeRepository.this,
-                    new GuiLabel().setI18nText("replaymod.gui.rename").setColor(Colors.BLACK),
+                    new GuiLabel().setI18nText("replaymod.gui.rename").setColor(RecapTheme.TEXT_COLOR),
                     nameField
             ).setYesI18nLabel("replaymod.gui.done").setNoI18nLabel("replaymod.gui.cancel");
             popup.getYesButton().setDisabled();
@@ -160,7 +161,7 @@ public class GuiKeyframeRepository extends GuiScreen implements Closeable, KeyHa
         @Override
         public void run() {
             GuiYesNoPopup.open(GuiKeyframeRepository.this,
-                    new GuiLabel().setI18nText("replaymod.gui.keyframerepo.delete").setColor(Colors.BLACK)
+                    new GuiLabel().setI18nText("replaymod.gui.keyframerepo.delete").setColor(RecapTheme.TEXT_COLOR)
             ).setYesI18nLabel("replaymod.gui.delete").setNoI18nLabel("replaymod.gui.cancel").onAccept(() -> {
                 for (Entry entry : selectedEntries) {
                     timelines.remove(entry.name);
@@ -410,8 +411,8 @@ public class GuiKeyframeRepository extends GuiScreen implements Closeable, KeyHa
         @Override
         public void draw(GuiRenderer renderer, ReadableDimension size, RenderInfo renderInfo) {
             if (selectedEntries.contains(this)) {
-                renderer.drawRect(0, 0, size.getWidth(), size.getHeight(), Colors.BLACK);
-                renderer.drawRect(0, 0, 2, size.getHeight(), Colors.WHITE);
+                renderer.drawRect(0, 0, size.getWidth(), size.getHeight(), RecapTheme.ROW);
+                renderer.drawRect(0, 0, 2, size.getHeight(), RecapTheme.ACCENT);
             }
             super.draw(renderer, size, renderInfo);
         }

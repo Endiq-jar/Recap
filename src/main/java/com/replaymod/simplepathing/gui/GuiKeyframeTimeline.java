@@ -1,6 +1,7 @@
 package com.replaymod.simplepathing.gui;
 
 import com.replaymod.core.ReplayMod;
+import com.replaymod.core.gui.RecapTheme;
 import com.replaymod.core.versions.MCVer;
 import com.replaymod.pathing.properties.CameraProperties;
 import com.replaymod.pathing.properties.SpectatorProperty;
@@ -80,8 +81,6 @@ import net.minecraft.client.render.Tessellator;
 
 public class GuiKeyframeTimeline extends AbstractGuiTimeline<GuiKeyframeTimeline> implements Draggable {
     protected static final int KEYFRAME_SIZE = 5;
-    protected static final int KEYFRAME_TEXTURE_X = 74;
-    protected static final int KEYFRAME_TEXTURE_Y = 20;
     private static final int DOUBLE_CLICK_INTERVAL = 250;
     private static final int DRAGGING_THRESHOLD = KEYFRAME_SIZE;
 
@@ -154,18 +153,22 @@ public class GuiKeyframeTimeline extends AbstractGuiTimeline<GuiKeyframeTimeline
             if (keyframe.getTime() >= startTime && keyframe.getTime() <= endTime) {
                 double relativeTime = keyframe.getTime() - startTime;
                 int positonX = BORDER_LEFT + (int) (relativeTime / visibleTime * visibleWidth) - KEYFRAME_SIZE / 2;
-                int u = KEYFRAME_TEXTURE_X + (mod.isSelected(keyframe) ? KEYFRAME_SIZE : 0);
-                int v = KEYFRAME_TEXTURE_Y;
+                boolean selected = mod.isSelected(keyframe);
                 if (keyframe.getValue(CameraProperties.POSITION).isPresent()) {
-                    if (keyframe.getValue(SpectatorProperty.PROPERTY).isPresent()) {
-                        v += 2 * KEYFRAME_SIZE;
-                    }
-                    renderer.drawTexturedRect(positonX, BORDER_TOP, u, v, KEYFRAME_SIZE, KEYFRAME_SIZE);
+                    // Recap Mod: drawn markers instead of the original sprites; spectator keyframes use
+                    // their own colour so they can be told apart at a glance.
+                    boolean spectator = keyframe.getValue(SpectatorProperty.PROPERTY).isPresent();
+                    RecapTheme.timelineMarker(renderer, positonX, BORDER_TOP, KEYFRAME_SIZE,
+                            spectator ? RecapTheme.SPECTATOR : RecapTheme.ACCENT, selected);
                 }
                 Optional<Integer> timeProperty = keyframe.getValue(TimestampProperty.PROPERTY);
                 if (timeProperty.isPresent()) {
-                    v += KEYFRAME_SIZE;
-                    renderer.drawTexturedRect(positonX, BORDER_TOP + KEYFRAME_SIZE, u, v, KEYFRAME_SIZE, KEYFRAME_SIZE);
+                    // The second row marks keyframes which are bound to a specific replay timestamp.
+                    renderer.drawRect(positonX, BORDER_TOP + KEYFRAME_SIZE, KEYFRAME_SIZE, KEYFRAME_SIZE,
+                            selected ? RecapTheme.TEXT : RecapTheme.SEGMENT_TIME);
+                    renderer.drawRect(positonX + 1, BORDER_TOP + KEYFRAME_SIZE + 1,
+                            Math.max(1, KEYFRAME_SIZE - 2), Math.max(1, KEYFRAME_SIZE - 2),
+                            selected ? RecapTheme.ACCENT_HOVER : RecapTheme.withAlpha(RecapTheme.SEGMENT_TIME, 0.6f));
 
                     GuiMarkerTimeline replayTimeline = gui.overlay.timeline;
                     GuiKeyframeTimeline keyframeTimeline = this;
@@ -299,7 +302,7 @@ public class GuiKeyframeTimeline extends AbstractGuiTimeline<GuiKeyframeTimeline
                     || !segment.getInterpolator().getKeyframeProperties().contains(SpectatorProperty.PROPERTY)) {
                 continue; // Not a spectator segment
             }
-            drawQuadOnSegment(renderer, visibleWidth, segment, BORDER_TOP + 1, 0xFF0088FF);
+            drawQuadOnSegment(renderer, visibleWidth, segment, BORDER_TOP + 1, RecapTheme.SEGMENT_POSITION);
         }
 
         // Draw red quads on time path segments that would require time going backwards
@@ -309,7 +312,7 @@ public class GuiKeyframeTimeline extends AbstractGuiTimeline<GuiKeyframeTimeline
             if (endTimestamp >= startTimestamp) {
                 continue; // All is fine, time is not moving backwards
             }
-            drawQuadOnSegment(renderer, visibleWidth, segment, BORDER_TOP + KEYFRAME_SIZE + 1, 0xFFFF0000);
+            drawQuadOnSegment(renderer, visibleWidth, segment, BORDER_TOP + KEYFRAME_SIZE + 1, RecapTheme.SEGMENT_TIME);
         }
 
         super.drawTimelineCursor(renderer, size);

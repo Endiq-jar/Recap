@@ -88,40 +88,18 @@ public class GuiBackgroundProcesses extends EventRegistrations {
 
         @Override
         public void draw(GuiRenderer renderer, ReadableDimension size, RenderInfo renderInfo) {
-            final int u0 = 0;
-            final int v0 = 39;
-            renderer.bindTexture(TEXTURE);
-
             int w = size.getWidth();
             int h = size.getHeight();
 
-            // Corners
-            renderer.drawTexturedRect(0, 0, u0, v0, 5, 5); // Top left
-            renderer.drawTexturedRect(w - 5, 0, u0 + 12, v0, 5, 5); // Top right
-            renderer.drawTexturedRect(0, h - 5, u0, v0 + 12, 5, 5); // Bottom left
-            renderer.drawTexturedRect(w - 5, h - 5, u0 + 12, v0 + 12, 5, 5); // Bottom right
-
-            // Top and bottom edge
-            for (int x = 5; x < w - 5; x += 5) {
-                int rx = Math.min(5, w - 5 - x);
-                renderer.drawTexturedRect(x, 0, u0 + 6, v0, rx, 5); // Top
-                renderer.drawTexturedRect(x, h - 5, u0 + 6, v0 + 12, rx, 5); // Bottom
-            }
-
-            // Left and right edge
-            for (int y = 5; y < h - 5; y += 5) {
-                int ry = Math.min(5, h - 5 - y);
-                renderer.drawTexturedRect(0, y, u0, v0 + 6, 5, ry); // Left
-                renderer.drawTexturedRect(w - 5, y, u0 + 12, v0 + 6, 5, ry); // Right
-            }
-
-            // Center
-            for (int x = 5; x < w - 5; x += 5) {
-                for (int y = 5; y < h - 5; y += 5) {
-                    int rx = Math.min(5, w - 5 - x);
-                    int ry = Math.min(5, h - 5 - y);
-                    renderer.drawTexturedRect(x, y, u0 + 6, v0 + 6, rx, ry);
-                }
+            // Recap Mod: flat card instead of the original nine-slice tooltip texture.
+            if (w > 6 && h > 6) {
+                RecapTheme.roundedRect(renderer, 2, 3, w - 2, h - 2, 0x44000000);
+                RecapTheme.roundedRect(renderer, 0, 0, w, h, RecapTheme.CARD);
+                renderer.drawRect(2, 0, w - 4, 1, RecapTheme.BORDER);
+                renderer.drawRect(2, h - 1, w - 4, 1, RecapTheme.BORDER);
+                renderer.drawRect(0, 2, 1, h - 4, RecapTheme.BORDER);
+                renderer.drawRect(w - 1, 2, 1, h - 4, RecapTheme.BORDER);
+                renderer.drawRect(1, 2, 2, Math.min(12, h - 4), RecapTheme.ACCENT);
             }
 
             super.draw(renderer, size, renderInfo);

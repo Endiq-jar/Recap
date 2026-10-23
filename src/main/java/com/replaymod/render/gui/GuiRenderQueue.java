@@ -1,5 +1,6 @@
 package com.replaymod.render.gui;
 
+import com.replaymod.core.gui.RecapTheme;
 import com.google.common.collect.Iterables;
 import com.replaymod.core.ReplayMod;
 import com.replaymod.core.utils.Result;
@@ -61,7 +62,7 @@ import net.minecraft.text.TranslatableText;
 //#endif
 
 public class GuiRenderQueue extends AbstractGuiPopup<GuiRenderQueue> implements KeyHandler {
-    private final GuiLabel title = new GuiLabel().setI18nText("replaymod.gui.renderqueue.title").setColor(Colors.BLACK);
+    private final GuiLabel title = new GuiLabel().setI18nText("replaymod.gui.renderqueue.title").setColor(RecapTheme.TEXT_COLOR);
     private final GuiVerticalList list = new GuiVerticalList().setDrawShadow(true).setDrawSlider(true);
     private final GuiButton addButton = new GuiButton().setI18nLabel("replaymod.gui.renderqueue.add").setSize(150, 20);
     private final GuiButton editButton = new GuiButton().setI18nLabel("replaymod.gui.edit").setSize(73, 20);
@@ -122,7 +123,7 @@ public class GuiRenderQueue extends AbstractGuiPopup<GuiRenderQueue> implements 
         this.timelineSupplier = timelineSupplier;
         LOGGER.trace("Opening render queue popup");
 
-        setBackgroundColor(Colors.DARK_TRANSPARENT);
+        setBackgroundColor(RecapTheme.CARD_COLOR);
 
         for (RenderJob renderJob : jobs) {
             LOGGER.trace("Adding {} to job queue list", renderJob);
@@ -397,8 +398,8 @@ public class GuiRenderQueue extends AbstractGuiPopup<GuiRenderQueue> implements 
         @Override
         public void draw(GuiRenderer renderer, ReadableDimension size, RenderInfo renderInfo) {
             if (selectedEntries.contains(this)) {
-                renderer.drawRect(0, 0, size.getWidth(), size.getHeight(), Colors.BLACK);
-                renderer.drawRect(0, 0, 2, size.getHeight(), Colors.WHITE);
+                renderer.drawRect(0, 0, size.getWidth(), size.getHeight(), RecapTheme.ROW);
+                renderer.drawRect(0, 0, 2, size.getHeight(), RecapTheme.ACCENT);
             }
             super.draw(renderer, size, renderInfo);
         }

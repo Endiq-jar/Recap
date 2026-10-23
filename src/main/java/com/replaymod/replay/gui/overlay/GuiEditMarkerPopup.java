@@ -1,5 +1,6 @@
 package com.replaymod.replay.gui.overlay;
 
+import com.replaymod.core.gui.RecapTheme;
 import com.google.common.base.Strings;
 import de.johni0702.minecraft.gui.container.GuiContainer;
 import de.johni0702.minecraft.gui.container.GuiPanel;
@@ -89,11 +90,11 @@ public class GuiEditMarkerPopup extends AbstractGuiPopup<GuiEditMarkerPopup> imp
         super(container);
         this.onSave = onSave;
 
-        setBackgroundColor(Colors.DARK_TRANSPARENT);
+        setBackgroundColor(RecapTheme.CARD_COLOR);
 
         popup.setLayout(new VerticalLayout().setSpacing(5))
                 .addElements(new VerticalLayout.Data(0.5), title, inputs, buttons);
-        popup.invokeAll(IGuiLabel.class, e -> e.setColor(Colors.BLACK));
+        popup.invokeAll(IGuiLabel.class, e -> e.setColor(RecapTheme.TEXT_COLOR));
 
         nameField.setText(Strings.nullToEmpty(marker.getName()));
         timeField.setValue(marker.getTime());

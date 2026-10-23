@@ -1,5 +1,6 @@
 package com.replaymod.simplepathing.gui;
 
+import com.replaymod.core.gui.RecapTheme;
 import com.google.common.base.Preconditions;
 import com.google.common.util.concurrent.FutureCallback;
 import com.google.common.util.concurrent.Futures;
@@ -200,7 +201,9 @@ public class GuiPathing {
             .setLayout(new VerticalLayout(VerticalLayout.Alignment.CENTER).setSpacing(2))
             .addElements(null, zoomInButton, zoomOutButton);
 
-    public final GuiPanel timelinePanel = new GuiPanel().setSize(Integer.MAX_VALUE, 40)
+    public final GuiPanel timelinePanel = new GuiPanel()
+            .setBackgroundColor(RecapTheme.HUD_COLOR)
+            .setSize(Integer.MAX_VALUE, 40)
             .setLayout(new CustomLayout<GuiPanel>() {
                 @Override
                 protected void layout(GuiPanel container, int width, int height) {
@@ -423,7 +426,7 @@ public class GuiPathing {
 
     public void clearKeyframesButtonPressed() {
         GuiYesNoPopup.open(replayHandler.getOverlay(),
-                new GuiLabel().setI18nText("replaymod.gui.clearcallback.title").setColor(Colors.BLACK)
+                new GuiLabel().setI18nText("replaymod.gui.clearcallback.title").setColor(RecapTheme.TEXT_COLOR)
         ).setYesI18nLabel("gui.yes").setNoI18nLabel("gui.no").onAccept(() -> {
             mod.clearCurrentTimeline();
             if (entityTracker != null) {

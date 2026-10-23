@@ -51,6 +51,17 @@ public final class RecapTheme {
     public static final int PAUSED = 0xFFF5A623;
     public static final int SUCCESS = 0xFF5BD98A;
 
+    /* -------------------------------------------------------------- timelines */
+
+    /** Colour of a spectator ("camera in another entity") keyframe. */
+    public static final int SPECTATOR = 0xFF7C8CFF;
+
+    /** Colour of the interpolation segment between two position keyframes. */
+    public static final int SEGMENT_POSITION = 0xFF3F76B5;
+
+    /** Colour of the interpolation segment between two timestamped keyframes. */
+    public static final int SEGMENT_TIME = 0xFF9E5568;
+
     /* ------------------------------------------------------------ ReadableColor view */
 
     public static final ReadableColor CARD_COLOR = new Color(21, 27, 38);
@@ -60,6 +71,10 @@ public final class RecapTheme {
     public static final ReadableColor TEXT_COLOR = new Color(237, 241, 247);
     public static final ReadableColor TEXT_DIM_COLOR = new Color(139, 148, 166);
     public static final ReadableColor ACCENT_COLOR = new Color(245, 166, 35);
+    public static final ReadableColor ACCENT_HOVER_COLOR = new Color(255, 196, 107);
+    public static final ReadableColor RECORDING_COLOR = new Color(255, 77, 94);
+    public static final ReadableColor SUCCESS_COLOR = new Color(91, 217, 138);
+    public static final ReadableColor HUD_COLOR = new Color(11, 14, 20);
 
     /* ------------------------------------------------------------------- drawing */
 
@@ -148,6 +163,21 @@ public final class RecapTheme {
         renderer.drawRect(x, y + 2, width, height - 4, color);
         renderer.drawRect(x + 1, y + height - 2, width - 2, 1, color);
         renderer.drawRect(x + 2, y + height - 1, width - 4, 1, color);
+    }
+
+    /**
+     * Draws a timeline marker (keyframe or replay marker) as a filled square with a contrasting one
+     * pixel border. Selected markers get a bright border so the current selection is visible even
+     * when the marker sits on top of a segment line.
+     */
+    public static void timelineMarker(GuiRenderer renderer, int x, int y, int size, int fill, boolean selected) {
+        int border = selected ? TEXT : shade(fill, -0.55f);
+        if (size >= 4) {
+            renderer.drawRect(x, y, size, size, border);
+            renderer.drawRect(x + 1, y + 1, size - 2, size - 2, selected ? ACCENT_HOVER : fill);
+        } else {
+            renderer.drawRect(x, y, size, size, selected ? ACCENT_HOVER : fill);
+        }
     }
 
     /** Returns the given ARGB color with its alpha channel scaled by {@code alpha} (0..1). */

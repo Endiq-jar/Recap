@@ -1,5 +1,6 @@
 package com.replaymod.extras.playeroverview;
 
+import com.replaymod.core.gui.RecapTheme;
 import com.replaymod.replay.ReplayModReplay;
 import de.johni0702.minecraft.gui.GuiRenderer;
 import de.johni0702.minecraft.gui.RenderInfo;
@@ -41,7 +42,7 @@ import java.util.List;
 public class PlayerOverviewGui extends GuiScreen implements Closeable {
     protected static final int ENTRY_WIDTH = 200;
 
-    public final GuiPanel contentPanel = new GuiPanel(this).setBackgroundColor(Colors.DARK_TRANSPARENT);
+    public final GuiPanel contentPanel = new GuiPanel(this).setBackgroundColor(RecapTheme.CARD_COLOR);
     public final GuiLabel spectateLabel = new GuiLabel(contentPanel)
             .setI18nText("replaymod.gui.playeroverview.spectate");
     public final GuiLabel visibleLabel = new GuiLabel(contentPanel)

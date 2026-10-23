@@ -1,5 +1,6 @@
 package com.replaymod.simplepathing.gui;
 
+import com.replaymod.core.gui.RecapTheme;
 import com.replaymod.pathing.properties.CameraProperties;
 import com.replaymod.pathing.properties.TimestampProperty;
 import com.replaymod.replay.ReplayModReplay;
@@ -83,7 +84,7 @@ public abstract class GuiEditKeyframe<T extends GuiEditKeyframe<T>> extends Abst
             .addElements(new HorizontalLayout.Data(0.5), saveButton, cancelButton);
 
     {
-        setBackgroundColor(Colors.DARK_TRANSPARENT);
+        setBackgroundColor(RecapTheme.CARD_COLOR);
 
         popup.setLayout(new VerticalLayout().setSpacing(10))
                 .addElements(new VerticalLayout.Data(0.5, false), title, inputs, timePanel, buttons);
@@ -150,7 +151,7 @@ public abstract class GuiEditKeyframe<T extends GuiEditKeyframe<T>> extends Abst
 
             link(timeMinField, timeSecField, timeMSecField);
 
-            popup.invokeAll(IGuiLabel.class, e -> e.setColor(Colors.BLACK));
+            popup.invokeAll(IGuiLabel.class, e -> e.setColor(RecapTheme.TEXT_COLOR));
         }
 
         @Override
@@ -189,7 +190,7 @@ public abstract class GuiEditKeyframe<T extends GuiEditKeyframe<T>> extends Abst
 
             link(timestampMinField, timestampSecField, timestampMSecField, timeMinField, timeSecField, timeMSecField);
 
-            popup.invokeAll(IGuiLabel.class, e -> e.setColor(Colors.BLACK));
+            popup.invokeAll(IGuiLabel.class, e -> e.setColor(RecapTheme.TEXT_COLOR));
         }
 
         @Override
@@ -247,7 +248,7 @@ public abstract class GuiEditKeyframe<T extends GuiEditKeyframe<T>> extends Abst
 
             link(xField, yField, zField, yawField, pitchField, rollField, timeMinField, timeSecField, timeMSecField);
 
-            popup.invokeAll(IGuiLabel.class, e -> e.setColor(Colors.BLACK));
+            popup.invokeAll(IGuiLabel.class, e -> e.setColor(RecapTheme.TEXT_COLOR));
         }
 
         @Override
@@ -371,7 +372,7 @@ public abstract class GuiEditKeyframe<T extends GuiEditKeyframe<T>> extends Abst
             }
 
             public class CatmullRomSettingsPanel extends SettingsPanel<CatmullRomSplineInterpolator, CatmullRomSettingsPanel> {
-                public final GuiLabel alphaLabel = new GuiLabel().setColor(Colors.BLACK)
+                public final GuiLabel alphaLabel = new GuiLabel().setColor(RecapTheme.TEXT_COLOR)
                         .setI18nText("replaymod.gui.editkeyframe.interpolator.catmullrom.alpha");
                 public final GuiNumberField alphaField = new GuiNumberField().setSize(100, 20).setPrecision(5)
                         .setMinValue(0).setValidateOnFocusChange(true);

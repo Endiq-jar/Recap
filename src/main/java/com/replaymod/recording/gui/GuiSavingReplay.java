@@ -1,5 +1,6 @@
 package com.replaymod.recording.gui;
 
+import com.replaymod.core.gui.RecapTheme;
 import com.replaymod.core.ReplayMod;
 import com.replaymod.core.utils.Utils;
 import com.replaymod.recording.Setting;
@@ -44,7 +45,7 @@ public class GuiSavingReplay {
 
     private final GuiLabel label = new GuiLabel()
             .setI18nText("replaymod.gui.replaysaving.title")
-            .setColor(Colors.BLACK);
+            .setColor(RecapTheme.TEXT_COLOR);
 
     private final GuiProgressBar progressBar = new GuiProgressBar()
             .setHeight(14);
