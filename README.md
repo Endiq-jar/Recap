@@ -37,11 +37,13 @@ Every supported Minecraft version gets its own jar, built from the same code bas
 Notes:
 
 * 1.21.1 is a bug-fix release of 1.21 without code changes, so the `1.21` jar runs on it as well. That jar
-  declares the Fabric range `>=1.21 <1.21.2` instead of a single version (`-Precap.mcRange=...`).
+  declares the Fabric range `>=1.21 <1.21.2` instead of a single version; CI writes that range into the built
+  jar (`.github/scripts/set-mc-range.py`) after compiling it.
 * 26.4 is the upcoming 2026 game drop. The Gradle project, preprocessor node and dependency wiring are already
   in place (Fabric API `0.164.x+26.4`), so it starts building as soon as Minecraft 26.4 and the matching
   `jGui`/Loom toolchain are published. Because Minecraft 26.4 does not exist yet, the target is opt-in and CI
-  builds it as an **experimental, non-blocking** job:
+  builds it as an **experimental, non-blocking** job. Until the version exists upstream, that job stops at
+  `Failed to find minecraft version: 26.4` while every other version stays green:
 
   ```bash
   ./gradlew :26.4:bundleJar -Precap.experimental=true
