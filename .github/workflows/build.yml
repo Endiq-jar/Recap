@@ -105,8 +105,9 @@ jobs:
           # configurations of other projects during task execution, which Gradle 9 only allows
           # in a single-threaded build ("resolution ... without an exclusive lock").
           GRADLE_OPTS: "-Dorg.gradle.daemon=false -Dorg.gradle.parallel=false -Dorg.gradle.configureondemand=false -Dorg.gradle.caching=true -Dorg.gradle.java.installations.paths=${{ steps.jdk8.outputs.path }},${{ steps.jdk16.outputs.path }},${{ steps.jdk17.outputs.path }},${{ steps.jdk25.outputs.path }},${{ steps.jdk21.outputs.path }}"
-          # "-" separated so version ranges containing spaces survive as a single argument
+          # "-" separated so values containing spaces survive as a single argument
           RECAP_GRADLE_ARGS: ${{ matrix.gradle_args }}
+          RECAP_MC_RANGE: ${{ matrix.mc_range }}
         run: |
           set +e
           GRADLE_ARGS=()
@@ -126,18 +127,25 @@ jobs:
           done
           if [ "$status" -ne 0 ]; then
             echo "::error::Gradle build failed for ${{ matrix.version }} (exit code $status)"
-            { grep -m1 -A 25 "What went wrong" gradle.log || tail -n 25 gradle.log; } | sed 's/^/::error::/' | head -n 26
+            { grep -m1 -A 40 "What went wrong" gradle.log || tail -n 40 gradle.log; } | sed 's/^/::error::/' | head -n 41
+            grep -E "^(e|w): |error: |Unresolved reference" gradle.log | head -n 20 | sed 's/^/::error::/' || true
           fi
           exit "$status"
 
       - name: Collect final jar (${{ matrix.version }})
         if: always()
+        env:
+          RECAP_MC_RANGE: ${{ matrix.mc_range }}
         run: |
           mkdir -p dist
           find "versions/${{ matrix.version }}/build/libs" -maxdepth 1 -name '*.jar' \
             ! -name '*-raw.jar' ! -name '*-obf.jar' ! -name '*-dev.jar' ! -name '*-sources.jar' \
             -exec cp -v {} dist/ \; || true
           ls -l dist || true
+          # patch level compatibility (e.g. the 1.21 jar also runs on 1.21.1)
+          if [ -n "$RECAP_MC_RANGE" ] && [ "$RECAP_MC_RANGE" != "${{ matrix.version }}" ]; then
+            python3 .github/scripts/set-mc-range.py "$RECAP_MC_RANGE" dist/*.jar
+          fi
 
       - name: Upload jar (${{ matrix.version }})
         if: always()

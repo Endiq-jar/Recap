@@ -13,29 +13,6 @@ plugins {
 
 val mcVersion = platform.mcVersion
 
-// Recap Mod: a jar can declare the Minecraft versions it accepts. CI passes a wider range for builds
-// which are patch-level compatible (e.g. the 1.21 build also runs on 1.21.1); everything else produces
-// an exact-version jar, matching what has actually been tested.
-val recapMcRange: String? = providers.gradleProperty("recap.mcRange").orNull
-if (recapMcRange != null) {
-    tasks.named<org.gradle.language.jvm.tasks.ProcessResources>("processResources") {
-        inputs.property("recapMcRange", recapMcRange)
-        val resourcesOutput = destinationDirectory
-        doLast {
-            val modJsonFile = resourcesOutput.get().asFile.resolve("fabric.mod.json")
-            if (modJsonFile.exists()) {
-                val text = modJsonFile.readText()
-                if (!text.contains("\"minecraft\":")) {
-                    modJsonFile.writeText(text.replaceFirst(
-                        "\"depends\": {",
-                        "\"depends\": {\n    \"minecraft\": \"" + recapMcRange + "\","
-                    ))
-                }
-            }
-        }
-    }
-}
-
 var jGuiVersion = project.name
 if (jGuiVersion in listOf("1.10.2", "1.11", "1.11.2")) jGuiVersion = "1.9.4"
 if (jGuiVersion in listOf("1.12.1", "1.12.2")) jGuiVersion = "1.12"
