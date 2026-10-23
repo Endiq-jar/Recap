@@ -163,6 +163,10 @@ jobs:
 
           version, expected_range = sys.argv[1], sys.argv[2]
           print(f"checking version={version!r} range={expected_range!r}")
+          import pathlib, subprocess
+          print("commit:", subprocess.run(["git", "rev-parse", "HEAD"], capture_output=True, text=True).stdout.strip())
+          found = [str(p) for p in pathlib.Path(".").rglob("fabric.mod.json") if ".git/" not in str(p)]
+          print("fabric.mod.json files in checkout:", found)
           jars = glob.glob("dist/*.jar")
           print("jars:", jars)
           if not jars:
@@ -173,6 +177,8 @@ jobs:
                   metadata = json.loads(archive.read("fabric.mod.json").decode("utf-8"))
               declared = metadata.get("depends", {}).get("minecraft")
               print(f"{jar}: id={metadata['id']} name={metadata['name']} minecraft={declared}")
+              print("--- raw fabric.mod.json ---")
+              print(archive.read("fabric.mod.json").decode("utf-8")[:600])
               assert metadata["id"] == "replaymod", metadata["id"]
               assert metadata["name"] == "Recap Mod", metadata["name"]
               if expected_range and expected_range != version:
