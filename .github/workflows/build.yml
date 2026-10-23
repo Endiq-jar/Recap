@@ -144,9 +144,12 @@ jobs:
             ! -name '*-raw.jar' ! -name '*-obf.jar' ! -name '*-dev.jar' ! -name '*-sources.jar' \
             -exec cp -v {} dist/ \; || true
           ls -l dist || true
-          # patch level compatibility (e.g. the 1.21 jar also runs on 1.21.1)
-          if [ -n "$RECAP_MC_RANGE" ] && [ "$RECAP_MC_RANGE" != "${{ matrix.version }}" ]; then
-            python3 .github/scripts/set-mc-range.py "$RECAP_MC_RANGE" dist/*.jar
+          # Declare which Minecraft versions the jar accepts. Builds with a dedicated range (e.g. the
+          # 1.21 jar also running on 1.21.1) get that range, everything else declares its exact version,
+          # so a jar can never be installed into a version it was not compiled against.
+          if ls dist/*.jar >/dev/null 2>&1; then
+            TARGET_RANGE="${RECAP_MC_RANGE:-${{ matrix.version }}}"
+            python3 .github/scripts/set-mc-range.py "$TARGET_RANGE" dist/*.jar
           fi
 
       - name: Verify mod metadata (${{ matrix.version }})
@@ -163,10 +166,6 @@ jobs:
 
           version, expected_range = sys.argv[1], sys.argv[2]
           print(f"checking version={version!r} range={expected_range!r}")
-          import pathlib, subprocess
-          print("commit:", subprocess.run(["git", "rev-parse", "HEAD"], capture_output=True, text=True).stdout.strip())
-          found = [str(p) for p in pathlib.Path(".").rglob("fabric.mod.json") if ".git/" not in str(p)]
-          print("fabric.mod.json files in checkout:", found)
           jars = glob.glob("dist/*.jar")
           print("jars:", jars)
           if not jars:
@@ -177,21 +176,17 @@ jobs:
                   metadata = json.loads(archive.read("fabric.mod.json").decode("utf-8"))
               declared = metadata.get("depends", {}).get("minecraft")
               print(f"{jar}: id={metadata['id']} name={metadata['name']} minecraft={declared}")
-              print("--- raw fabric.mod.json ---")
-              print(archive.read("fabric.mod.json").decode("utf-8")[:600])
               assert metadata["id"] == "replaymod", metadata["id"]
               assert metadata["name"] == "Recap Mod", metadata["name"]
-              if expected_range and expected_range != version:
-                  assert declared == expected_range, f"expected {expected_range}, got {declared}"
-              else:
-                  assert declared in (None, version), f"unexpected range {declared}"
+              expected = expected_range or version
+              assert declared == expected, f"expected minecraft={expected}, got {declared}"
           print("metadata ok")
           PY
           )
           status=$?
           echo "$OUT"
           if [ "$status" -ne 0 ]; then
-            echo "$OUT" | tail -n 12 | sed 's/^/::error::/'
+            echo "$OUT" | tail -n 8 | sed 's/^/::error::/'
           fi
           exit "$status"
 

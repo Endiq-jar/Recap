@@ -126,6 +126,11 @@ recapmod-universal-1.0.0.jar
 Extract the jar matching your Minecraft version into `.minecraft/mods` (Fabric). Every contained jar is
 listed above as its own row, so the universal bundle never contains versions that are not supported.
 
+Every jar declares exactly which Minecraft versions it accepts in its `fabric.mod.json`
+(`depends.minecraft`): builds with a dedicated range (the `1.21` jar also covers `1.21.1`) get that range,
+all other builds declare their exact version, so Fabric refuses to load a jar into a game version it was
+never compiled against.
+
 CI verifies every produced jar before uploading it: mod id `replaymod`, name `Recap Mod` and the declared
 Minecraft range must match the build matrix. To apply a range to a jar manually:
 
