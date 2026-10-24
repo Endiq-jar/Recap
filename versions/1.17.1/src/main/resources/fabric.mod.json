@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "recap",
+  "version": "${version}",
+  "name": "Recap Mod",
+  "description": "Recap Mod - record, replay and share your Minecraft experience. A community fork maintained by TurtleOfficials.",
+  "authors": [
+    "CrushedPixel",
+    "johni0702"
+  ],
+  "contact": {
+    "homepage": "https://github.com/Endiq-jar/Recap",
+    "sources": "https://github.com/Endiq-jar/Recap"
+  },
+  "license": "GPL-3.0-or-later",
+  "icon": "assets/recap/favicon_logo.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.recap.core.RecapModBackend"
+    ],
+    "modmenu": [
+      "com.recap.core.gui.ModMenuApiImpl"
+    ],
+    "frex_flawless_frames": [
+      "com.recap.render.utils.FlawlessFrames::registerConsumer"
+    ],
+    "preLaunch": [
+      "com.recap.core.DummyChainLoadEntryPoint",
+      "com.recap.core.MixinExtrasInit"
+    ],
+    "mm:early_risers": [
+      "com.recap.core.RecapModMMLauncher"
+    ]
+  },
+  "mixins": [
+    "mixins.jgui.json",
+    "mixins.nonmmlauncher.recap.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.7.0",
+    "fabric-networking-api-v1": "*",
+    "fabric-key-binding-api-v1": "*",
+    "fabric-resource-loader-v0": "*"
+  },
+  "conflicts": {
+    "iris": "<1.1.3"
+  },
+  "custom": {
+    "mm:early_risers": [
+      "com.recap.core.RecapModMMLauncher"
+    ],
+    "modmenu:clientsideOnly": true
+  }
+}

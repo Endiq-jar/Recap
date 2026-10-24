@@ -1,0 +1,199 @@
+recap.title=מוד השידור- החוזר
+
+#All of the chat messages
+recap.chat.recordingstarted=ההקלטה התחילה
+recap.chat.recordingfailed=התחלת ההקלטה נכשלה
+
+recap.chat.savingthumb=שומר תמונה ממוזערת...
+recap.chat.savedthumb=התמונה הממוזערת נשמרה בהצלחה
+recap.chat.failedthumb=התמונה הממוזערת לא ניתנת לשמירה
+
+recap.chat.addedmarker=סמן האירוע התווסף
+
+#Chat messages displayed in Replay Viewer
+recap.chat.morekeyframes=לפחות 2 פוזיציות קי-פריים ו2 זמן קי-פריים דרושים
+recap.chat.pathstarted=נתיב המצלמה התחילה
+recap.chat.pathfinished=נתיב המצלמה הסתיים
+recap.chat.pathinterrupted=נתיב המצלמה בוטל
+
+#Common GUI-related strings
+recap.gui.cancel=בטל
+recap.gui.back=חזור
+recap.gui.load=טען
+recap.gui.save=שמור
+recap.gui.rename=שנה שם
+recap.gui.remove=הסר
+recap.gui.delete=מחק
+recap.gui.recording=מקליט
+recap.gui.speed=מהירות
+recap.gui.pleasewait=חכה בבקשה
+recap.gui.render=רנדר
+recap.gui.iphidden=אייפי השרת מוסתר
+recap.gui.close=סגור
+recap.gui.notagain=אל תציג שוב
+
+recap.gui.renderdonetitle=הסרטון רונדר
+recap.gui.openfolder=פתח תיקיית סרטון
+recap.gui.youtubeupload=העלה ליוטיוב
+recap.gui.renderdone1=הסרטון שלך הועלה בהצלחה.
+recap.gui.renderdone2=איך היית רוצה להמשיך?
+recap.gui.videotitle=כותרת
+recap.gui.videodescription=תיאור
+recap.gui.videotags=תגיות, תגיות, תגיות
+recap.gui.videothumbnail=התמונה הממוזערת של הסרטון
+recap.gui.videovisibility.private=פרטי
+recap.gui.videovisibility.unlisted=לא מוצג ברשימה
+recap.gui.videovisibility.public=ציבורי
+recap.gui.ytuploadprogress.auth=[1/4] הרשאה
+recap.gui.ytuploadprogress.prepare_video=[2/4] הכנת סרטון: %%d%%%%
+recap.gui.ytuploadprogress.upload=[3/4] העלאה: %%d%%%%
+recap.gui.ytuploadprogress.cleanup=[4/4] ניקוי
+recap.gui.ytuploadprogress.done=בוצע: %s
+recap.gui.titleempty=הכותרת אינה יכולה להיות ריקה
+recap.gui.videothumbnailtoolarge=גודל תמונה ממוזערת עולה על 2 מגה-בייט
+recap.gui.videothumbnailformat=התמונה הממוזערת צריכה להיות בפורמט JPEG או PNG
+
+recap.gui.hours=שעות
+recap.gui.minutes=דקות
+recap.gui.seconds=שניות
+recap.gui.milliseconds=אלפיות השנייה
+
+recap.gui.pitch=נטה
+recap.gui.yaw=סבסב
+recap.gui.roll=גלגל
+
+recap.gui.unknownerror=שגיאה לא ידועה התרחשה
+
+recap.gui.exit=סגור שידור- חוזר
+
+recap.gui.settings=הגדרות
+
+#Only change these if it's neccessary
+recap.gui.replayviewer=הקלטות השידור- החוזר
+
+#Replay Viewer GUI
+recap.gui.viewer.rename.name=שם השידור החוזר
+recap.gui.viewer.replayfolder=פותח תיקיית השידור- החוזר
+
+recap.gui.viewer.delete.linea=אתה בטוח שאתה רוצה למחוק את השידור החוזר הזה?
+recap.gui.viewer.delete.failed1=מערכת ההפעלה שלך לא מאפשרת לנו להעביר את השידור החוזר.
+recap.gui.viewer.delete.failed2=אין דבר שאנחנו יכולים לעשות בקשר לזה. אתה צריך לעשות את זה בעצמך
+recap.gui.viewer.delete.lineb=יאבד לנצח! (זמן רב!)
+
+#Cancel Replay GUI
+recap.gui.cancelrender.title=בטל רינדור
+recap.gui.cancelrender.message=אתה בטוח שאתה רוצה לבטל את תהליך הרינדור הנוכחי?
+#Saving Replay GUI
+recap.gui.replaysaving.title=שומר את קובץ השידור...
+
+#Player Overview GUI
+recap.gui.playeroverview.visible=נראה
+recap.gui.playeroverview.hideall=הסתר הכול
+recap.gui.playeroverview.showall=תראה הכול
+recap.gui.playeroverview.spectate=צפה בשחקן
+recap.gui.playeroverview.remembersettings=זכור שחקנים נסתרים
+recap.gui.playeroverview.remembersettings.description=שומר את נראות השחקנים בקובץ השידור החוזר
+
+#Recap Mod Settings GUI
+recap.gui.settings.title=הגדרות מוד השידור - החוזר
+
+recap.gui.settings.notifications=אפשר התראות
+recap.gui.settings.recordserver=הקלט שרת
+recap.gui.settings.recordsingleplayer=הקלט שחקן יחיד
+recap.gui.settings.indicator=אינדיקטור הקלטה
+recap.gui.settings.pathpreview=הצג תצוגה מקדימה של הנתיב
+
+#Recap Mod Keybindings
+recap.input.lighting=הפעל\כבה תאורה
+recap.input.thumbnail=צלם תמונה
+recap.input.playeroverview=סקירה כללית של השחקן
+recap.input.clearkeyframes=נקה קי-פריימים
+recap.input.synctimeline=סנכרן ציר זמן
+recap.input.keyframerepository=פתח קי-פריים קבוע מראש
+recap.input.rollclockwise=סובב בכיוון השעון
+recap.input.rollcounterclockwise=סובב נגד כיוון השעון
+recap.input.resettilt=אפס הטיית מצלמה
+recap.input.playpause=השהה\הפעל שידור
+recap.input.marker=הוסף סמן אירוע
+recap.input.pathpreview=הפעל\כבה תצוגה מקדימה של הנתיב
+
+#Edit Keyframe GUI
+recap.gui.editkeyframe.title.pos=ערוך קי-פריים של מיקום
+recap.gui.editkeyframe.title.time=ערוך קי-פריים של זמן
+recap.gui.editkeyframe.title.marker=ערוך סמן אירוע
+recap.gui.editkeyframe.title.spec=ערוך קי-פריים של צופה
+recap.gui.editkeyframe.xpos=X מיקום
+recap.gui.editkeyframe.ypos=Y מיקום
+recap.gui.editkeyframe.zpos=Z מיקום
+recap.gui.editkeyframe.camyaw=סיבוב המצלמה
+recap.gui.editkeyframe.timelineposition=מיקום ציר הזמן
+recap.gui.editkeyframe.markername=שם סמן הזמן
+recap.gui.editkeyframe.timestamp=אינדקס זמן
+
+recap.gui.rendersettings.renderer=שיטת רינדור
+
+recap.gui.rendersettings.renderer.default=רינדור ברירת מחדל
+recap.gui.rendersettings.renderer.stereoscopic=רינדור סטריאוסקופי
+recap.gui.rendersettings.renderer.cubic=רינדור קובייתי
+recap.gui.rendersettings.renderer.ods=ODS רינדור 
+
+recap.gui.rendersettings.renderer.default.description=מרנדר את הסרטון ברזולוציה הנתונה. אפשרות הרינדור המהירה ביותר.
+recap.gui.rendersettings.renderer.stereoscopic.description= .ששמיש לטכנולוגיות תלת מימד שונות ,מרנדר את הסרטון כסרט תלת מימדי סטריאוסקופי (צד ליד צד)
+recap.gui.rendersettings.renderer.cubic.description=(וה-Oculus Rift) מרנדר את הסרטון במראה פנורמי בעל 360 מעלות, בשימוש בהקרנה קובייתית. זה שמיש למספר משקפי מציאות מדומה , for example VR Player.
+
+recap.gui.rendersettings.customresolution=רזולוצית וידאו
+recap.gui.rendersettings.framerate=קצב הפריימים של הסרטון
+recap.gui.rendersettings.outputfile= קובץ פלט
+
+recap.gui.rendersettings.command=פקודה
+recap.gui.rendersettings.ffmpeg.description=אם אתה משתמש מתקדם, you can customize the command line parameters used to export the video. בדוק:, למידע נוסף http://recap.com/docs
+
+recap.gui.rendersettings.stabilizecamera=יצב מצלמה
+
+recap.gui.rendersettings.video=הגדרות וידאו
+recap.gui.rendersettings.advanced=הגדרות מתקדמות
+recap.gui.rendersettings.commandline=הגדרות שורת פקודה
+
+recap.gui.rendersettings.presets.mp4.default=MP4 - איכות רגילה
+recap.gui.rendersettings.presets.mp4.potato=MP4 - איכות גרועה
+recap.gui.rendersettings.presets.png=PNG רצף תמונות
+
+#Rendering GUI
+recap.gui.rendering.title=רנדר סרטון
+recap.gui.rendering.pause=השהה רינדור
+recap.gui.rendering.resume=המשך רינדור
+recap.gui.rendering.cancel=בטל רינדור
+recap.gui.rendering.cancel.callback=האם אתה בטוח?
+recap.gui.rendering.preview=הצג תצוגה מקדימה (הביצועים עשויים לרדת)
+recap.gui.rendering.progress=%1$d / %2$d: הפריימים שרונדרו 
+recap.gui.rendering.timetaken=זמן רינדור
+recap.gui.rendering.timeleft=הזמן שנותר
+
+#Render Errors
+recap.gui.rendering.error.title=הרינדור נכשל
+recap.gui.rendering.error.message= בשביל לרנדר סרטון אתה צריך שיהיה מותקן לך ffmpeg 
+
+#Ingame Menu
+recap.gui.ingame.menu.addposkeyframe=הוסף קי-פריים מיקום
+recap.gui.ingame.menu.removeposkeyframe=הסר קי-פריים מיקום
+recap.gui.ingame.menu.addspeckeyframe=הוסף קי-פריים של צופה
+recap.gui.ingame.menu.removespeckeyframe=הסר קי-פריים של צופה
+recap.gui.ingame.menu.addtimekeyframe=הוסף קי-פריים של זמן
+recap.gui.ingame.menu.removetimekeyframe=הסר קי-פריים של זמן
+recap.gui.ingame.menu.pause=הפסק שידור
+recap.gui.ingame.menu.unpause=השהה שידור
+recap.gui.ingame.menu.renderpath=רנדר נתיב מצלמה
+recap.gui.ingame.menu.playpath=הפעל נתיב מצלמה ממיקום העכבר
+recap.gui.ingame.menu.playpathfromstart=הפעל את נתיב המצלמה מההתחלה
+recap.gui.ingame.menu.pausepath=השהה את נתיב המצלמה
+recap.gui.ingame.menu.zoomin=הגדל תצוגה
+recap.gui.ingame.menu.zoomout=הקטן תצוגה
+
+recap.gui.ingame.unnamedmarker=סמן אירוע חסר שם
+
+#Clear Keyframe Callback
+recap.gui.clearcallback.title=לנקות את כל הקי-פריימים?
+
+#Errors
+recap.error.unknownrestriction1=השידור הזה לא יכול להיות מופעל עם הגרסה הנוכחית שלך.
+recap.error.unknownrestriction2=שהוא לא ידוע %s זה ניסה להחיל את.

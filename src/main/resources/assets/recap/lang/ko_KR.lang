@@ -1,0 +1,344 @@
+recap.title=Recap Mod
+
+#All of the chat messages
+recap.chat.recordingstarted=녹화를 시작했습니다
+recap.chat.recordingfailed=녹화를 시작할 수 없습니다
+
+recap.chat.savingthumb=썸네일을 저장하는 중...
+recap.chat.savedthumb=썸네일이 성공적으로 저장되었습니다
+recap.chat.failedthumb=썸네일을 저장하지 못했습니다
+
+recap.chat.addedmarker=이벤트 마커가 추가되었습니다
+
+#Chat messages displayed in Replay Viewer
+recap.chat.morekeyframes=최소 2개의 위치 키 프레임과 2개의 시간 키 프레임이 필요합니다
+recap.chat.pathstarted=카메라 경로를 시작함
+recap.chat.pathfinished=카메라 경로를 완료함
+recap.chat.pathinterrupted=카메라 경로를 취소함
+
+#Common GUI-related strings
+recap.gui.cancel=취소
+recap.gui.back=이전
+recap.gui.load=불러오기
+recap.gui.save=저장
+recap.gui.rename=이름 바꾸기
+recap.gui.remove=제거
+recap.gui.delete=삭제
+recap.gui.paused=일시정지
+recap.gui.speed=속도
+recap.gui.pleasewait=잠시 기다리세요
+recap.gui.render=렌더
+recap.gui.iphidden=서버 IP 숨김
+recap.gui.overwrite=덮어쓰기
+recap.gui.saveas=다른 이름으로 저장
+recap.gui.done=완료
+recap.gui.close=닫기
+recap.gui.notagain=다시 보지 않기
+recap.gui.edit=편집
+recap.gui.copy=복사
+recap.gui.paste=붙여넣기
+
+recap.gui.recording.resume=녹화 재개
+recap.gui.recording.pause=녹화 일시정지
+recap.gui.recording.stop=녹화 중지
+recap.gui.recording.start=녹화 시작
+
+recap.gui.renderdonetitle=영상이 렌더링됨
+recap.gui.openfolder=영상 폴더 열기
+recap.gui.youtubeupload=YouTube에 업로드
+recap.gui.renderdone1=영상이 성공적으로 렌더링 되었습니다.
+recap.gui.renderdone2=어떻게 하시겠습니까?
+recap.gui.videotitle=제목
+recap.gui.videodescription=설명
+recap.gui.videotags=태그,태그,태그
+recap.gui.videothumbnail=영상 썸네일
+recap.gui.videovisibility.private=비공개
+recap.gui.videovisibility.unlisted=일부 공개
+recap.gui.videovisibility.public=공개
+recap.gui.ytuploadprogress.auth=[1/4] 인증
+recap.gui.ytuploadprogress.prepare_video=[2/4] 영상을 준비하는 중: %%d%%%%
+recap.gui.ytuploadprogress.upload=[3/4] 업로드 하는 중: %%d%%%%
+recap.gui.ytuploadprogress.cleanup=[4/4] 정리 하는 중
+recap.gui.ytuploadprogress.done=완료: %s
+recap.gui.titleempty=제목은 비워 둘 수 없습니다
+recap.gui.videothumbnailtoolarge=썸네일 이미지 크기가 2MB를 초과합니다.
+recap.gui.videothumbnailformat=썸네일은 JPEG 또는 PNG 형식이어야 합니다.
+
+recap.gui.hours=시
+recap.gui.minutes=분
+recap.gui.seconds=초
+recap.gui.milliseconds=밀리초
+
+recap.gui.pitch=피치
+recap.gui.yaw=요
+recap.gui.roll=롤
+
+recap.gui.camera=카메라
+recap.gui.position=위치
+
+recap.gui.unknownerror=알 수 없는 오류가 발생했습니다
+
+recap.gui.exit=리플레이 나가기
+
+recap.gui.settings=설정
+
+recap.gui.keyframerepo.delete=이 키 프레임을 삭제하시겠습니까?
+recap.gui.keyframerepo.overwrite=이 키 프레임을 덮어쓰시겠습니까?
+
+recap.gui.restorereplay1=Minecraft가 정상적으로 종료되지 않은것 같습니다.
+recap.gui.restorereplay2=리플레이 %1$s이(가) 올바르게 저장되지 않았습니다.
+recap.gui.restorereplay3=복원하시겠습니까?
+
+recap.gui.loadentitytracker=개체 위치 불러오는중: %%d%%%%
+recap.gui.loadquickmode=퀵 모드 불러오는중: %%d%%%%
+recap.gui.noquickmode=퀵 모드는 Minecraft 버전 %1$s 이상에서만 사용할 수 있습니다.
+recap.gui.minimalmode.unsupported=현재 Minecraft 버전에서는 이 기능을 사용할 수 없습니다.
+recap.gui.minimalmode.supportedversion=(현재 Recap Mod 버전에서는 Minecraft 버전 %1$s만 지원니다.)
+
+#Only change these if it's neccessary
+recap.gui.replayviewer=리플레이 뷰어
+
+#Replay Viewer GUI
+recap.gui.viewer.rename.name=리플레이 이름
+recap.gui.viewer.replayfolder=리플레이 폴더 열기
+recap.gui.viewer.bulkrender=영상 %1$d 렌더
+
+recap.gui.viewer.delete.linea=정말 이 리플레이를 삭제하시겠습니까?
+recap.gui.viewer.delete.failed1=운영체제에서 리플레이를 지우도록 허용하지 않았습니다. 우리가
+recap.gui.viewer.delete.failed2=할 수 있는 일은 아무것도 없습니다. 직접 제거해 주세요.
+recap.gui.viewer.delete.lineb='%1$s'이(가) 영원히 삭제됩니다!
+
+#Replay Editor UI 2.0 (marker based UI)
+recap.gui.edit.apply=적용
+recap.gui.edit.split=분할 삽입
+recap.gui.edit.split.tooltip=표시된 지점에서 리플레이를 여러개의 리플레이로 분할합니다.
+recap.gui.edit.cut.start=간격 편집
+recap.gui.edit.cut.end=끝 편집
+recap.gui.edit.cut.tooltip=리플레이 섹션 잘라내기(제거)
+
+#Cancel Replay GUI
+recap.gui.cancelrender.title=렌더링 취소
+recap.gui.cancelrender.message=현재 렌더링 프로세스를 취소하시겠습니까?
+#Saving Replay GUI
+recap.gui.replaysaving.title=리플레이 파일을 저장하는 중...
+
+#Player Overview GUI
+recap.gui.playeroverview.visible=표시
+recap.gui.playeroverview.hideall=모두 숨김
+recap.gui.playeroverview.showall=모두 표시
+recap.gui.playeroverview.spectate=플레이어 관전
+recap.gui.playeroverview.remembersettings=숨긴 플레이어 기억
+recap.gui.playeroverview.remembersettings.description=리플레이 파일에 플레이어 표시 여부 저장
+
+#Recap Mod Settings GUI
+recap.gui.settings.title=Recap Mod 설정
+recap.gui.settings.default=기본
+
+recap.gui.settings.notifications=알림 켜기
+recap.gui.settings.recordserver=서버 녹화
+recap.gui.settings.recordsingleplayer=싱글플레이 녹화
+recap.gui.settings.indicator=녹화 상태 표시기
+recap.gui.settings.pathpreview=경로 미리보기 표시
+recap.gui.settings.camera=카메라
+recap.gui.settings.showchat=채팅 표시
+recap.gui.settings.interpolator=기본 보간기
+recap.gui.settings.autostartrecording=자동 녹화
+recap.gui.settings.rename_recording_dialog=이름 변경 대화상자 표시
+recap.gui.settings.fullbrightness=최대 밝기
+recap.gui.settings.fullbrightness.gamma=밝기
+recap.gui.settings.fullbrightness.nightvision=야간 투시
+recap.gui.settings.fullbrightness.both=모두
+
+#Recap Mod Keybindings
+recap.input.lighting=조명 전환
+recap.input.thumbnail=썸네일 촬영
+recap.input.playeroverview=플레이어 개요
+recap.input.clearkeyframes=키 프레임 제거
+recap.input.synctimeline=타임라인 동기화
+recap.input.keyframerepository=키 프레임 프리셋 열기
+recap.input.rollclockwise=시계 방향으로 롤
+recap.input.rollcounterclockwise=반시계 방향으로 롤
+recap.input.resettilt=카메라 기울기 초기화
+recap.input.playpause=리플레이 재생/일시정지
+recap.input.marker=이벤트 마커 추가
+recap.input.pathpreview=경로 미리보기 전환
+recap.input.settings=Recap Mod 설정
+recap.input.quickmode=퀵 모드
+recap.input.positionkeyframe=위치/관전 키 프레임
+recap.input.positiononlykeyframe=위치 키 프레임
+recap.input.timekeyframe=시간 키 프레임
+recap.input.bothkeyframes=위치/관전 + 시간 키 프레임
+
+# CameraControllers
+recap.camera.classic=클래식
+recap.camera.vanilla=바닐라
+
+#Keyframe Presets GUI
+recap.gui.keyframerepository.title=키 프레임 저장소
+
+#Edit Keyframe GUI
+recap.gui.editkeyframe.title.pos=위치 키 프레임 편집
+recap.gui.editkeyframe.title.time=시간 키 프레임 편집
+recap.gui.editkeyframe.title.marker=이벤트 마커 편집
+recap.gui.editkeyframe.title.spec=관전 키 프레임 편집
+recap.gui.editkeyframe.xpos=X 위치
+recap.gui.editkeyframe.ypos=Y 위치
+recap.gui.editkeyframe.zpos=Z 위치
+recap.gui.editkeyframe.campitch=카메라 피치
+recap.gui.editkeyframe.camyaw=카메라 요
+recap.gui.editkeyframe.camroll=카메라 롤
+recap.gui.editkeyframe.timelineposition=타임라인 위치
+recap.gui.editkeyframe.markername=이벤트 마커 이름
+recap.gui.editkeyframe.timestamp=시간 색인
+
+recap.gui.editkeyframe.interpolator=보간기
+recap.gui.editkeyframe.interpolator.default.name=기본 보간기
+recap.gui.editkeyframe.interpolator.default.desc=Recap Mod 설정에 정의된 기본 보간기를 사용합니다.
+recap.gui.editkeyframe.interpolator.catmullrom.name=캣멀 롬 스플라인 보간기
+recap.gui.editkeyframe.interpolator.catmullrom.desc=카메라 경로의 정밀 조임 및 매끄러움을 위해 사용자 지정 가능한 알파 값으로 캣멀 롬 스플라인을 계산합니다.
+recap.gui.editkeyframe.interpolator.catmullrom.alpha=알파:
+recap.gui.editkeyframe.interpolator.cubic.name=큐빅 스플라인 보간기
+recap.gui.editkeyframe.interpolator.cubic.desc=부드러운 카메라 경로를 위한 모든 점에 대한 입방정식 행렬을 계산합니다.
+recap.gui.editkeyframe.interpolator.linear.name=선형 보간기
+recap.gui.editkeyframe.interpolator.linear.desc=키 프레임 사이에 직선을 그립니다.
+
+#Render Settings GUI
+recap.gui.rendersettings.addtoqueue=대기열에 추가
+
+recap.gui.rendersettings.renderer=렌더링 방식
+
+recap.gui.rendersettings.renderer.default=기본 렌더링
+recap.gui.rendersettings.renderer.stereoscopic=스테레오스코픽 렌더링
+recap.gui.rendersettings.renderer.cubic=큐빅 렌더링
+recap.gui.rendersettings.renderer.equirectangular=등장방형도법 렌더링
+recap.gui.rendersettings.renderer.ods=ODS 렌더링
+recap.gui.rendersettings.renderer.blend=Blender로 내보내기 [실험적]
+
+recap.gui.rendersettings.renderer.default.description=지정한 해상도로 영상을 렌더링합니다. 가장 빠른 렌더링 옵션.
+recap.gui.rendersettings.renderer.stereoscopic.description=다양한 3D 기술이 사용될 수 있는 입체 3D 동영상으로 영상을 렌더링합니다. 한쪽 눈의 이미지는 영상 폭의 절반입니다.
+recap.gui.rendersettings.renderer.cubic.description=입방 투영을 사용하여 360도 파노라마 보기로 영상을 렌더링합니다. 이 기능은 VR 플레이어와 같은 여러 360도 영상 플레이어 및 Oculus Rift에서 사용할 수 있습니다.
+recap.gui.rendersettings.renderer.equirectangular.description=등장방형도법 투영을 사용하여 360도 파노라마 보기로 영상을 렌더링합니다. 이것은 Youtube의 새로운 360도 영상 기능과 여러 영상 플레이어(예: VR 플레이어)에서 사용할 수 있습니다.
+recap.gui.rendersettings.renderer.ods.description=입체 3D 360도 파노라마 뷰로 영상을 렌더링합니다. 이것은 Youtube의 새로운 VR 영상 기능으로 사용할 수 있습니다.
+recap.gui.rendersettings.renderer.blend.description=Blender를 사용하여 열 수 있는 .blend 파일로 표시되는 형상을 내보냅니다. 매우 실험적: 많은 RAM이 필요하고 알려진 문제가 상당히 많으며 때로는 손상된 Blender 파일을 생성합니다.
+
+recap.gui.rendersettings.customresolution=영상 해상도
+recap.gui.rendersettings.customresolution.warning.yuv420=이 프리셋의 경우 너비와 높이 값이 짝수여야 합니다.
+recap.gui.rendersettings.customresolution.warning.yuv420.cubic=이 프리셋의 경우 높이를 6으로 나누어야 합니다.
+recap.gui.rendersettings.customresolution.warning.cubic.height=큐빅 렌더링에서는 높이를 3으로 나누어야 합니다.
+recap.gui.rendersettings.bitrate=비트레이트
+recap.gui.rendersettings.framerate=영상 프레임레이트
+recap.gui.rendersettings.chromakey=크로마키
+recap.gui.rendersettings.nametags=이름표 렌더
+recap.gui.rendersettings.outputfile=출력 파일
+recap.gui.rendersettings.sphericalFov=구형 FOV
+recap.gui.rendersettings.sphericalmetadata=구형 메타데이터 주입
+recap.gui.rendersettings.sphericalmetadata.error=구형 메타데이터는 MP4 형식의 등장방형도법 및 ODS 비디오에만 추가할 수 있습니다.
+recap.gui.rendersettings.depthmap=깊이 맵
+recap.gui.rendersettings.depthmap.only_exr_or_png=깊이 맵 내보내기는 OpenEXR 또는 PNG 형식에서만 지원됩니다.
+recap.gui.rendersettings.camerapath=카메라 경로 내보내기
+
+recap.gui.rendersettings.command=명령
+recap.gui.rendersettings.arguments=명령줄 인수
+recap.gui.rendersettings.ffmpeg.description=고급 사용자인 경우 비디오를 내보내는데 사용할 명령줄 매개 변수를 지정할 수 있습니다. 자세한 내용은 http://recap.com/docs을 참조하세요.
+
+recap.gui.rendersettings.stabilizecamera=카메라 안정화
+
+recap.gui.rendersettings.video=비디오 설정
+recap.gui.rendersettings.advanced=고급 설정
+recap.gui.rendersettings.commandline=명령줄 설정
+
+recap.gui.rendersettings.presets=인코딩 프리셋
+recap.gui.rendersettings.presets.mp4.custom=MP4 - 사용자 지정 비트레이트
+recap.gui.rendersettings.presets.mp4.default=MP4 - 기본 품질
+recap.gui.rendersettings.presets.mp4.potato=MP4 - 낮은 품질
+recap.gui.rendersettings.presets.webm.custom=WEBM - 사용자 지정 비트레이트
+recap.gui.rendersettings.presets.mkv.lossless=MKV - 무손실
+recap.gui.rendersettings.presets.blend=파일 혼합
+recap.gui.rendersettings.presets.png=PNG 시퀀스
+recap.gui.rendersettings.presets.exr=OpenEXR 시퀀스
+
+recap.gui.rendersettings.antialiasing=안티앨리어싱
+recap.gui.rendersettings.antialiasing.none=없음
+recap.gui.rendersettings.antialiasing.x2=2x
+recap.gui.rendersettings.antialiasing.x4=4x
+recap.gui.rendersettings.antialiasing.x8=8x
+
+#Render Queue GUI
+recap.gui.renderqueue.title=렌더 대기열
+recap.gui.renderqueue.add=현재 구성 추가
+recap.gui.renderqueue.renderall=모두 렌더
+recap.gui.renderqueue.renderselected=선택한 항목 렌더
+
+#Rendering GUI
+recap.gui.rendering.title=영상 렌더링
+recap.gui.rendering.pause=렌더링 일시정지
+recap.gui.rendering.resume=렌더링 재개
+recap.gui.rendering.cancel=렌더링 취소
+recap.gui.rendering.cancel.callback=정말 취소하시겠습니까?
+recap.gui.rendering.preview=미리 보기 표시 (성능 저하가 발생할 수 있음)
+recap.gui.rendering.progress=렌더링된 프레임: %1$d / %2$d
+recap.gui.rendering.timetaken=렌더 시간
+recap.gui.rendering.timeleft=남은 시간
+
+#Render Errors
+recap.gui.rendering.error.title=렌더링 실패
+recap.gui.rendering.error.message=영상을 렌더링하려면 ffmpeg가 설치되어 있어야 합니다.
+recap.gui.rendering.error.ffmpeglog=FFmpeg 기록:
+recap.gui.rendering.error.ffmpegargs.1=명령줄 인수를 수정한 것으로 보입니다.
+recap.gui.rendering.error.ffmpegargs.2=기본값으로 재설정하고 다시 시도하시겠습니까?
+
+#Ingame Menu
+recap.gui.ingame.menu.addposkeyframe=위치 키 프레임 추가
+recap.gui.ingame.menu.removeposkeyframe=위치 키 프레임 제거
+recap.gui.ingame.menu.addspeckeyframe=관전 키 프레임 추가
+recap.gui.ingame.menu.removespeckeyframe=관전 키 프레임 제거
+recap.gui.ingame.menu.addtimekeyframe=시간 키 프레임 추가
+recap.gui.ingame.menu.removetimekeyframe=시간 키 프레임 제거
+recap.gui.ingame.menu.pause=리플레이 일시정지
+recap.gui.ingame.menu.unpause=리플레이 재생
+recap.gui.ingame.menu.renderpath=카메라 경로 렌더
+recap.gui.ingame.menu.playpath=커서 위치에서 카메라 경로 재생
+recap.gui.ingame.menu.playpathfromstart=시작 지점에서 카메라 경로 재생
+recap.gui.ingame.menu.pausepath=카메라 경로 일시정지
+recap.gui.ingame.menu.zoomin=확대
+recap.gui.ingame.menu.zoomout=축소
+
+recap.gui.ingame.unnamedmarker=이름없는 이벤트 마커
+recap.gui.ingame.autoactivating=이 키 설정은 적절한 시간에 자동으로 켜질 수 있습니다.
+recap.gui.ingame.autoactivating.disable=Ctrl 키+클릭으로 자동 활성화를 끕니다.
+recap.gui.ingame.autoactivating.enable=Ctrl 키+클릭으로 자동 활성화를 켭니다.
+recap.gui.ingame.first_keyframe_not_at_start_warning=첫 번째 키 프레임을 놓았지만 00:00이 아닙니다.\n\n이는 일반적으로 영상 타임라인(아래쪽 타임라인)의\n작동 방식을 잘못 이해했음을 나타냅니다.\n\n위쪽 타임라인은 재생의 현재 시간을 표시하지만\n아래쪽 타임라인은 생성하는 비디오의 시간을 표시합니다.\n영상은 항상 00:00에서 시작합니다! 첫 번째 키 프레임이 00:00에 있지 않으면\n첫 번째 키 프레임이 끝날 때까지 영상이 정지 상태로 표시됩니다!
+
+#Clear Keyframe Callback
+recap.gui.clearcallback.title=모든 키 프레임을 지우시겠습니까?
+
+#Errors
+recap.error.unknownrestriction1=이 리플레이는 현재 버전으로 재생할 수 없습니다.
+recap.error.unknownrestriction2=알 수 없는 %s을(를) 적용하려고 했습니다.
+recap.error.negativetime1=일부 시간 키 프레임이 작동하지 않습니다.
+recap.error.negativetime2=시간을 되돌리는 것은 지원하지 않습니다.
+recap.error.negativetime3=잘못된 부분은 빨간색으로 표시됩니다.
+
+#Recap Mod Incompatibility Warning
+recap.gui.modwarning.title=비호환성이 감지됨
+recap.gui.modwarning.message1=현재 사용하는 Minecraft 버전과
+recap.gui.modwarning.message2=이 리플레이가 호환되지 않을 수 있습니다.
+recap.gui.modwarning.message3=이 리플레이를 불러오면 오류 또는 충돌이 발생할 수 있습니다.
+recap.gui.modwarning.name=모드 이름:
+recap.gui.modwarning.id=모드 Id:
+recap.gui.modwarning.missing=누락된 모드
+recap.gui.modwarning.version=다른 모드 버전
+recap.gui.modwarning.version.expected=예상
+recap.gui.modwarning.version.found=발견
+
+#Advanced Screenshots Gui
+recap.gui.advancedscreenshots.title=스크린샷 설정
+recap.gui.advancedscreenshots.create=스크린샷 찍기
+recap.gui.advancedscreenshots.resolution=해상도
+
+# Screenshot Finished Gui
+recap.gui.advancedscreenshots.finished.description=성공적으로 스크린샷을 생성했습니다!
+recap.gui.advancedscreenshots.finished.description.360=성공적으로 360° 스크린샷을 생성했습니다!
+recap.gui.advancedscreenshots.finished.description.veer=VeeR.tv에서 VR로 이미지를 업로드 후 보거나 디스크에서 엽니다.
+recap.gui.advancedscreenshots.finished.upload.veer=VeeR.tv에 업로드
+recap.gui.advancedscreenshots.finished.showfile=디스크에 파일 표시

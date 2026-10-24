@@ -1,0 +1,403 @@
+package com.recap.recording.handler;
+
+import com.recap.core.events.PreRenderCallback;
+import com.recap.recording.mixin.IntegratedServerAccessor;
+import com.recap.recording.packet.PacketListener;
+import de.johni0702.minecraft.gui.utils.EventRegistrations;
+import de.johni0702.minecraft.gui.versions.callbacks.PreTickCallback;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.entity.Entity;
+import net.minecraft.network.packet.s2c.play.BlockBreakingProgressS2CPacket;
+import net.minecraft.network.packet.s2c.play.EntityAnimationS2CPacket;
+import net.minecraft.network.packet.s2c.play.EntityAttachS2CPacket;
+import net.minecraft.network.packet.s2c.play.EntityEquipmentUpdateS2CPacket;
+import net.minecraft.network.packet.s2c.play.EntityS2CPacket;
+import net.minecraft.network.packet.s2c.play.EntitySetHeadYawS2CPacket;
+import net.minecraft.network.packet.s2c.play.EntityVelocityUpdateS2CPacket;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.network.Packet;
+import net.minecraft.server.integrated.IntegratedServer;
+// FIXME not (yet?) 1.13 import net.minecraftforge.event.entity.minecart.MinecartInteractEvent;
+
+//#if FABRIC<1
+//$$ import net.minecraft.network.play.server.SCollectItemPacket;
+//$$ import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
+//$$ import net.minecraftforge.eventbus.api.SubscribeEvent;
+//$$ import net.minecraftforge.event.entity.player.PlayerEvent.ItemPickupEvent;
+//#endif
+
+//#if MC >= 26.3
+//$$ import net.minecraft.network.protocol.game.ClientboundSwingAnimationPacket;
+//$$ import net.minecraft.network.protocol.game.VecDelta;
+//$$ import net.minecraft.world.entity.LivingEntity;
+//#endif
+
+//#if MC>=12102
+//$$ import net.minecraft.entity.player.PlayerPosition;
+//$$ import net.minecraft.network.packet.s2c.play.EntityPositionSyncS2CPacket;
+//#else
+import net.minecraft.network.packet.s2c.play.EntityPositionS2CPacket;
+//#endif
+
+//#if MC>=12002
+//$$ import net.minecraft.network.packet.s2c.play.EntitySpawnS2CPacket;
+//#else
+import net.minecraft.network.packet.s2c.play.PlayerSpawnS2CPacket;
+//#endif
+
+//#if MC>=11600
+import com.mojang.datafixers.util.Pair;
+//#endif
+
+//#if MC>=11400
+//#else
+//$$ import net.minecraft.network.play.server.SPacketUseBed;
+//#endif
+
+//#if MC>=11100
+import net.minecraft.util.collection.DefaultedList;
+//#endif
+
+//#if MC>=10904
+import net.minecraft.network.packet.s2c.play.EntityTrackerUpdateS2CPacket;
+import net.minecraft.network.packet.s2c.play.WorldEventS2CPacket;
+import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.util.Hand;
+//#endif
+
+//#if MC>=10800
+import net.minecraft.util.math.BlockPos;
+//#else
+//$$ import net.minecraft.util.MathHelper;
+//#endif
+
+import java.util.Collections;
+import java.util.List;
+import java.util.Objects;
+
+import static com.recap.core.versions.MCVer.*;
+
+public class RecordingEventHandler extends EventRegistrations {
+
+    private final MinecraftClient mc = getMinecraft();
+    private final PacketListener packetListener;
+
+    // Sending a position update every frame causes the interpolation code to never reach its target
+    // so we'll record one only every other tick (this matches what the vanilla server does for player entities)
+    private static final int POS_UPDATE_FREQUENCY = 2;
+    private int ticksSinceLastPosUpdate;
+
+    //#if MC>=10904
+    private static final int TRACKED_POSITION_RESOLUTION = 4096;
+    //#else
+    //$$ private static final int TRACKED_POSITION_RESOLUTION = 32;
+    //#endif
+    private Double lastX, lastY, lastZ;
+
+    //#if MC>=10904
+    private static final int EQUIPMENT_SLOTS = EquipmentSlot.values().length;
+    //#else
+    //$$ private static final int EQUIPMENT_SLOTS = 5;
+    //#endif
+    private final List<ItemStack> playerItems = DefaultedList.ofSize(EQUIPMENT_SLOTS, ItemStack.EMPTY);
+    private int ticksSinceLastCorrection;
+    private boolean wasSleeping;
+    private int lastRiding = -1;
+    private Integer rotationYawHeadBefore;
+    //#if MC >= 26.3
+    //$$ private LivingEntity.SwingDescription lastSwing;
+    //#endif
+
+    public RecordingEventHandler(PacketListener packetListener) {
+        this.packetListener = packetListener;
+    }
+
+    //#if MC>=10904
+    public void onPacket(Packet<?> packet) {
+        packetListener.save(packet);
+    }
+    //#endif
+
+    public void spawnRecordingPlayer() {
+        try {
+            ClientPlayerEntity player = mc.player;
+            assert player != null;
+            //#if MC>=12100
+            //$$ packetListener.save(new EntitySpawnS2CPacket(
+            //$$         player.getId(),
+            //$$         player.getUuid(),
+            //$$         player.getX(),
+            //$$         player.getY(),
+            //$$         player.getZ(),
+            //$$         player.getPitch(),
+            //$$         player.getYaw(),
+            //$$         player.getType(),
+            //$$         0,
+            //$$         player.getVelocity(),
+            //$$         player.getHeadYaw()
+            //$$ ));
+            //#elseif MC>=12002
+            //$$ packetListener.save(new EntitySpawnS2CPacket(player));
+            //#else
+            packetListener.save(new PlayerSpawnS2CPacket(player));
+            //#endif
+            //#if MC>=11903
+            //$$ packetListener.save(new EntityTrackerUpdateS2CPacket(player.getId(), player.getDataTracker().getChangedEntries()));
+            //#elseif MC>=11500
+            packetListener.save(new EntityTrackerUpdateS2CPacket(player.getEntityId(), player.getDataTracker(), true));
+            //#endif
+            lastX = lastY = lastZ = null;
+            //#if MC>=11100
+            playerItems.clear();
+            //#else
+            //$$ Collections.fill(playerItems, null);
+            //#endif
+            lastRiding = -1;
+            wasSleeping = false;
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    //#if MC>=10904
+    public void onClientEffect(int type, BlockPos pos, int data) {
+        try {
+            // Send to all other players in ServerWorldEventHandler#playEvent
+            packetListener.save(new WorldEventS2CPacket(type, pos, data, false));
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+    //#endif
+
+    { on(PreTickCallback.EVENT, this::onPlayerTick); }
+    private void onPlayerTick() {
+        if (mc.player == null) return;
+        ClientPlayerEntity player = mc.player;
+        try {
+
+            boolean force = false;
+            if(lastX == null || lastY == null || lastZ == null) {
+                force = true;
+                lastX = player.getX();
+                lastY = player.getY();
+                lastZ = player.getZ();
+            }
+
+            ticksSinceLastCorrection++;
+            if(ticksSinceLastCorrection >= 100) {
+                ticksSinceLastCorrection = 0;
+                force = true;
+            }
+
+            long dx = Math.round((player.getX() - lastX) * TRACKED_POSITION_RESOLUTION);
+            long dy = Math.round((player.getY() - lastY) * TRACKED_POSITION_RESOLUTION);
+            long dz = Math.round((player.getZ() - lastZ) * TRACKED_POSITION_RESOLUTION);
+
+            //#if MC>=10904
+            final double maxRelDist = 8.0 * TRACKED_POSITION_RESOLUTION;
+            //#else
+            //$$ final double maxRelDist = 4.0 * TRACKED_POSITION_RESOLUTION;
+            //#endif
+
+            Packet packet = null;
+            if (force || Math.abs(dx) > maxRelDist || Math.abs(dy) > maxRelDist || Math.abs(dz) > maxRelDist) {
+                //#if MC >= 26.3
+                //$$ packet = ClientboundEntityPositionSyncPacket.of(player);
+                //#elseif MC>=12102
+                //$$ packet = new EntityPositionSyncS2CPacket(player.getId(), PlayerPosition.fromEntity(player), player.isOnGround());
+                //#elseif MC>=10800
+                packet = new EntityPositionS2CPacket(player);
+                //#else
+                //$$ // In 1.7.10 the client player entity has its posY at eye height
+                //$$ // but for all other entities it's at their feet (as it should be).
+                //$$ // So, to correctly position the player, we teleport them to their feet (i.a. directly after spawn).
+                //$$ // Note: this leaves the lastY value offset by the eye height but because it's only used for relative
+                //$$ //       movement, that doesn't matter.
+                //$$ S18PacketEntityTeleport teleportPacket = new S18PacketEntityTeleport(player);
+                //$$ packet = new S18PacketEntityTeleport(
+                //$$         teleportPacket.func_149451_c(),
+                //$$         teleportPacket.func_149449_d(),
+                //$$         MathHelper.floor_double(player.boundingBox.minY * 32),
+                //$$         teleportPacket.func_149446_f(),
+                //$$         teleportPacket.func_149450_g(),
+                //$$         teleportPacket.func_149447_h()
+                //$$ );
+                //#endif
+                lastX = player.getX();
+                lastY = player.getY();
+                lastZ = player.getZ();
+            } else if (++ticksSinceLastPosUpdate >= POS_UPDATE_FREQUENCY) {
+                ticksSinceLastPosUpdate = 0;
+                byte newYaw = (byte) ((int) (player.yaw * 256.0F / 360.0F));
+                byte newPitch = (byte) ((int) (player.pitch * 256.0F / 360.0F));
+
+                //#if MC>=11400
+                packet = new EntityS2CPacket.RotateAndMoveRelative(
+                //#else
+                //$$ packet = new SPacketEntity.S17PacketEntityLookMove(
+                //#endif
+                        player.getEntityId(),
+                        //#if MC >= 26.3
+                        //$$ new VecDelta.Linear((short) dx, (short) dy, (short) dz),
+                        //#elseif MC>=10904
+                        (short) dx, (short) dy, (short) dz,
+                        //#else
+                        //$$ (byte) dx, (byte) dy, (byte) dz,
+                        //#endif
+                        newYaw, newPitch
+                        //#if MC>=11600
+                        , player.isOnGround()
+                        //#else
+                        //#if MC>=10800
+                        //$$ , player.onGround
+                        //#endif
+                        //#endif
+                );
+
+                lastX += (double) dx / TRACKED_POSITION_RESOLUTION;
+                lastY += (double) dy / TRACKED_POSITION_RESOLUTION;
+                lastZ += (double) dz / TRACKED_POSITION_RESOLUTION;
+            }
+
+            if (packet != null) {
+                packetListener.save(packet);
+            }
+
+            //HEAD POS
+            int rotationYawHead = ((int)(player.headYaw * 256.0F / 360.0F));
+
+            if(!Objects.equals(rotationYawHead, rotationYawHeadBefore)) {
+                packetListener.save(new EntitySetHeadYawS2CPacket(player, (byte) rotationYawHead));
+                rotationYawHeadBefore = rotationYawHead;
+            }
+
+            packetListener.save(new EntityVelocityUpdateS2CPacket(player.getEntityId(),
+                    //#if MC>=11400
+                    player.getVelocity()
+                    //#else
+                    //$$ player.motionX, player.motionY, player.motionZ
+                    //#endif
+            ));
+
+            //Animation Packets
+            //Swing Animation
+            //#if MC >= 26.3
+            //$$ LivingEntity.SwingDescription swing = player.getCurrentSwing();
+            //$$ if (swing != null && swing != lastSwing) {
+            //$$     lastSwing = swing;
+            //$$     packetListener.save(new ClientboundSwingAnimationPacket(
+            //$$             player, swing.hand(), swing.animation()
+            //$$     ));
+            //$$ }
+            //#else
+            if (player.handSwinging && player.handSwingTicks == 0) {
+                packetListener.save(new EntityAnimationS2CPacket(
+                        player,
+                        //#if MC>=10904
+                        player.preferredHand == Hand.MAIN_HAND ? 0 : 3
+                        //#else
+                        //$$ 0
+                        //#endif
+                ));
+            }
+            //#endif
+
+			/*
+        //Potion Effect Handling
+		List<Integer> found = new ArrayList<Integer>();
+		for(PotionEffect pe : (Collection<PotionEffect>)player.getActivePotionEffects()) {
+			found.add(pe.getPotionID());
+			if(lastEffects.contains(found)) continue;
+			S1DPacketEntityEffect pee = new S1DPacketEntityEffect(entityID, pe);
+			packetListener.save(pee);
+		}
+
+		for(int id : lastEffects) {
+			if(!found.contains(id)) {
+				S1EPacketRemoveEntityEffect pre = new S1EPacketRemoveEntityEffect(entityID, new PotionEffect(id, 0));
+				packetListener.save(pre);
+			}
+		}
+
+		lastEffects = found;
+			 */
+
+            //Inventory Handling
+            //#if MC>=10904
+            for (EquipmentSlot slot : EquipmentSlot.values()) {
+                ItemStack stack = player.getEquippedStack(slot);
+                int index = slot.ordinal();
+            //#else
+            //$$ for (int slot = 0; slot < EQUIPMENT_SLOTS; slot++) {
+            //$$     ItemStack stack = player.getEquipmentInSlot(slot);
+            //$$     int index = slot;
+            //#endif
+                if (!ItemStack.areEqual(playerItems.get(index), stack)) {
+                    // ItemStack has internal mutability, so we need to make a copy now if we want to compare its
+                    // current state with future states (e.g. dropping on modern versions will set the count to zero).
+                    stack = stack != null ? stack.copy() : null;
+                    playerItems.set(index, stack);
+                    //#if MC>=11600
+                    packetListener.save(new EntityEquipmentUpdateS2CPacket(player.getEntityId(), Collections.singletonList(Pair.of(slot, stack))));
+                    //#else
+                    //$$ packetListener.save(new EntityEquipmentUpdateS2CPacket(player.getEntityId(), slot, stack));
+                    //#endif
+                }
+            }
+
+            //Leaving Ride
+
+            Entity vehicle = player.getVehicle();
+            int vehicleId = vehicle == null ? -1 : vehicle.getEntityId();
+            if (lastRiding != vehicleId) {
+                lastRiding = vehicleId;
+                packetListener.save(new EntityAttachS2CPacket(
+                        //#if MC<10904
+                        //$$ 0,
+                        //#endif
+                        player,
+                        vehicle
+                ));
+            }
+
+            //Sleeping
+            if(!player.isSleeping() && wasSleeping) {
+                packetListener.save(new EntityAnimationS2CPacket(player, 2));
+                wasSleeping = false;
+            }
+
+        } catch(Exception e1) {
+            e1.printStackTrace();
+        }
+    }
+
+    //#if MC>=10800
+    public void onBlockBreakAnim(int breakerId, BlockPos pos, int progress) {
+    //#else
+    //$$ public void onBlockBreakAnim(int breakerId, int x, int y, int z, int progress) {
+    //#endif
+        PlayerEntity thePlayer = mc.player;
+        if (thePlayer != null && breakerId == thePlayer.getEntityId()) {
+            packetListener.save(new BlockBreakingProgressS2CPacket(breakerId,
+                    //#if MC>=10800
+                    pos,
+                    //#else
+                    //$$ x, y, z,
+                    //#endif
+                    progress));
+        }
+    }
+
+    { on(PreRenderCallback.EVENT, this::checkForGamePaused); }
+    private void checkForGamePaused() {
+        if (mc.isIntegratedServerRunning()) {
+            IntegratedServer server =  mc.getServer();
+            if (server != null && ((IntegratedServerAccessor) server).isGamePaused()) {
+                packetListener.setServerWasPaused();
+            }
+        }
+    }
+}

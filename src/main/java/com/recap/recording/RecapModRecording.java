@@ -1,0 +1,115 @@
+package com.recap.recording;
+
+import com.recap.core.KeyBindingRegistry;
+import com.recap.core.Module;
+import com.recap.core.RecapMod;
+import com.recap.core.utils.Restrictions;
+import com.recap.recording.handler.ConnectionEventHandler;
+import com.recap.recording.handler.GuiHandler;
+import com.recap.recording.mixin.NetworkManagerAccessor;
+import com.recap.recording.packet.PacketListener;
+import com.recap.replay.ReplayHandler;
+import io.netty.channel.Channel;
+import io.netty.util.AttributeKey;
+import net.minecraft.network.ClientConnection;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+//#if MC>=12006
+//$$ import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
+//#endif
+
+//#if FABRIC>=1
+//#if MC>=11700
+//$$ import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
+//#else
+import net.fabricmc.fabric.api.network.ClientSidePacketRegistry;
+//#endif
+//#else
+//$$ import net.minecraftforge.fml.network.NetworkRegistry;
+//#endif
+
+//#if MC>=11400
+//#else
+//$$ import io.netty.channel.ChannelDuplexHandler;
+//$$ import io.netty.channel.ChannelHandler;
+//#endif
+
+public class RecapModRecording implements Module {
+
+    private static final Logger LOGGER = LogManager.getLogger();
+    //#if MC>=11400
+    private static final AttributeKey<Void> ATTR_CHECKED = AttributeKey.newInstance("RecapModRecording_checked");
+    //#endif
+
+    { instance = this; }
+    public static RecapModRecording instance;
+
+    private RecapMod core;
+
+    private ConnectionEventHandler connectionEventHandler;
+
+    public RecapModRecording(RecapMod mod) {
+        core = mod;
+
+        core.getSettingsRegistry().register(Setting.class);
+    }
+
+    @Override
+    public void registerKeyBindings(KeyBindingRegistry registry) {
+        registry.registerKeyBinding("recap.input.marker", KeyBindingRegistry.KeyCodes.KEY_M, new Runnable() {
+            @Override
+            public void run() {
+                PacketListener packetListener = connectionEventHandler.getPacketListener();
+                if (packetListener != null) {
+                    packetListener.addMarker(null);
+                    core.printInfoToChat("recap.chat.addedmarker");
+                }
+            }
+        }, false);
+    }
+
+    @Override
+    public void initClient() {
+        connectionEventHandler = new ConnectionEventHandler(LOGGER, core);
+
+        new GuiHandler(core).register();
+
+        //#if FABRIC>=1
+        //#if MC>=12006
+        //$$ PayloadTypeRegistry.configurationS2C().register(Restrictions.ID, Restrictions.CODEC);
+        //$$ PayloadTypeRegistry.playS2C().register(Restrictions.ID, Restrictions.CODEC);
+        //$$ ClientPlayNetworking.registerGlobalReceiver(Restrictions.ID, (payload, context) -> {});
+        //#elseif MC>=11700
+        //$$ ClientPlayNetworking.registerGlobalReceiver(Restrictions.PLUGIN_CHANNEL, (client, handler, buf, resp) -> {});
+        //#else
+        ClientSidePacketRegistry.INSTANCE.register(Restrictions.PLUGIN_CHANNEL, (packetContext, packetByteBuf) -> {});
+        //#endif
+        //#else
+        //#if MC>=11400
+        //$$ NetworkRegistry.newEventChannel(Restrictions.PLUGIN_CHANNEL, () -> "0", any -> true, any -> true);
+        //#else
+        //$$ NetworkRegistry.INSTANCE.newChannel(Restrictions.PLUGIN_CHANNEL, new RestrictionsChannelHandler());
+        //#endif
+        //#endif
+    }
+
+    //#if MC<11400
+    //$$ @ChannelHandler.Sharable
+    //$$ private static class RestrictionsChannelHandler extends ChannelDuplexHandler {}
+    //#endif
+
+    public void initiateRecording(ClientConnection networkManager) {
+        Channel channel = ((NetworkManagerAccessor) networkManager).getChannel();
+        if (channel.pipeline().get(ReplayHandler.PACKET_HANDLER_NAME) != null) return;
+        //#if MC>=11400
+        if (channel.hasAttr(ATTR_CHECKED)) return;
+        channel.attr(ATTR_CHECKED).set(null);
+        //#endif
+        connectionEventHandler.onConnectedToServerEvent(networkManager);
+    }
+
+    public ConnectionEventHandler getConnectionEventHandler() {
+        return connectionEventHandler;
+    }
+}

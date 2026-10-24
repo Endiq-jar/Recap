@@ -1,0 +1,346 @@
+recap.title=Recap Mod
+
+#All of the chat messages
+recap.chat.recordingstarted=Запись началась
+recap.chat.recordingfailed=Не удалось начать запись
+
+recap.chat.savingthumb=Сохранение миниатюры...
+recap.chat.savedthumb=Миниатюра сохранена
+recap.chat.failedthumb=Невозможно сохранить миниатюру
+
+recap.chat.addedmarker=Маркер события добавлен
+
+#Chat messages displayed in Replay Viewer
+recap.chat.morekeyframes=Требуется не менее двух ключевых кадров позиции и двух кадров времени
+recap.chat.pathstarted=Воспроизведение дорожки начато
+recap.chat.pathfinished=Воспроизведение дорожки завершено
+recap.chat.pathinterrupted=Воспроизведение дорожки остановлено
+
+#Common GUI-related strings
+recap.gui.cancel=Отмена
+recap.gui.back=Назад
+recap.gui.load=Загрузить
+recap.gui.save=Сохранить
+recap.gui.rename=Назвать
+recap.gui.remove=Удалить
+recap.gui.delete=Удалить
+recap.gui.recording=Запись
+recap.gui.paused=Пауза
+recap.gui.speed=Скорость
+recap.gui.pleasewait=Подождите
+recap.gui.render=Отрендерить
+recap.gui.iphidden=IP-Адрес сервера скрыт
+recap.gui.overwrite=Перезаписать
+recap.gui.saveas=Сохранить...
+recap.gui.done=Готово
+recap.gui.close=Закрыть
+recap.gui.notagain=Больше не показывать
+recap.gui.edit=Изменить
+recap.gui.copy=Копировать
+recap.gui.paste=Вставить
+
+recap.gui.recording.resume=Возобновить
+recap.gui.recording.pause=Приостановить
+recap.gui.recording.stop=Закончить запись
+recap.gui.recording.start=Начать запись
+
+recap.gui.renderdonetitle=Рендеринг завершён
+recap.gui.openfolder=Открыть папку с видео
+recap.gui.youtubeupload=Загрузить на YouTube
+recap.gui.renderdone1=Видео отрендерено.
+recap.gui.renderdone2=Что дальше?
+recap.gui.videotitle=Название
+recap.gui.videodescription=Описание
+recap.gui.videotags=Теги,Теги,Теги
+recap.gui.videothumbnail=Обложка видео
+recap.gui.videovisibility.private=Ограниченный доступ
+recap.gui.videovisibility.unlisted=Доступ по ссылке
+recap.gui.videovisibility.public=Открытый доступ
+recap.gui.ytuploadprogress.auth=[1/4] Авторизация
+recap.gui.ytuploadprogress.prepare_video=[1/4] Подготовка видео: %%d%%%%
+recap.gui.ytuploadprogress.upload=[3/4] Загрузка: %%d%%%%
+recap.gui.ytuploadprogress.cleanup=[4/4] Очистка
+recap.gui.ytuploadprogress.done=Готово: %s
+recap.gui.titleempty=Нет названия
+recap.gui.videothumbnailtoolarge=Размер изображения превышает 2 Мбайт
+recap.gui.videothumbnailformat=Изображение должно быть в формате JPEG или PNG
+
+recap.gui.hours=ч
+recap.gui.minutes=мин
+recap.gui.seconds=с
+recap.gui.milliseconds=мс
+
+recap.gui.pitch=Тангаж
+recap.gui.yaw=Рысканье
+recap.gui.roll=Крен
+
+recap.gui.camera=Камера
+recap.gui.position=Позиция
+
+recap.gui.unknownerror=Произошла неизвестная ошибка
+
+recap.gui.exit=Покинуть повтор
+
+recap.gui.settings=Настройки
+
+recap.gui.keyframerepo.delete=Вы уверены, что хотите удалить выбранные ключевые кадры?
+recap.gui.keyframerepo.overwrite=Вы уверены, что хотите перезаписать данные ключевые кадры?
+
+recap.gui.restorereplay1=Похоже, Minecraft был закрыт необычным образом.
+recap.gui.restorereplay2=Повтор «%1$s» неправильно сохранён.
+recap.gui.restorereplay3=Хотите восстановить его?
+
+recap.gui.loadentitytracker=Загрузка позиций сущностей: %%d%%%%
+recap.gui.loadquickmode=Загрузка Быстрого Режима: %%d%%%%
+recap.gui.noquickmode=Быстрый Режим доступен только в Minecraft %1$s и выше
+recap.gui.minimalmode.unsupported=Эта функция недоступна в вашей версии Minecraft.
+recap.gui.minimalmode.supportedversion=(текущая версия Recap Mod поддерживает только Minecraft %1$s)
+
+#Only change these if it's neccessary
+recap.gui.replayviewer=Просмотрщик Повторов
+
+#Replay Viewer GUI
+recap.gui.viewer.rename.name=Название повтора
+recap.gui.viewer.replayfolder=Открыть папку повторов...
+recap.gui.viewer.bulkrender=Отрендерить %1$d видео
+
+recap.gui.viewer.delete.linea=Вы уверены, что хотите удалить этот повтор?
+recap.gui.viewer.delete.failed1=ОС не дала возможность переместить повтор.
+recap.gui.viewer.delete.failed2=Ничего не поделать. Сделайте это сами.
+recap.gui.viewer.delete.lineb=«%1$s» будет удалён навсегда!
+
+#Replay Editor UI 2.0 (marker based UI)
+recap.gui.edit.apply=Применить
+recap.gui.edit.split=Разрезать
+recap.gui.edit.split.tooltip=Разрезать Повтор на несколько Повторов в данной точке
+recap.gui.edit.cut.start=Вырезать фрагмент
+recap.gui.edit.cut.end=Закончить вырезку
+recap.gui.edit.cut.tooltip=Удаляет отрезок из повтора
+
+#Cancel Replay GUI
+recap.gui.cancelrender.title=Прекращение рендеринга
+recap.gui.cancelrender.message=Вы уверены, что хотите прекратить текущий процесс рендеринга?
+#Saving Replay GUI
+recap.gui.replaysaving.title=Сохранение файла повтора...
+
+#Player Overview GUI
+recap.gui.playeroverview.visible=Видимость
+recap.gui.playeroverview.hideall=Скрыть всех
+recap.gui.playeroverview.showall=Показать всех
+recap.gui.playeroverview.spectate=Наблюдать за...
+recap.gui.playeroverview.remembersettings=Запомнить скрытых игроков
+recap.gui.playeroverview.remembersettings.description=Сохраняет информацию о видимости игроков в файле повтора
+
+#Recap Mod Settings GUI
+recap.gui.settings.title=Настройки Recap Mod
+recap.gui.settings.default=ПО УМОЛЧАНИЮ
+
+recap.gui.settings.notifications=Уведомления
+recap.gui.settings.recordserver=Запись сервера
+recap.gui.settings.recordsingleplayer=Запись одиночной игры
+recap.gui.settings.indicator=Индикатор записи
+recap.gui.settings.pathpreview=Отображение дорожки
+recap.gui.settings.camera=Камера
+recap.gui.settings.showchat=Чат
+recap.gui.settings.interpolator=Интерп.
+recap.gui.settings.autostartrecording=Автозапись
+recap.gui.settings.rename_recording_dialog=Диалог сохранения
+recap.gui.settings.fullbrightness=Полная яркость
+recap.gui.settings.fullbrightness.gamma=Гамма
+recap.gui.settings.fullbrightness.nightvision=Эффект
+recap.gui.settings.fullbrightness.both=Оба
+
+#Recap Mod Keybindings
+recap.input.lighting=Полная яркость
+recap.input.thumbnail=Сделать миниатюру
+recap.input.playeroverview=Список игроков
+recap.input.clearkeyframes=Удалить ключевые кадры
+recap.input.synctimeline=Синхронизировать временную шкалу
+recap.input.keyframerepository=Наборы ключевых кадров
+recap.input.rollclockwise=Наклон камеры: вправо
+recap.input.rollcounterclockwise=Наклон камеры: влево
+recap.input.resettilt=Наклон камеры: сброс
+recap.input.playpause=Воспроизвести или приостановить
+recap.input.marker=Добавить маркер события
+recap.input.pathpreview=Отображение дорожки
+recap.input.settings=Настройки Recap Mod
+recap.input.quickmode=Быстрый Режим
+recap.input.positionkeyframe=Ключевой кадр позиции
+recap.input.positiononlykeyframe=Ключевой кадр позиции вне наблюдения
+recap.input.timekeyframe=Ключевой кадр времени
+recap.input.bothkeyframes=Ключевой кадр позиции + времени
+
+# CameraControllers
+recap.camera.classic=Recap Mod
+recap.camera.vanilla=Minecraft
+
+#Keyframe Presets GUI
+recap.gui.keyframerepository.title=Наборы ключевых кадров
+
+#Edit Keyframe GUI
+recap.gui.editkeyframe.title.pos=Ключевой кадр позиции
+recap.gui.editkeyframe.title.time=Ключевой кадр времени
+recap.gui.editkeyframe.title.marker=Маркер события
+recap.gui.editkeyframe.title.spec=Ключевой кадр наблюдения
+recap.gui.editkeyframe.xpos=X
+recap.gui.editkeyframe.ypos=Y
+recap.gui.editkeyframe.zpos=Z
+recap.gui.editkeyframe.campitch=Тангаж
+recap.gui.editkeyframe.camyaw=Рысканье
+recap.gui.editkeyframe.camroll=Крен
+recap.gui.editkeyframe.timelineposition=Временная шкала
+recap.gui.editkeyframe.markername=Название
+recap.gui.editkeyframe.timestamp=Отметка времени
+
+recap.gui.editkeyframe.interpolator=Интерполяция
+recap.gui.editkeyframe.interpolator.default.name=По умолчанию
+recap.gui.editkeyframe.interpolator.default.desc=Интерполяция по умолчанию, выбранная в настройках мода.
+recap.gui.editkeyframe.interpolator.catmullrom.name=Катмулла — Рома
+recap.gui.editkeyframe.interpolator.catmullrom.desc=Сплайн Катмулла — Рома с изменяемым значением для точной калибровки плавности дорожки камеры.
+recap.gui.editkeyframe.interpolator.catmullrom.alpha=Плавность:
+recap.gui.editkeyframe.interpolator.cubic.name=Кубическая
+recap.gui.editkeyframe.interpolator.cubic.desc=Кубический сплайн всех точек, создающий плавность дорожки камеры.
+recap.gui.editkeyframe.interpolator.linear.name=Линейная
+recap.gui.editkeyframe.interpolator.linear.desc=Прямые линии между ключевыми кадрами.
+
+#Render Settings GUI
+recap.gui.rendersettings.addtoqueue=В очередь
+
+recap.gui.rendersettings.renderer=Рендеринг
+
+recap.gui.rendersettings.renderer.default=Стандартный
+recap.gui.rendersettings.renderer.stereoscopic=Стереоскопический
+recap.gui.rendersettings.renderer.cubic=Кубический
+recap.gui.rendersettings.renderer.equirectangular=Равнопромежуточный
+recap.gui.rendersettings.renderer.ods=ODS
+recap.gui.rendersettings.renderer.blend=Экспорт в Blender [БЕТА]
+
+recap.gui.rendersettings.renderer.default.description=Видео в указанном разрешении. Самый быстрый вариант.
+recap.gui.rendersettings.renderer.stereoscopic.description=Стереоскопическое 3D-видео (метод перекрёстного взгляда). Изображение для одного глаза составляет половину ширины видео.
+recap.gui.rendersettings.renderer.cubic.description=Видео с 360-градусным панорамным видом, использующее кубическую карту. Его можно воспроизвести в Oculus Rift, а также в некоторых видеоплеерах (например, в VR Player).
+recap.gui.rendersettings.renderer.equirectangular.description=Видео с 360-градусным панорамным видом, использующее равнопромежуточную проекцию. Его можно воспроизвести в YouTube, Oculus Rift, а также в некоторых видеоплеерах (например, в VR Player).
+recap.gui.rendersettings.renderer.ods.description=Видео со стереоскопическим 360-градусным панорамным видом, также известное как VR-видео. Его можно воспроизвести в YouTube.
+recap.gui.rendersettings.renderer.blend.description=Экспортирует видимую геометрию как файл .blend, который может быть открыт используя Blender. Экспериментальная функция: Требует много ОЗУ, есть ошибки и иногда на выходе образуются нерабочие файлы.
+
+recap.gui.rendersettings.customresolution=Разрешение
+recap.gui.rendersettings.customresolution.warning.yuv420=Длина и ширина должны быть чётными числами
+recap.gui.rendersettings.customresolution.warning.yuv420.cubic=Высота должна быть кратна 6
+recap.gui.rendersettings.customresolution.warning.cubic.height=Высота должна быть кратна 3
+recap.gui.rendersettings.bitrate=Битрейт
+recap.gui.rendersettings.framerate=Частота кадров
+recap.gui.rendersettings.chromakey=Хромакей
+recap.gui.rendersettings.nametags=Отображать имена
+recap.gui.rendersettings.includealpha=Сохранить Альфа-канал
+recap.gui.rendersettings.outputfile=Выходной файл
+recap.gui.rendersettings.sphericalFov=Сферическое поле зрения
+recap.gui.rendersettings.sphericalmetadata=Сферические метаданные
+recap.gui.rendersettings.sphericalmetadata.error=Сферические метаданные возможно добавить только в видео формата MP4 с проекцией ODS или с равнопромежуточной проекцией
+recap.gui.rendersettings.depthmap=Карта глубины
+recap.gui.rendersettings.depthmap.only_exr_or_png=Экспорт карты глубины поддерживается только в формате OpenEXR или PNG.
+recap.gui.rendersettings.camerapath=Экспорт пути камеры
+
+recap.gui.rendersettings.command=Команда
+recap.gui.rendersettings.arguments=Аргументы командной строки
+recap.gui.rendersettings.ffmpeg.description=Если вы опытный пользователь, вы можете настроить параметры командной строки, используемые для экспорта видео. Для получения дополнительной информации посетите http://recap.com/docs
+
+recap.gui.rendersettings.stabilizecamera=Стабилизировать камеру
+
+recap.gui.rendersettings.video=Настройки видео
+recap.gui.rendersettings.advanced=Расширенные настройки
+recap.gui.rendersettings.commandline=Параметры командной строки
+
+recap.gui.rendersettings.presets=Кодирование
+recap.gui.rendersettings.presets.mp4.custom=MP4 — Свой битрейт
+recap.gui.rendersettings.presets.mp4.default=MP4 — Обычное качество
+recap.gui.rendersettings.presets.mp4.potato=MP4 — Шакалистое качество
+recap.gui.rendersettings.presets.webm.custom=WEBM — Свой битрейт
+recap.gui.rendersettings.presets.mkv.lossless=MKV — Без потерь
+recap.gui.rendersettings.presets.blend=.blend-файл
+recap.gui.rendersettings.presets.png=Серия PNG-файлов
+recap.gui.rendersettings.presets.exr=Серия OpenEXR-файлов
+
+recap.gui.rendersettings.antialiasing=Сглаживание
+recap.gui.rendersettings.antialiasing.none=Нет
+recap.gui.rendersettings.antialiasing.x2=2x
+recap.gui.rendersettings.antialiasing.x4=4x
+recap.gui.rendersettings.antialiasing.x8=8x
+
+#Render Queue GUI
+recap.gui.renderqueue.title=Очередь рендеринга
+recap.gui.renderqueue.add=Добавить текущую дорожку
+recap.gui.renderqueue.renderall=Отрендерить всё
+recap.gui.renderqueue.renderselected=Отрендерить выбранное
+
+#Rendering GUI
+recap.gui.rendering.title=Рендер видео
+recap.gui.rendering.pause=Приостановить
+recap.gui.rendering.resume=Возобновить
+recap.gui.rendering.cancel=Отмена
+recap.gui.rendering.cancel.callback=Вы уверены?
+recap.gui.rendering.preview=Предпросмотр (Производительность может пострадать)
+recap.gui.rendering.progress=Обработано кадров: %1$d / %2$d
+recap.gui.rendering.timetaken=Время
+recap.gui.rendering.timeleft=Осталось времени
+
+#Render Errors
+recap.gui.rendering.error.title=Ошибка рендеринга
+recap.gui.rendering.error.message=Чтобы отрендерить видео, необходимо установить ffmpeg.
+recap.gui.rendering.error.ffmpeglog=Вывод FFmpeg:
+recap.gui.rendering.error.ffmpegargs.1=Похоже, аргументы командной строки были изменены.
+recap.gui.rendering.error.ffmpegargs.2=Вернуться к значениям по умолчанию и попробовать ещё раз?
+
+#Ingame Menu
+recap.gui.ingame.menu.addposkeyframe=Новый ключевой кадр позиции
+recap.gui.ingame.menu.removeposkeyframe=Удалить ключевой кадр позиции
+recap.gui.ingame.menu.addspeckeyframe=Новый ключевой кадр наблюдения
+recap.gui.ingame.menu.removespeckeyframe=Удалить ключевой кадр наблюдения
+recap.gui.ingame.menu.addtimekeyframe=Новый ключевой кадр времени
+recap.gui.ingame.menu.removetimekeyframe=Удалить ключевой кадр времени
+recap.gui.ingame.menu.pause=Приостановить повтор
+recap.gui.ingame.menu.unpause=Возобновить повтор
+recap.gui.ingame.menu.renderpath=Отрендерить
+recap.gui.ingame.menu.playpath=Воспроизвести дорожку
+recap.gui.ingame.menu.playpathfromstart=Воспроизвести дорожку с начала
+recap.gui.ingame.menu.pausepath=Приостановить дорожку
+recap.gui.ingame.menu.zoomin=Приблизить
+recap.gui.ingame.menu.zoomout=Отдалить
+
+recap.gui.ingame.unnamedmarker=Безымянный маркер события
+recap.gui.ingame.autoactivating=Эта привязка клавиш может автоматически активироваться в подходящее время.
+recap.gui.ingame.autoactivating.disable=Ctrl+ЛКМ — отключить автоматическую активацию.
+recap.gui.ingame.autoactivating.enable=Ctrl+ЛКМ — включить автоматическую активацию.
+recap.gui.ingame.first_keyframe_not_at_start_warning=Заданный первый ключевой кадр находится не в 00:00.\n\nОбычно это признак того, что вы не поняли,\nкак работает временная шкала видео (нижняя).\n\nВерхняя шкала определяет текущий момент повтора,\nа нижняя — текущий момент создаваемого видео.\nВидео всегда начинается с 00:00! Если первый ключевой кадр\nне в 00:00, видео будет казаться зависшим до этого кадра.
+
+#Clear Keyframe Callback
+recap.gui.clearcallback.title=Удалить все ключевые кадры?
+
+#Errors
+recap.error.unknownrestriction1=Повтор невозможно воспроизвести на текущей версии.
+recap.error.unknownrestriction2=Была попытка запустить неизвестную версию %s.
+recap.error.negativetime1=Ключевые кадры времени расставлены не по порядку.
+recap.error.negativetime2=Переход назад во времени не поддерживается.
+recap.error.negativetime3=Недействительные части помечены красным.
+
+#Recap Mod Incompatibility Warning
+recap.gui.modwarning.title=Обнаружена несовместимость
+recap.gui.modwarning.message1=Обнаружена возможная несовместимость между
+recap.gui.modwarning.message2=текущей версией Minecraft и выбранным повтором.
+recap.gui.modwarning.message3=Открытие повтора может привести к ошибкам или сбою.
+recap.gui.modwarning.name=Название:
+recap.gui.modwarning.id=ID:
+recap.gui.modwarning.missing=Недостающие моды
+recap.gui.modwarning.version=Различие версий
+recap.gui.modwarning.version.expected=Ожидаемая версия
+recap.gui.modwarning.version.found=Найденная версия
+
+#Advanced Screenshots Gui
+recap.gui.advancedscreenshots.title=Настройки скриншота
+recap.gui.advancedscreenshots.create=Сделать скриншот
+recap.gui.advancedscreenshots.resolution=Разрешение
+
+# Screenshot Finished Gui
+recap.gui.advancedscreenshots.finished.description=Скриншот создан!
+recap.gui.advancedscreenshots.finished.description.360=Скриншот с углом обзора в 360° создан!
+recap.gui.advancedscreenshots.finished.description.veer=Загрузите и посмотрите его в VR на VeeR.tv или откройте папку с файлом.
+recap.gui.advancedscreenshots.finished.upload.veer=Загрузить на VeeR.tv
+recap.gui.advancedscreenshots.finished.showfile=Показать в папке

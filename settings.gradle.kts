@@ -1,0 +1,141 @@
+pluginManagement {
+    repositories {
+        mavenLocal()
+        gradlePluginPortal()
+        mavenCentral()
+        google()
+        maven("https://jitpack.io")
+        maven("https://maven.fabricmc.net")
+        maven("https://maven.architectury.dev/")
+        maven("https://maven.minecraftforge.net")
+        maven("https://repo.essential.gg/repository/maven-public")
+    }
+    plugins {
+        id("gg.essential.multi-version.root") version "0.7.2"
+        id("com.gradleup.shadow") version "9.4.1"
+    }
+}
+
+// Recap Mod: the versions that are actually released and built by CI (see README.md).
+// The 1.21 build also runs on 1.21.1 (bug-fix release, no code changes).
+// The Gradle projects below additionally contain the whole version chain (older than the
+// preprocessor's main project, versions/mainProject -> 1.16.4) because the preprocessor resolves
+// the ancestor projects while preprocessing; those extra projects are never released.
+val supportedVersions = listOf(
+        "1.21",     // also runs on 1.21.1
+        "1.21.2",
+        "1.21.4",
+        "1.21.5",
+        "1.21.7",
+        "1.21.10",
+        "1.21.11",
+        "26.1",
+        "26.2",
+        "26.3",
+)
+// Declared targets which cannot be built yet (Minecraft release / tooling not published).
+// Enable them with `-Precap.experimental=true`; CI builds them as non-blocking jobs.
+val experimentalVersions = listOf(
+        "26.4",
+)
+val buildExperimental = settings.startParameter.projectProperties["recap.experimental"]
+        ?.toBoolean() ?: false
+
+val jGuiVersions = listOf(
+        // "1.7.10",
+        // "1.8",
+        "1.8.9",
+        "1.9.4",
+        "1.12",
+        "1.14.4-forge",
+        "1.14.4",
+        "1.15.2",
+        "1.16.1",
+        "1.16.4",
+        "1.17.1",
+        "1.18.1",
+        "1.18.2",
+        "1.19",
+        "1.19.1",
+        "1.19.2",
+        "1.19.3",
+        "1.19.4",
+        "1.20.1",
+        "1.20.2",
+        "1.20.4",
+        "1.20.6",
+        "1.21",
+        "1.21.2",
+        "1.21.4",
+        "1.21.5",
+        "1.21.7",
+        "1.21.10",
+        "1.21.11",
+        "26.1",
+        "26.2",
+        "26.3",
+)
+val recapModVersions = listOf(
+        // "1.7.10",
+        // "1.8",
+        "1.8.9",
+        "1.9.4",
+        "1.10.2",
+        "1.11",
+        "1.11.2",
+        "1.12",
+        "1.12.1",
+        "1.12.2",
+        "1.14.4-forge",
+        "1.14.4",
+        "1.15.2",
+        "1.16.1",
+        "1.16.4",
+        "1.17.1",
+        "1.18.1",
+        "1.18.2",
+        "1.19",
+        "1.19.1",
+        "1.19.2",
+        "1.19.3",
+        "1.19.4",
+        "1.20.1",
+        "1.20.2",
+        "1.20.4",
+        "1.20.6",
+        "1.21",
+        "1.21.2",
+        "1.21.4",
+        "1.21.5",
+        "1.21.7",
+        "1.21.10",
+        "1.21.11",
+        "26.1",
+        "26.2",
+        "26.3",
+) + (if (buildExperimental) experimentalVersions else emptyList())
+
+rootProject.buildFileName = "root.gradle.kts"
+
+includeBuild("libs/ReplayStudio")
+
+include(":jGui")
+project(":jGui").apply {
+    projectDir = file("jGui")
+    buildFileName = "root.gradle.kts"
+}
+jGuiVersions.forEach { version ->
+    include(":jGui:$version")
+    project(":jGui:$version").apply {
+        projectDir = file("jGui/versions/$version")
+        buildFileName = "../../build.gradle.kts"
+    }
+}
+
+recapModVersions.forEach { version ->
+    include(":$version")
+    project(":$version").apply {
+        projectDir = file("versions/$version")
+        buildFileName = "../../build.gradle.kts"
+    }
+}

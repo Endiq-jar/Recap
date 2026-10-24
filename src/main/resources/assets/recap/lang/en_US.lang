@@ -1,0 +1,378 @@
+recap.title=Recap Mod
+
+#All of the chat messages
+recap.chat.recordingstarted=Recording started
+recap.chat.recordingfailed=Failed to start recording
+
+recap.chat.savingthumb=Saving Thumbnail...
+recap.chat.savedthumb=Thumbnail has been successfully saved
+recap.chat.failedthumb=Thumbnail could not be saved
+
+recap.chat.addedmarker=Event Marker has been added
+
+#Chat messages displayed in Replay Viewer
+recap.chat.morekeyframes=At least 2 position keyframes and 2 time keyframes required
+recap.chat.pathstarted=Camera Path started
+recap.chat.pathfinished=Camera Path finished
+recap.chat.pathinterrupted=Camera Path canceled
+
+#Common GUI-related strings
+recap.gui.cancel=Cancel
+recap.gui.back=Back
+recap.gui.load=Load
+recap.gui.save=Save
+recap.gui.rename=Rename
+recap.gui.remove=Remove
+recap.gui.delete=Delete
+recap.gui.recording=Recording
+recap.gui.paused=Paused
+recap.gui.speed=Speed
+recap.gui.pleasewait=Please wait
+recap.gui.render=Render
+recap.gui.iphidden=Server IP Hidden
+recap.gui.overwrite=Overwrite
+recap.gui.saveas=Save as ...
+recap.gui.done=Done
+recap.gui.close=Close
+recap.gui.notagain=Don't show again
+recap.gui.edit=Edit
+recap.gui.copy=Copy
+recap.gui.paste=Paste
+
+recap.gui.recording.resume=Resume Recording
+recap.gui.recording.pause=Pause Recording
+recap.gui.recording.stop=Stop Recording
+recap.gui.recording.start=Start Recording
+
+recap.gui.renderdonetitle=Video rendered
+recap.gui.openfolder=Open Video Folder
+recap.gui.youtubeupload=Upload to YouTube
+recap.gui.renderdone1=Your video was successfully rendered.
+recap.gui.renderdone2=How would you like to proceed?
+recap.gui.videotitle=Title
+recap.gui.videodescription=Description
+recap.gui.videotags=Tags,Tags,Tags
+recap.gui.videothumbnail=Video Thumbnail
+recap.gui.videovisibility.private=Private
+recap.gui.videovisibility.unlisted=Unlisted
+recap.gui.videovisibility.public=Public
+recap.gui.ytuploadprogress.auth=[1/4] Authorization
+recap.gui.ytuploadprogress.prepare_video=[2/4] Preparing video: %%d%%%%
+recap.gui.ytuploadprogress.upload=[3/4] Uploading: %%d%%%%
+recap.gui.ytuploadprogress.cleanup=[4/4] Cleanup
+recap.gui.ytuploadprogress.done=Done: %s
+recap.gui.titleempty=Title cannot be empty
+recap.gui.videothumbnailtoolarge=Thumbnail size exceeds 2MB
+recap.gui.videothumbnailformat=Thumbnail has to be either JPEG or PNG format
+
+recap.gui.hours=h
+recap.gui.minutes=min
+recap.gui.seconds=sec
+recap.gui.milliseconds=ms
+
+recap.gui.pitch=Pitch
+recap.gui.yaw=Yaw
+recap.gui.roll=Roll
+
+recap.gui.camera=Camera
+recap.gui.position=Position
+
+recap.gui.unknownerror=An unknown error occured
+
+recap.gui.exit=Exit Replay
+
+recap.gui.settings=Settings
+
+recap.gui.keyframerepo.delete=Are you sure you want to delete these keyframes?
+recap.gui.keyframerepo.overwrite=Are you sure you want to overwrite these keyframes?
+
+recap.gui.restorereplay1=It seems like Minecraft has not quit normally.
+recap.gui.restorereplay2=The Replay "%1$s" was not saved correctly.
+recap.gui.restorereplay3=Do you wish to recover it?
+
+recap.gui.loadentitytracker=Loading entity positions: %%d%%%%
+recap.gui.loadquickmode=Loading Quick Mode: %%d%%%%
+recap.gui.noquickmode=Quick Mode is only available on Minecraft %1$s and above
+recap.gui.minimalmode.unsupported=This feature is not available for your current Minecraft version.
+recap.gui.minimalmode.supportedversion=(only Minecraft %1$s is supported by your Recap Mod version)
+
+#Only change these if it's neccessary
+recap.gui.replayviewer=Replay Viewer
+
+#Replay Viewer GUI
+recap.gui.viewer.rename.name=Replay Name
+recap.gui.viewer.replayfolder=Open Replay Folder...
+recap.gui.viewer.bulkrender=Render %1$d videos
+
+recap.gui.viewer.delete.linea=Are you sure you want to delete this replay?
+recap.gui.viewer.delete.failed1=Your OS did not allow us to remove the replay. There is
+recap.gui.viewer.delete.failed2=nothing we can do about this. You have to do it yourself.
+recap.gui.viewer.delete.lineb='%1$s' will be lost forever! (a long time!)
+
+#Replay Editor UI 2.0 (marker based UI)
+recap.gui.edit.apply=Apply
+recap.gui.edit.split=Insert split
+recap.gui.edit.split.tooltip=Split the Replay into multiple Replays at the marked point
+recap.gui.edit.cut.start=Insert cut
+recap.gui.edit.cut.end=End cut
+recap.gui.edit.cut.tooltip=Cut (remove) a section of the Replay
+
+#Cancel Replay GUI
+recap.gui.cancelrender.title=Cancel Rendering
+recap.gui.cancelrender.message=Are you sure that you want to cancel the current rendering process?
+#Saving Replay GUI
+recap.gui.replaysaving.title=Saving Replay File...
+
+#Player Overview GUI
+recap.gui.playeroverview.visible=Visible
+recap.gui.playeroverview.hideall=Hide all
+recap.gui.playeroverview.showall=Show all
+recap.gui.playeroverview.spectate=Spectate Player
+recap.gui.playeroverview.remembersettings=Remember Hidden Players
+recap.gui.playeroverview.remembersettings.description=Saves Player Visibility in Replay File
+
+#Recap Mod Settings GUI
+recap.gui.settings.title=Recap Mod Settings
+recap.gui.settings.default=DEFAULT
+
+recap.gui.settings.notifications=Enable Notifications
+recap.gui.settings.recordserver=Record Server
+recap.gui.settings.recordsingleplayer=Record Singleplayer
+recap.gui.settings.indicator=Recording Indicator
+recap.gui.settings.pathpreview=Show Path Preview
+recap.gui.settings.camera=Camera
+recap.gui.settings.showchat=Show Chat
+recap.gui.settings.interpolator=Default Interpolator
+recap.gui.settings.autostartrecording=Automatic Recording
+recap.gui.settings.rename_recording_dialog=Rename Dialog
+recap.gui.settings.fullbrightness=Full Brightness
+recap.gui.settings.fullbrightness.gamma=Gamma
+recap.gui.settings.fullbrightness.nightvision=Night Vision
+recap.gui.settings.fullbrightness.both=Both
+
+#Recap Mod Keybindings
+recap.input.lighting=Toggle Lighting
+recap.input.thumbnail=Capture Thumbnail
+recap.input.playeroverview=Player Overview
+recap.input.clearkeyframes=Clear Keyframes
+recap.input.synctimeline=Synchronize Timeline
+recap.input.keyframerepository=Open Keyframe Presets
+recap.input.rollclockwise=Roll Clockwise
+recap.input.rollcounterclockwise=Roll Counterclockwise
+recap.input.resettilt=Reset Camera Tilt
+recap.input.playpause=Play/Pause Replay
+recap.input.marker=Add Event Marker
+recap.input.pathpreview=Toggle Path Preview
+recap.input.settings=Recap Mod Settings
+recap.input.quickmode=Quick Mode
+recap.input.positionkeyframe=Position/Spectator Keyframe
+recap.input.positiononlykeyframe=Position Keyframe
+recap.input.timekeyframe=Time Keyframe
+recap.input.bothkeyframes=Position/Spectator + Time Keyframe
+
+# CameraControllers
+recap.camera.classic=Classic
+recap.camera.vanilla=Vanilla-ish
+
+#Keyframe Presets GUI
+recap.gui.keyframerepository.title=Keyframe Repository
+
+#Edit Keyframe GUI
+recap.gui.editkeyframe.title.pos=Edit Position Keyframe
+recap.gui.editkeyframe.title.time=Edit Time Keyframe
+recap.gui.editkeyframe.title.marker=Edit Event Marker
+recap.gui.editkeyframe.title.spec=Edit Spectator Keyframe
+recap.gui.editkeyframe.xpos=X Position
+recap.gui.editkeyframe.ypos=Y Position
+recap.gui.editkeyframe.zpos=Z Position
+recap.gui.editkeyframe.campitch=Camera Pitch
+recap.gui.editkeyframe.camyaw=Camera Yaw
+recap.gui.editkeyframe.camroll=Camera Roll
+recap.gui.editkeyframe.timelineposition=Timeline Position
+recap.gui.editkeyframe.markername=Event Marker Name
+recap.gui.editkeyframe.timestamp=Time Index
+
+recap.gui.editkeyframe.interpolator=Interpolator
+recap.gui.editkeyframe.interpolator.default.name=Default Interpolator
+recap.gui.editkeyframe.interpolator.default.desc=Uses the default interpolator defined in the Recap Mod Settings.
+recap.gui.editkeyframe.interpolator.catmullrom.name=Catmull Rom Spline Interpolator
+recap.gui.editkeyframe.interpolator.catmullrom.desc=Calculates a catmull rom spline with customizable alpha value for precise tightness and smoothness of the camera path.
+recap.gui.editkeyframe.interpolator.catmullrom.alpha=Alpha:
+recap.gui.editkeyframe.interpolator.cubic.name=Cubic Spline Interpolator
+recap.gui.editkeyframe.interpolator.cubic.desc=Calculates a cubic equation matrix for all points for a smooth camera path.
+recap.gui.editkeyframe.interpolator.linear.name=Linear Interpolator
+recap.gui.editkeyframe.interpolator.linear.desc=Draws straight lines between the keyframes.
+
+#Render Settings GUI
+recap.gui.rendersettings.addtoqueue=Add to Queue
+
+recap.gui.rendersettings.renderer=Rendering Method
+
+recap.gui.rendersettings.renderer.default=Default Rendering
+recap.gui.rendersettings.renderer.stereoscopic=Stereoscopic Rendering
+recap.gui.rendersettings.renderer.cubic=Cubic Rendering
+recap.gui.rendersettings.renderer.equirectangular=Equirectangular Rendering
+recap.gui.rendersettings.renderer.ods=ODS Rendering
+recap.gui.rendersettings.renderer.blend=Blender Export [Experimental]
+
+recap.gui.rendersettings.renderer.default.description=Renders the video in the specified resolution. Fastest Rendering Option.
+recap.gui.rendersettings.renderer.stereoscopic.description=Renders the video as a stereoscopic (side-by-side) 3D movie, usable by different 3D technologies. The image for one eye is half the width of the video
+recap.gui.rendersettings.renderer.cubic.description=Renders the video with a 360 degree panoramic view, using Cubic Projection. This is usable by several 360 degree video players (and the Oculus Rift), for example VR Player.
+recap.gui.rendersettings.renderer.equirectangular.description=Renders the video with a 360 degree panoramic view, using Equirectangular Projection. This is usable by YouTube's new 360 degree video function, and several video players (and the Oculus Rift), for example VR Player.
+recap.gui.rendersettings.renderer.ods.description=Renders the video with a stereoscopic 3D 360 degree panoramic view, also called VR Video. This is usable by YouTube's new VR video function.
+recap.gui.rendersettings.renderer.blend.description=Exports visible geometry as a .blend file which can be opened using the Blender software. Highly experimental: Requires lots of RAM, has quite a few known issues and sometimes produces broken Blender files.
+
+recap.gui.rendersettings.customresolution=Video Resolution
+recap.gui.rendersettings.customresolution.warning.yuv420=For this preset, the width and height values need to be even numbers
+recap.gui.rendersettings.customresolution.warning.yuv420.cubic=For this preset, the height must be divisible by 6
+recap.gui.rendersettings.customresolution.warning.cubic.height=Cubic Rendering requires a height divisible by 3
+recap.gui.rendersettings.bitrate=Bitrate
+recap.gui.rendersettings.framerate=Video Framerate
+recap.gui.rendersettings.chromakey=Chroma Keying
+recap.gui.rendersettings.nametags=Render Name Tags
+recap.gui.rendersettings.includealpha=Preserve Alpha Channel
+recap.gui.rendersettings.outputfile=Output File
+recap.gui.rendersettings.sphericalFov=Spherical FOV
+recap.gui.rendersettings.sphericalmetadata=Inject Spherical Metadata
+recap.gui.rendersettings.sphericalmetadata.error=Spherical Metadata can only be added to Equirectangular and ODS videos in MP4 format
+recap.gui.rendersettings.depthmap=Depth map
+recap.gui.rendersettings.depthmap.only_exr_or_png=Depth map export is only supported with OpenEXR or PNG format.
+recap.gui.rendersettings.camerapath=Export camera path
+
+recap.gui.rendersettings.command=Command
+recap.gui.rendersettings.arguments=Command Line Arguments
+recap.gui.rendersettings.ffmpeg.description=If you are an advanced user, you can customize the command line parameters used to export the video. For more information, check http://recap.com/docs
+
+recap.gui.rendersettings.stabilizecamera=Stabilize Camera
+
+recap.gui.rendersettings.video=Video Settings
+recap.gui.rendersettings.advanced=Advanced Settings
+recap.gui.rendersettings.commandline=Command Line Settings
+
+recap.gui.rendersettings.presets=Encoding Presets
+recap.gui.rendersettings.presets.mp4.custom=MP4 - Custom Bitrate
+recap.gui.rendersettings.presets.mp4.default=MP4 - Default Quality
+recap.gui.rendersettings.presets.mp4.potato=MP4 - Potato Quality
+recap.gui.rendersettings.presets.webm.custom=WEBM - Custom Bitrate
+recap.gui.rendersettings.presets.mkv.lossless=MKV - Lossless
+recap.gui.rendersettings.presets.blend=Blend file
+recap.gui.rendersettings.presets.png=PNG Sequence
+recap.gui.rendersettings.presets.exr=OpenEXR Sequence
+
+recap.gui.rendersettings.antialiasing=Anti-Aliasing
+recap.gui.rendersettings.antialiasing.none=None
+recap.gui.rendersettings.antialiasing.x2=2x
+recap.gui.rendersettings.antialiasing.x4=4x
+recap.gui.rendersettings.antialiasing.x8=8x
+
+#Render Queue GUI
+recap.gui.renderqueue.title=Render Queue
+recap.gui.renderqueue.add=Add current configuration
+recap.gui.renderqueue.renderall=Render All
+recap.gui.renderqueue.renderselected=Render Selected
+
+#Rendering GUI
+recap.gui.rendering.title=Rendering Video
+recap.gui.rendering.pause=Pause Rendering
+recap.gui.rendering.resume=Resume Rendering
+recap.gui.rendering.cancel=Cancel Rendering
+recap.gui.rendering.cancel.callback=Are you sure?
+recap.gui.rendering.preview=Show Preview (Performance might suffer)
+recap.gui.rendering.progress=Frames rendered: %1$d / %2$d
+recap.gui.rendering.timetaken=Render Time
+recap.gui.rendering.timeleft=Time Left
+
+#Render Errors
+recap.gui.rendering.error.title=Rendering Failed
+recap.gui.rendering.error.message=To render a video, you need to have ffmpeg installed.
+recap.gui.rendering.error.ffmpeglog=FFmpeg output:
+recap.gui.rendering.error.ffmpegargs.1=It seems like you have modified the Command Line Arguments.
+recap.gui.rendering.error.ffmpegargs.2=Do you want to reset them to the defaults and try again?
+
+#Ingame Menu
+recap.gui.ingame.menu.addposkeyframe=Add Position Keyframe
+recap.gui.ingame.menu.removeposkeyframe=Remove Position Keyframe
+recap.gui.ingame.menu.addspeckeyframe=Add Spectator Keyframe
+recap.gui.ingame.menu.removespeckeyframe=Remove Spectator Keyframe
+recap.gui.ingame.menu.addtimekeyframe=Add Time Keyframe
+recap.gui.ingame.menu.removetimekeyframe=Remove Time Keyframe
+recap.gui.ingame.menu.pause=Pause Replay
+recap.gui.ingame.menu.unpause=Unpause Replay
+recap.gui.ingame.menu.renderpath=Render Camera Path
+recap.gui.ingame.menu.playpath=Play Camera Path from Cursor Position
+recap.gui.ingame.menu.playpathfromstart=Play Camera Path from Start
+recap.gui.ingame.menu.pausepath=Pause Camera Path
+recap.gui.ingame.menu.zoomin=Zoom in
+recap.gui.ingame.menu.zoomout=Zoom out
+
+recap.gui.ingame.unnamedmarker=Unnamed Event Marker
+recap.gui.ingame.autoactivating=This keybinding may auto-activate at appropriate times.
+recap.gui.ingame.autoactivating.disable=Ctrl-click to disable auto-activation.
+recap.gui.ingame.autoactivating.enable=Ctrl-click to enable auto-activation.
+recap.gui.ingame.first_keyframe_not_at_start_warning=You just placed your first keyframe and it's not at 00:00.\n\nThis usually is an indication that you have misunderstood how the\nvideo timeline (that's the bottom one) works:\n\nWhile The top timeline shows your current time in the replay,\nthe bottom one shows the time in the video you are creating.\nThe video will always start at 00:00! If your first keyframe is not at 00:00,\nthen the video will appear frozen until the time of the first keyframe!
+
+#Clear Keyframe Callback
+recap.gui.clearcallback.title=Clear all Keyframes?
+
+#Errors
+recap.error.unknownrestriction1=This replay cannot be played with your current version.
+recap.error.unknownrestriction2=It tried to enforce %s which is unknown.
+recap.error.negativetime1=Some of your time keyframes are out of order.
+recap.error.negativetime2=Going backwards in time is not supported.
+recap.error.negativetime3=The invalid parts are marked in red.
+
+#Recap Mod Incompatibility Warning
+recap.gui.modwarning.title=Incompatibility detected
+recap.gui.modwarning.message1=A possible incompatibility between your current
+recap.gui.modwarning.message2=Minecraft version and this Replay has been detected.
+recap.gui.modwarning.message3=Loading this Replay may result in errors or a crash.
+recap.gui.modwarning.name=Mod Name:
+recap.gui.modwarning.id=Mod Id:
+recap.gui.modwarning.missing=Missing Mods
+recap.gui.modwarning.version=Different Mod Versions
+recap.gui.modwarning.version.expected=Expected
+recap.gui.modwarning.version.found=Found
+
+#Advanced Screenshots Gui
+recap.gui.advancedscreenshots.title=Screenshot Settings
+recap.gui.advancedscreenshots.create=Take Screenshot
+recap.gui.advancedscreenshots.resolution=Resolution
+
+# Screenshot Finished Gui
+recap.gui.advancedscreenshots.finished.description=You successfully created a Screenshot!
+recap.gui.advancedscreenshots.finished.description.360=You successfully created a 360° Screenshot!
+recap.gui.advancedscreenshots.finished.description.veer=Upload and view the image in VR on VeeR.tv or open it on your disk.
+recap.gui.advancedscreenshots.finished.upload.veer=Upload to VeeR.tv
+recap.gui.advancedscreenshots.finished.showfile=Show file on disk
+
+#Recap Mod - redesigned interface
+recap.gui.settings.subtitle=Recording, replays and rendering - grouped by topic
+recap.gui.settings.hint=Click a value to change it. Changes are saved immediately.
+recap.gui.settings.category.core=General
+recap.gui.settings.category.recording=Recording
+recap.gui.settings.category.replay=Replay Viewer
+recap.gui.settings.category.render=Rendering
+recap.gui.settings.category.pathing=Camera Paths
+recap.gui.settings.category.advanced=Advanced
+recap.gui.restorereplay.title=Unfinished replay found
+recap.gui.restorereplay.subtitle=Recap Mod can try to recover the recording below
+recap.gui.restorereplay.hint=Recovery keeps the replay file on disk and only repairs its index.
+recap.gui.modwarning.subtitle=This replay was recorded with a different set of mods
+recap.gui.viewer.subtitle=All recordings in your replay folder - double click to play
+recap.gui.viewer.footer=Ctrl+F filter | Del remove | Enter play
+recap.gui.settings.category.all=All settings
+recap.gui.viewer.column.replay=REPLAYS
+recap.gui.viewer.count.one=replay
+recap.gui.viewer.count.many=replays
+recap.gui.rendersettings.title=Render Settings
+recap.gui.rendersettings.subtitle=Everything the video renderer needs - one panel, no scrolling through tabs
+recap.gui.renderdone.subtitle=Your video is ready - the render queue has moved on
+recap.gui.rendering.error.subtitle=The renderer could not start with these settings
+recap.gui.noffmpeg.subtitle=FFmpeg is required to render videos - install it and try again
+recap.gui.modwarning.hint=Missing mods change how the replay looks; loading may fail
+recap.gui.playeroverview.hint=Click a face to toggle spectating, click the checkmark to toggle visibility
+recap.gui.rendering.title=Rendering Video
+recap.gui.rendering.subtitle=Recap Mod writes every frame through FFmpeg - leave the game alone while it runs
+recap.gui.renderdone.filename=File
+recap.gui.youtube.title=Upload to YouTube
+recap.gui.youtube.subtitle=Pick a title, a description and a thumbnail before publishing

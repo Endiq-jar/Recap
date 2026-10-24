@@ -1,0 +1,333 @@
+recap.title=Replay Mód
+
+#All of the chat messages
+recap.chat.recordingstarted=Nahrávanie začalo
+recap.chat.recordingfailed=Pri nahrávaní nastala chyba
+
+recap.chat.savingthumb=Ukladám náhľad...
+recap.chat.savedthumb=Náhľad bol uložený
+recap.chat.failedthumb=Náhľad nemohol byť uložený
+
+recap.chat.addedmarker=Poznámka udalosti
+
+#Chat messages displayed in Replay Viewer
+recap.chat.morekeyframes=Aspoň 2 kľúčové pozície a snímky sú povinné
+recap.chat.pathstarted=Cesta kamery začala
+recap.chat.pathfinished=Cesta kamery skončila
+recap.chat.pathinterrupted=Cesta kamery bola ukončená
+
+#Common GUI-related strings
+recap.gui.cancel=Zrušiť
+recap.gui.back=Späť
+recap.gui.load=Načítať
+recap.gui.save=Uložiť
+recap.gui.rename=Premenovať
+recap.gui.remove=Odstrániť
+recap.gui.delete=Vymazať
+recap.gui.paused=Zastavené
+recap.gui.speed=Rýchlosť
+recap.gui.pleasewait=Prosím počkajte
+recap.gui.render=Vykresliť
+recap.gui.iphidden=Adresa servera skrytá
+recap.gui.overwrite=Prepísať
+recap.gui.saveas=Uložiť ako...
+recap.gui.done=Hotovo
+recap.gui.close=Zavrieť
+recap.gui.notagain=Túto správu viac neukazovať
+recap.gui.edit=Upraviť
+recap.gui.copy=Kopírovať
+recap.gui.paste=Prilepiť
+
+recap.gui.recording.resume=Pokračovať nahrávanie
+recap.gui.recording.pause=Pozastaviť nahrávanie
+recap.gui.recording.stop=Zastaviť nahrávanie
+recap.gui.recording.start=Začať nahrávanie
+
+recap.gui.renderdonetitle=Video vykreslené
+recap.gui.openfolder=Otvoriť priečinok s nahrávkami
+recap.gui.youtubeupload=Nahrať na YouTube
+recap.gui.renderdone1=Vaše video bolo vykreslené.
+recap.gui.renderdone2=Ako by ste rádi pokračovali?
+recap.gui.videotitle=Názov
+recap.gui.videodescription=Popis
+recap.gui.videotags=Vlajky, vlajky, vlajky...
+recap.gui.videothumbnail=Náhľad videa
+recap.gui.videovisibility.private=Súkromné
+recap.gui.videovisibility.unlisted=Nezaradené
+recap.gui.videovisibility.public=Verejné
+recap.gui.ytuploadprogress.auth=[1/4] Schvaľovanie
+recap.gui.ytuploadprogress.prepare_video=[2/4] Pripravovanie: %%d%%%%
+recap.gui.ytuploadprogress.upload=[3/4] Nahrávanie: %%d%%%%
+recap.gui.ytuploadprogress.cleanup=[4/4] Čistenie
+recap.gui.ytuploadprogress.done=Hotovo: %s
+recap.gui.titleempty=Názov nemôže byť prázdny
+recap.gui.videothumbnailtoolarge=Náhľad má viac ako 2MB
+recap.gui.videothumbnailformat=Náhľad môže byť JPEG alebo PNG
+
+recap.gui.hours=h
+recap.gui.minutes=min
+recap.gui.seconds=sek
+recap.gui.milliseconds=ms
+
+recap.gui.camera=Kamera
+recap.gui.position=Pozícia
+
+recap.gui.unknownerror=Nastala neznáma chyba
+
+recap.gui.exit=Odísť z prehrávania
+
+recap.gui.settings=Nastavenia
+
+recap.gui.keyframerepo.delete=Ste si istý že chcete vymazať tieto kľúčové snímky?
+recap.gui.keyframerepo.overwrite=Ste si istý že chcete prepísať tieto kľúčové snímky?
+
+recap.gui.restorereplay1=Vyzerá to tak že hra nebola zatvorená normálne.
+recap.gui.restorereplay2=Nahrávka "%1$s" nebola správne uložená.
+recap.gui.restorereplay3=Chcete ju obnoviť?
+
+recap.gui.loadentitytracker=Načítavanie pozíc entít: %%d%%%%
+recap.gui.loadquickmode=Načítava sa rýchly mód: %%d%%%%
+recap.gui.noquickmode=Rýchly mód je dostupný len v Minecrafte %1$s a viac
+recap.gui.minimalmode.unsupported=Táto funkcia nie je dostupná vo vašej verzii Minecraftu.
+recap.gui.minimalmode.supportedversion=(len na Minecraft %1$s je dostupná táto verzia Replay módu)
+
+#Only change these if it's neccessary
+recap.gui.replayviewer=Zobrazovač nahrávok
+
+#Replay Viewer GUI
+recap.gui.viewer.rename.name=Meno nahrávky
+recap.gui.viewer.replayfolder=Otvoriť priečinok nahrávok...
+recap.gui.viewer.bulkrender=Vykresli %1$d videí
+
+recap.gui.viewer.delete.linea=Ste si istý že chcete vymazať túto nahrávku?
+recap.gui.viewer.delete.failed1=Váš operačný systém nepovoľuje vymazanie nahrávky. Nie je
+recap.gui.viewer.delete.failed2=nič čo by sme mohli spraviť. Musíte to spraviť sami.
+recap.gui.viewer.delete.lineb='%1$s' bute navždy preč! (Navždy!)
+
+#Replay Editor UI 2.0 (marker based UI)
+recap.gui.edit.apply=Použiť
+recap.gui.edit.split=Rozdeliť
+recap.gui.edit.split.tooltip=Rozdeluje Nahrávku do viacerých v označenom bode
+recap.gui.edit.cut.start=Pridať strih
+recap.gui.edit.cut.end=Ukončiť strih
+recap.gui.edit.cut.tooltip=Vystrihne (vymaže) časť nahrávky
+
+#Cancel Replay GUI
+recap.gui.cancelrender.title=Zrušiť vykreslenie
+recap.gui.cancelrender.message=Ste si istý že chcete zrušiť vykreslovanie nahrávky?
+#Saving Replay GUI
+recap.gui.replaysaving.title=Ukladá sa nahrávka...
+
+#Player Overview GUI
+recap.gui.playeroverview.visible=Viditeľné
+recap.gui.playeroverview.hideall=Skryť všetko
+recap.gui.playeroverview.showall=Zobraziť všetko
+recap.gui.playeroverview.spectate=Pozorovať hráča
+recap.gui.playeroverview.remembersettings=Zapamätať skrytých hráčov
+recap.gui.playeroverview.remembersettings.description=Zapamätá skrytie hráčov po zatvorení
+
+#Recap Mod Settings GUI
+recap.gui.settings.title=Nastavenia Replay módu
+recap.gui.settings.default=Predvolené
+
+recap.gui.settings.notifications=Zapnúť upozornenia
+recap.gui.settings.recordserver=Nahrávať servery
+recap.gui.settings.recordsingleplayer=Nahrávať svety
+recap.gui.settings.indicator=Ukazovateľ nahrávania
+recap.gui.settings.pathpreview=Ukázať cestu
+recap.gui.settings.camera=Kamera
+recap.gui.settings.showchat=Ukázať čet
+recap.gui.settings.interpolator=Predvolený zakladač
+recap.gui.settings.autostartrecording=Automatické nahrávanie
+recap.gui.settings.rename_recording_dialog=Premenovať dialóg
+recap.gui.settings.fullbrightness=Plný jas
+recap.gui.settings.fullbrightness.gamma=Gama
+recap.gui.settings.fullbrightness.nightvision=Nočné videnie
+recap.gui.settings.fullbrightness.both=Obe
+
+#Recap Mod Keybindings
+recap.input.lighting=Prepnúť osvetlenie
+recap.input.thumbnail=Zosnímať náhľad
+recap.input.playeroverview=Prehľad hráča
+recap.input.clearkeyframes=Vyčistiť kľúčové snímky
+recap.input.synctimeline=Synchronizovať časovú os
+recap.input.keyframerepository=Otvoriť prednastavenia kľúčových snímok
+recap.input.rollclockwise=Otáčka vpravo
+recap.input.rollcounterclockwise=Otáčka vľavo
+recap.input.resettilt=Resetovať otáčku
+recap.input.playpause=Prehrať/pozastaviť
+recap.input.marker=Pridať poznámku udalosti
+recap.input.pathpreview=Prepnúť prehľad cesty
+recap.input.settings=Nastavenia Replay módu
+recap.input.quickmode=Rýchly mód
+recap.input.positionkeyframe=Kľúčová snímka pozície/sledovača
+recap.input.positiononlykeyframe=Kľúčová snímka pozície
+recap.input.timekeyframe=Kľúčová snímka času
+recap.input.bothkeyframes=Obe kľúčové snímky
+
+# CameraControllers
+recap.camera.classic=Klasická
+recap.camera.vanilla=Približne vanilová
+
+#Edit Keyframe GUI
+recap.gui.editkeyframe.title.pos=Upraviť kľúčovú snímku pozície
+recap.gui.editkeyframe.title.time=Upraviť kľúčovú snímku času
+recap.gui.editkeyframe.title.marker=Upraviť poznámku udalosti
+recap.gui.editkeyframe.title.spec=Upraviť kľúčového pozorovača
+recap.gui.editkeyframe.xpos=X Pozícia
+recap.gui.editkeyframe.ypos=Y Pozícia
+recap.gui.editkeyframe.zpos=Z Pozícia
+recap.gui.editkeyframe.campitch=Pitch kamery
+recap.gui.editkeyframe.camyaw=Yaw kamery
+recap.gui.editkeyframe.camroll=Roll kamery
+recap.gui.editkeyframe.timelineposition=Pozícia časovej osi
+recap.gui.editkeyframe.markername=Meno poznámky udalosti
+recap.gui.editkeyframe.timestamp=Časový index
+
+recap.gui.editkeyframe.interpolator=Zakladač                              #may change later
+recap.gui.editkeyframe.interpolator.default.name=Predvolený zakladač
+recap.gui.editkeyframe.interpolator.default.desc=Používa predvolený zakladač definovaný v nastaveniach módu.
+recap.gui.editkeyframe.interpolator.catmullrom.alpha=Alfa:
+recap.gui.editkeyframe.interpolator.linear.name=Lineárny zakladač
+recap.gui.editkeyframe.interpolator.linear.desc=Vykreslí priamu čiaru pohybu.
+
+#Render Settings GUI
+recap.gui.rendersettings.addtoqueue=Pridať do poradia
+
+recap.gui.rendersettings.renderer=Metóda vykresľovania
+
+recap.gui.rendersettings.renderer.default=Predvolené
+recap.gui.rendersettings.renderer.stereoscopic=3D Anaglyf
+recap.gui.rendersettings.renderer.cubic=Kubické 360°
+recap.gui.rendersettings.renderer.equirectangular=Rovnoramenné
+recap.gui.rendersettings.renderer.ods=ODS
+recap.gui.rendersettings.renderer.blend=Export do blendera (Experimentálne)
+
+recap.gui.rendersettings.renderer.default.description=Vykreslí video v zadanom rozlíšení. Najrýchlejšia metóda.
+recap.gui.rendersettings.renderer.stereoscopic.description=Vykreslí video stereoskopicky, použiteľné rôznymi 3D technológiami. Snímka pre jedno oko je o polovicu tenšia ako celé video.
+recap.gui.rendersettings.renderer.cubic.description=Vykreslí video ako 360° panorámu s použitím kubickej projekcie. Použiteľné v niekoľkých 360° prehrávačoch a v Oculus Rift.
+recap.gui.rendersettings.renderer.equirectangular.description=Vykreslí video ako 360° panorámu s použitím rovnoramennej projekcie. Používa youtube a niekoľkých 360° prehrávačoch a v Oculus Rift.
+recap.gui.rendersettings.renderer.ods.description=Vykreslí video s 3D anaglyfom a 360° panorámou, tiež zvanej VR Video. Použiteľné s Youtube VR prehrávačom.
+recap.gui.rendersettings.renderer.blend.description=Exportuje geometriu sko *.blend súbor, ktorý je použiteľný v Blenderi. Veľmi experimentálne: Vyžaduje veľa RAM, má veľa chýb a niekedy produkuje skazené súbory.
+
+recap.gui.rendersettings.customresolution=Rozlíšenie videa
+recap.gui.rendersettings.customresolution.warning.yuv420=Pre toto prednastavenie, šírka a výška musia byť také isté číslo
+recap.gui.rendersettings.customresolution.warning.yuv420.cubic=Pre toto prednastavenie, výška musí byť deliteľná 6
+recap.gui.rendersettings.customresolution.warning.cubic.height=Kubické vykreslenie potrebuje výšku deliteľnú 3
+recap.gui.rendersettings.bitrate=Dátový tok
+recap.gui.rendersettings.framerate=Snímkopočet videa
+recap.gui.rendersettings.chromakey=Farebné kľúčovanie
+recap.gui.rendersettings.nametags=Zobrazovať prezývky
+recap.gui.rendersettings.outputfile=Výstupný súbor
+recap.gui.rendersettings.sphericalFov=Guľovité zorné pole
+recap.gui.rendersettings.sphericalmetadata=Vložiť guľovité metadáta 
+recap.gui.rendersettings.sphericalmetadata.error=Guľovité metadáta môžu byť pridané len do rovnoramenných a 0DS videí v MP4 formáte
+recap.gui.rendersettings.depthmap=Hĺbková mapa
+recap.gui.rendersettings.depthmap.only_exr_or_png=Export hĺbkovej mapy je možný len v OpenEXR alebo PNG formátoch.
+recap.gui.rendersettings.camerapath=Exportovať cestu kamery
+
+recap.gui.rendersettings.command=Príkaz
+recap.gui.rendersettings.arguments=Argumenty príkazového riadku
+recap.gui.rendersettings.ffmpeg.description=Ak ste pokročilý používateľ, môžete upravovať príkazy riadku používané pre export videa. Pre viac informácií sa pozrite na: http://recap.com/docs
+
+recap.gui.rendersettings.stabilizecamera=Stabilizovať kameru
+
+recap.gui.rendersettings.video=Nastavenia videa
+recap.gui.rendersettings.advanced=Pokročilé nastavenia
+recap.gui.rendersettings.commandline=Nastavenia príkazového riadku
+
+recap.gui.rendersettings.presets=Prednastavenia enkódovania
+recap.gui.rendersettings.presets.mp4.custom=MP4 - Vlastný dátový tok
+recap.gui.rendersettings.presets.mp4.default=MP4 - Predvolená kvalita
+recap.gui.rendersettings.presets.mp4.potato=MP4 - Kvalita zemiaku        #tvojej mamky XD
+recap.gui.rendersettings.presets.webm.custom=WEBM - Vlastný dátový tok
+recap.gui.rendersettings.presets.mkv.lossless=MKV - Bezstratové
+recap.gui.rendersettings.presets.blend=Blend súbor
+recap.gui.rendersettings.presets.png=PNG Sekvencia
+recap.gui.rendersettings.presets.exr=OpenEXR Sekvencia
+
+recap.gui.rendersettings.antialiasing=Vyhladzovanie
+recap.gui.rendersettings.antialiasing.none=Žiadne
+recap.gui.rendersettings.antialiasing.x2=2x
+recap.gui.rendersettings.antialiasing.x4=4x
+recap.gui.rendersettings.antialiasing.x8=8x
+
+#Render Queue GUI
+recap.gui.renderqueue.title=Poradie vykreslovania
+recap.gui.renderqueue.add=Pridať terajšie nastavenie
+recap.gui.renderqueue.renderall=Vykresliť VŠETKO
+recap.gui.renderqueue.renderselected=Vykresliť označené
+
+#Rendering GUI
+recap.gui.rendering.title=Vykreslovanie videa
+recap.gui.rendering.pause=Pozastaviť vykreslovanie
+recap.gui.rendering.resume=Pokračovať vykreslovať
+recap.gui.rendering.cancel=Zrušiť vykreslovanie
+recap.gui.rendering.cancel.callback=Ste si istý?
+recap.gui.rendering.preview=Ukázať náhľad (Výkon sa môže zmeniť)
+recap.gui.rendering.progress=Snímky vykreslené: %1$d / %2$d
+recap.gui.rendering.timetaken=Čas vykreslovania
+recap.gui.rendering.timeleft=Približný čas zostáva
+
+#Render Errors
+recap.gui.rendering.error.title=Pri vykreslovaní nastala chyba
+recap.gui.rendering.error.message=Aby ste mohli vykresliť video musíte stiahnuť ffmpeg a dať to do .minecraft .
+recap.gui.rendering.error.ffmpeglog=FFmpeg výstup:
+recap.gui.rendering.error.ffmpegargs.1=Vyzerá to tak že príkazové argumenty boli zmenené.
+recap.gui.rendering.error.ffmpegargs.2=Chcete ich zmeniť na pôvodnú hodnotu a pokračovať?
+
+#Ingame Menu
+recap.gui.ingame.menu.addposkeyframe=Pridať kľúčovú pozíciu
+recap.gui.ingame.menu.removeposkeyframe=Zmazať kľúčovú pozíciu
+recap.gui.ingame.menu.addspeckeyframe=Pridať kľúčového pozorovača
+recap.gui.ingame.menu.removespeckeyframe=Zmazať kľúčového pozorovača
+recap.gui.ingame.menu.addtimekeyframe=Pridať kľúčový čas
+recap.gui.ingame.menu.removetimekeyframe=Zmazať kľúčový čas
+recap.gui.ingame.menu.pause=Pozastaviť prehrávanie
+recap.gui.ingame.menu.unpause=Pokračovať prehrávanie
+recap.gui.ingame.menu.renderpath=Vykresliť cestu kamery
+recap.gui.ingame.menu.playpath=Prehrať cestu kamery od pozície kurzora
+recap.gui.ingame.menu.playpathfromstart=Prehrať cestu kamery od začiatku
+recap.gui.ingame.menu.pausepath=Pozastaviť cestu kamery
+recap.gui.ingame.menu.zoomin=Priblížiť
+recap.gui.ingame.menu.zoomout=Oddialiť
+
+recap.gui.ingame.unnamedmarker=Nepomenovaná značka udalosti
+recap.gui.ingame.autoactivating=Táto možnosť sa môže autoaktivovať v nechcených časoch.
+recap.gui.ingame.autoactivating.disable=Ctrl-klik pre zrušenie autoaktivácie.
+recap.gui.ingame.autoactivating.enable=Ctrl-klik pre povolenie autoaktivácie.
+recap.gui.ingame.first_keyframe_not_at_start_warning=Práve ste položili svoju prvú kľúčovú snímku ale nie je na 00:00.\n\nToto väčšinou značí to že ste nepochopili ako funguje\nčasová os (tá nižšia).\n\nHorná os ukazuje čas v nahrávke,\ndolná ukazuje čas vo výtvore.\nVideo vždy začne na 00:00! Ak vaša kľúčová snímka nie je na 00:00,\ntak bude video zmrazené po čas prvej kľúčovej snímky!
+
+#Clear Keyframe Callback
+recap.gui.clearcallback.title=Vyčistiť všetky kľúčové snímky?
+
+#Errors
+recap.error.unknownrestriction1=Túto nahrávku nie je možná prehrať vo vašej verzii.
+recap.error.unknownrestriction2=Snažilo sa to presadiť %s čo ale nie je známe.
+recap.error.negativetime1=niektoré vaše kľúčové snímky sú zle načasované.
+recap.error.negativetime2=ísť späť v čase nie je podporované.
+recap.error.negativetime3=Neplatné časti sú označené červenou.
+
+#Recap Mod Incompatibility Warning
+recap.gui.modwarning.title=Detekovaná nekompatibilita
+recap.gui.modwarning.message1=Vaša verzia minecraftu je možno nekompatibilná
+recap.gui.modwarning.message2=s touto nahrávkou.
+recap.gui.modwarning.message3=Oné načítanie môže spôsobiť problémy.
+recap.gui.modwarning.name=Názov módu:
+recap.gui.modwarning.id=ID módu:
+recap.gui.modwarning.missing=Chýbajúce módy
+recap.gui.modwarning.version=Inakšie verzie módov
+recap.gui.modwarning.version.expected=Očakávané
+recap.gui.modwarning.version.found=Nájdené
+
+#Advanced Screenshots Gui
+recap.gui.advancedscreenshots.title=Nastavenia snímku obrazovky
+recap.gui.advancedscreenshots.create=Spraviť snímku obrazovky
+recap.gui.advancedscreenshots.resolution=Rozlíšenie
+
+# Screenshot Finished Gui
+recap.gui.advancedscreenshots.finished.description=Práve ste úspešne vytvorili snímku obrazovky!
+recap.gui.advancedscreenshots.finished.description.360=práve ste úspešne vytvorili 360° snímku obrazovky!
+recap.gui.advancedscreenshots.finished.description.veer=Nahrajte a pozerajte obrázok vo VR alebo na VeeR.tv alebo to otvorte z disku.
+recap.gui.advancedscreenshots.finished.upload.veer=Nahrať na VeeR.tv
+recap.gui.advancedscreenshots.finished.showfile=Otvoriť priečinok so súborom

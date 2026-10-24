@@ -1,0 +1,129 @@
+[
+  {
+    "modid": "recap",
+    "name": "Recap Mod",
+    "description": "Recap Mod - record, replay and share your Minecraft experience.",
+    "version": "${version}",
+    "mcversion": "${mcVersionStr}",
+    "url": "https://github.com/Endiq-jar/Recap",
+    "updateUrl": "https://github.com/Endiq-jar/Recap/releases",
+    "authorList": [
+      "TurtleOfficials"
+    ],
+    "logoFile": "recap_logo.png",
+    "screenshots": [],
+    "dependencies": []
+  },
+  {
+    "modid": "recap-recording",
+    "name": "Recap Mod - Recording",
+    "description": "Recording Module of the Recap Mod",
+    "version": "${version}",
+    "mcversion": "${mcVersionStr}",
+    "url": "https://github.com/Endiq-jar/Recap",
+    "updateUrl": "https://github.com/Endiq-jar/Recap/releases",
+    "authorList": [
+      "TurtleOfficials"
+    ],
+    "logoFile": "recap_logo.png",
+    "parent": "recap",
+    "screenshots": [],
+    "dependencies": []
+  },
+  {
+    "modid": "recap-replay",
+    "name": "Recap Mod - Replay",
+    "description": "Recap Mod - replay recording, playback, editing and rendering",
+    "version": "${version}",
+    "mcversion": "${mcVersionStr}",
+    "url": "https://github.com/Endiq-jar/Recap",
+    "updateUrl": "https://github.com/Endiq-jar/Recap/releases",
+    "authorList": [
+      "TurtleOfficials"
+    ],
+    "logoFile": "recap_logo.png",
+    "parent": "recap",
+    "screenshots": [],
+    "dependencies": []
+  },
+  {
+    "modid": "recap-simplepathing",
+    "name": "Recap Mod - Simple Pathing",
+    "description": "Simple Pathing Module of the Recap Mod - aka the original pathing",
+    "version": "${version}",
+    "mcversion": "${mcVersionStr}",
+    "url": "https://github.com/Endiq-jar/Recap",
+    "updateUrl": "https://github.com/Endiq-jar/Recap/releases",
+    "authorList": [
+      "TurtleOfficials"
+    ],
+    "logoFile": "recap_logo.png",
+    "parent": "recap",
+    "screenshots": [],
+    "dependencies": ["required-after:recap-replay", "required-after:recap-render"]
+  },
+  {
+    "modid": "recap-render",
+    "name": "Recap Mod - Render",
+    "description": "Render Module of the Recap Mod",
+    "version": "${version}",
+    "mcversion": "${mcVersionStr}",
+    "url": "https://github.com/Endiq-jar/Recap",
+    "updateUrl": "https://github.com/Endiq-jar/Recap/releases",
+    "authorList": [
+      "TurtleOfficials"
+    ],
+    "logoFile": "recap_logo.png",
+    "parent": "recap",
+    "screenshots": [],
+    "dependencies": ["required-after:recap-replay"]
+  },
+  {
+    "modid": "recap-editor",
+    "name": "Recap Mod - Replay Editor",
+    "description": "Replay Editor Module of the Recap Mod",
+    "version": "${version}",
+    "mcversion": "${mcVersionStr}",
+    "url": "https://github.com/Endiq-jar/Recap",
+    "updateUrl": "https://github.com/Endiq-jar/Recap/releases",
+    "authorList": [
+      "TurtleOfficials"
+    ],
+    "logoFile": "recap_logo.png",
+    "parent": "recap",
+    "screenshots": [],
+    "dependencies": []
+  },
+  {
+    "modid": "recap-extras",
+    "name": "Recap Mod - Extras",
+    "description": "Extras Module of the Recap Mod - Small but neat additions",
+    "version": "${version}",
+    "mcversion": "${mcVersionStr}",
+    "url": "https://github.com/Endiq-jar/Recap",
+    "updateUrl": "https://github.com/Endiq-jar/Recap/releases",
+    "authorList": [
+      "TurtleOfficials"
+    ],
+    "logoFile": "recap_logo.png",
+    "parent": "recap",
+    "screenshots": [],
+    "dependencies": []
+  },
+  {
+      "modid": "recap-compat",
+      "name": "Recap Mod - Compatibility",
+      "description": "Compatibility Module of the Recap Mod - Adds compatibility with other mods",
+      "version": "${version}",
+      "mcversion": "${mcVersionStr}",
+      "url": "https://github.com/Endiq-jar/Recap",
+      "updateUrl": "https://github.com/Endiq-jar/Recap/releases",
+      "authorList": [
+      "TurtleOfficials"
+    ],
+      "logoFile": "recap_logo.png",
+      "parent": "recap",
+      "screenshots": [],
+      "dependencies": []
+    }
+]

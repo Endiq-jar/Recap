@@ -1,0 +1,224 @@
+recap.title=Recap Mod
+
+#All of the chat messages
+recap.chat.recordingstarted=開始錄製
+recap.chat.recordingfailed=無法啟動錄製
+
+recap.chat.savingthumb=儲存縮圖...
+recap.chat.savedthumb=縮圖已成功儲存
+recap.chat.failedthumb=縮圖無法保存
+
+recap.chat.addedmarker=已增加事件標籤
+
+#Chat messages displayed in Replay Viewer
+recap.chat.morekeyframes=至少需要兩個位置關鍵影格以及兩個時間關鍵影格
+recap.chat.pathstarted=啟動鏡頭路徑
+recap.chat.pathfinished=完成鏡頭路徑
+recap.chat.pathinterrupted=取消鏡頭路徑
+
+#Common GUI-related strings
+recap.gui.cancel=取消
+recap.gui.back=返回
+recap.gui.load=載入
+recap.gui.save=儲存
+recap.gui.rename=重新命名
+recap.gui.remove=移除
+recap.gui.delete=刪除
+recap.gui.recording=記錄
+recap.gui.speed=速率
+recap.gui.pleasewait=請稍後
+recap.gui.render=給予
+recap.gui.iphidden=伺服器IP隱藏
+recap.gui.overwrite=儲存
+recap.gui.saveas=另存為 ...
+recap.gui.done=完成
+recap.gui.close=關閉
+recap.gui.notagain=不再顯示
+
+recap.gui.renderdonetitle=已渲染影片
+recap.gui.openfolder=打開影片文件夾
+recap.gui.youtubeupload=上傳至 Youtube
+recap.gui.renderdone1=影片已渲染成功。
+recap.gui.videotitle=標題
+recap.gui.videodescription=描述
+recap.gui.videothumbnail=影片縮圖
+recap.gui.videovisibility.private=私人
+recap.gui.videovisibility.unlisted=不公開
+recap.gui.videovisibility.public=公開
+recap.gui.ytuploadprogress.auth=[1/4] 授權
+recap.gui.ytuploadprogress.prepare_video=[2/4] 影片預備中 : %%d%%%%
+recap.gui.ytuploadprogress.upload=[3/4] 上傳中 : %%d%%%%
+recap.gui.ytuploadprogress.cleanup=[4/4] 清除
+recap.gui.ytuploadprogress.done=完成: %s
+recap.gui.titleempty=標題不能填空
+recap.gui.videothumbnailtoolarge=縮圖大小超過 2MB
+recap.gui.videothumbnailformat=縮圖必須爲 JPEG 或 PNG 格式
+
+recap.gui.hours=小時
+recap.gui.minutes=分鐘
+recap.gui.seconds=秒
+recap.gui.milliseconds=毫秒
+
+recap.gui.pitch=間距
+recap.gui.yaw=偏擺
+recap.gui.roll=滾動
+
+recap.gui.camera=鏡頭
+recap.gui.position=位置
+
+recap.gui.unknownerror=一個未知錯誤
+
+recap.gui.exit=退出Replay
+
+recap.gui.settings=設定
+
+recap.gui.keyframerepo.delete=你真的要刪除這些關鍵幀格嗎?
+recap.gui.keyframerepo.overwrite=你真的要覆蓋這些關鍵幀格嗎?
+
+recap.gui.restorereplay1=似乎 Minecraft 並沒有正常關閉。
+recap.gui.restorereplay2=Replay "%1$s" 沒有被正確儲存。
+recap.gui.restorereplay3=要否將檔案復原?
+
+recap.gui.loadentitytracker=正在載入實體位置 : %%d%%%%
+
+#Only change these if it's neccessary
+recap.gui.replayviewer=Replay播放器
+
+#Replay Viewer GUI
+recap.gui.viewer.rename.name=Replay 名稱
+recap.gui.viewer.replayfolder=打開 Replay 檔案.
+
+recap.gui.viewer.delete.linea=你確定要刪除此 Replay?
+recap.gui.viewer.delete.failed1=你的操作系統不允許我們刪除這個 Replay。我們
+recap.gui.viewer.delete.failed2=對此並無辦法。煩請自行操作。
+recap.gui.viewer.delete.lineb=%1$s 將永遠消失! (很長一段時間!)
+
+#Cancel Replay GUI
+recap.gui.cancelrender.title=取消渲染
+recap.gui.cancelrender.message=你確定要取消渲染?
+#Saving Replay GUI
+recap.gui.replaysaving.title=儲存Replay檔案...
+
+#Player Overview GUI
+recap.gui.playeroverview.visible=可見的
+recap.gui.playeroverview.hideall=全部隱藏
+recap.gui.playeroverview.showall=全部顯示
+recap.gui.playeroverview.spectate=旁觀者
+recap.gui.playeroverview.remembersettings=持續影藏玩家
+recap.gui.playeroverview.remembersettings.description=儲存玩家可見的在 Replay 檔案
+
+#Recap Mod Settings GUI
+recap.gui.settings.title=Replay 模組設定
+
+recap.gui.settings.notifications=啟用通知
+recap.gui.settings.recordserver=記錄伺服器
+recap.gui.settings.recordsingleplayer=記錄單人
+recap.gui.settings.indicator=錄製指示燈
+recap.gui.settings.pathpreview=顯示路徑預覽
+recap.gui.settings.showchat=顯示聊天
+
+#Recap Mod Keybindings
+recap.input.lighting=切換照明
+recap.input.thumbnail=拍攝縮圖
+recap.input.playeroverview=玩家簡介
+recap.input.clearkeyframes=清除關鍵影格
+recap.input.synctimeline=同步時間軸
+recap.input.keyframerepository=打開預設關鍵影格
+recap.input.rollclockwise=順時針翻滾
+recap.input.rollcounterclockwise=逆時針翻滾
+recap.input.resettilt=重置鏡頭傾斜
+recap.input.playpause=播放/暫停 Replay
+recap.input.marker=新增事件標籤
+recap.input.pathpreview=切換路徑預覽
+recap.input.settings=Recap Mod 設定
+
+#Keyframe Presets GUI
+recap.gui.keyframerepository.title=關鍵影格儲存庫
+
+#Edit Keyframe GUI
+recap.gui.editkeyframe.title.pos=編輯位置關鍵影格
+recap.gui.editkeyframe.title.time=編輯時間關鍵影格
+recap.gui.editkeyframe.title.marker=編輯事件標籤
+recap.gui.editkeyframe.title.spec=編輯觀眾關鍵影格
+recap.gui.editkeyframe.xpos=X位置
+recap.gui.editkeyframe.ypos=Y位置
+recap.gui.editkeyframe.zpos=Z位置
+recap.gui.editkeyframe.campitch=鏡頭間距
+recap.gui.editkeyframe.camyaw=鏡頭偏航
+recap.gui.editkeyframe.camroll=鏡頭翻轉
+recap.gui.editkeyframe.timelineposition=時間軸位置
+recap.gui.editkeyframe.markername=事件標籤名稱
+recap.gui.editkeyframe.timestamp=時間指數
+
+recap.gui.rendersettings.renderer=渲染方法
+
+recap.gui.rendersettings.renderer.default=預設渲染
+recap.gui.rendersettings.renderer.stereoscopic=Stereoscopic渲染
+recap.gui.rendersettings.renderer.cubic=Cubic渲染
+recap.gui.rendersettings.renderer.equirectangular=Equirectangular渲染
+
+recap.gui.rendersettings.renderer.default.description=
+recap.gui.rendersettings.renderer.stereoscopic.description=Renders the video as a stereoscopic (side-by-side) 3D movie, useable by different 3D technologies. The image for one eye is half the width of the video
+recap.gui.rendersettings.renderer.cubic.description=Renders the video with a 360 degree panoramic view, using Cubic Projection. This is useable by several 360 degree video players (and the Oculus Rift), for example VR Player.
+recap.gui.rendersettings.renderer.equirectangular.description=Renders the video with a 360 degree panoramic view, using Equirectangular Projection. This is useable by YouTube's new 360 degree video function, and several video players (and the Oculus Rift), for example VR Player.
+
+recap.gui.rendersettings.customresolution=影片解析度
+recap.gui.rendersettings.customresolution.warning.yuv420=預設寬度與高度的值必為偶數
+recap.gui.rendersettings.framerate=影片幀數
+recap.gui.rendersettings.chromakey=彩度
+recap.gui.rendersettings.nametags=渲染名稱標籤
+recap.gui.rendersettings.outputfile=輸出檔案
+
+recap.gui.rendersettings.command=命令
+recap.gui.rendersettings.arguments=命令行參數
+recap.gui.rendersettings.ffmpeg.description=如果你是高級使用者，則你可以自定義影片輸出命令參數。影片命令參數資訊請洽: http://recap.com/docs
+
+recap.gui.rendersettings.stabilizecamera=穩定鏡頭
+
+recap.gui.rendersettings.video=影片設定
+recap.gui.rendersettings.advanced=進階設定
+recap.gui.rendersettings.commandline=命令行設定
+
+recap.gui.rendersettings.presets=編碼預設
+recap.gui.rendersettings.presets.mp4.custom=MP4 - 自定義
+recap.gui.rendersettings.presets.mp4.default=MP4 - 預設畫質
+recap.gui.rendersettings.presets.mp4.potato=MP4 - 手機畫質
+recap.gui.rendersettings.presets.webm.custom=WEBM - 自定義
+recap.gui.rendersettings.presets.mkv.lossless=MKV
+recap.gui.rendersettings.presets.png=PNG 序列
+
+#Rendering GUI
+recap.gui.rendering.title=渲染影片
+recap.gui.rendering.pause=暫停渲染
+recap.gui.rendering.resume=繼續渲染
+recap.gui.rendering.cancel=取消渲染
+recap.gui.rendering.cancel.callback=你確定嗎?
+recap.gui.rendering.preview=展示預覽(性能可能會受到影響)
+recap.gui.rendering.progress=幀渲染: %1$d / %2$d
+recap.gui.rendering.timetaken=渲染時間
+recap.gui.rendering.timeleft=剩餘時間
+
+#Render Errors
+recap.gui.rendering.error.title=渲染失敗
+recap.gui.rendering.error.message=影片要渲染，需要安裝ffmpeg。
+
+#Ingame Menu
+recap.gui.ingame.menu.addposkeyframe=新增位置關鍵影格
+recap.gui.ingame.menu.removeposkeyframe=刪除位置關鍵影格
+recap.gui.ingame.menu.addspeckeyframe=增加觀眾關鍵影格
+recap.gui.ingame.menu.removespeckeyframe=刪除觀眾關鍵影格
+recap.gui.ingame.menu.addtimekeyframe=新增時間關鍵影格
+recap.gui.ingame.menu.removetimekeyframe=刪除時間關鍵影格
+recap.gui.ingame.menu.pause=暫停 Replay
+recap.gui.ingame.menu.unpause=取消暫停 Replay
+recap.gui.ingame.menu.renderpath=渲染鏡頭路徑
+recap.gui.ingame.menu.playpath=播放鏡頭路徑
+recap.gui.ingame.menu.playpathfromstart=從鏡頭路徑首端開始撥放
+recap.gui.ingame.menu.pausepath=暫停鏡頭路徑
+recap.gui.ingame.menu.zoomin=放大
+recap.gui.ingame.menu.zoomout=縮小
+
+recap.gui.ingame.unnamedmarker=無事件標籤
+
+#Clear Keyframe Callback
+recap.gui.clearcallback.title=清除所有關鍵影格?
