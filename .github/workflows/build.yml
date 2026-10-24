@@ -14,6 +14,7 @@ on:
 
 permissions:
   contents: read
+  pull-requests: write
 
 concurrency:
   group: build-${{ github.workflow }}-${{ github.ref }}
@@ -133,6 +134,34 @@ jobs:
             { grep -m1 -A 35 "What went wrong" gradle.log || tail -n 35 gradle.log; } | sed 's/^/::error::/' | head -n 36 || true
           fi
           exit "$status"
+
+      - name: Report build failure (${{ matrix.version }})
+        if: failure() && github.event_name == 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          MC_VERSION: ${{ matrix.version }}
+        run: |
+          # Gradle logs are not reachable from outside the runner, so the interesting parts are
+          # posted back to the pull request where they can be inspected (and copied into an issue).
+          {
+            echo "### Build $MC_VERSION failed"
+            echo
+            echo '```'
+            grep -E "error: |\.java:[0-9]+: |What went wrong|Caused by:|Execution failed|BUILD FAILED" gradle.log \
+              | head -n 120 || true
+            echo '```'
+            echo
+            echo '<details><summary>Last 120 log lines</summary>'
+            echo
+            echo '```'
+            tail -n 120 gradle.log || true
+            echo '```'
+            echo '</details>'
+          } > failure.md
+          head -c 60000 failure.md > failure-truncated.md
+          gh api -X POST "repos/${{ github.repository }}/issues/${PR_NUMBER}/comments" \
+            -F body=@"failure-truncated.md" > /dev/null || true
 
       - name: Collect final jar (${{ matrix.version }})
         if: always()

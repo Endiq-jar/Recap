@@ -171,16 +171,6 @@ public class GuiYoutubeUpload extends GuiScreen {
 
     private YoutubeUploader upload;
 
-    @Override
-    public void draw(GuiRenderer renderer, ReadableDimension size, RenderInfo renderInfo) {
-        if (renderInfo.getLayer() == 0) {
-            RecapTheme.chrome(renderer, size.getWidth(), size.getHeight(),
-                    I18n.translate("recap.gui.youtube.title"),
-                    I18n.translate("recap.gui.youtube.subtitle"));
-        }
-        super.draw(renderer, size, renderInfo);
-    }
-
     {
         setLayout(new CustomLayout<GuiScreen>() {
             @Override
@@ -270,6 +260,11 @@ public class GuiYoutubeUpload extends GuiScreen {
 
     @Override
     public void draw(GuiRenderer renderer, ReadableDimension size, RenderInfo renderInfo) {
+        if (renderInfo.getLayer() == 0) {
+            RecapTheme.chrome(renderer, size.getWidth(), size.getHeight(),
+                    I18n.translate("recap.gui.youtube.title"),
+                    I18n.translate("recap.gui.youtube.subtitle"));
+        }
         if (upload != null && upload.getState() != null) {
             progressBar.setProgress((float) upload.getProgress());
             progressBar.setI18nLabel("recap.gui.ytuploadprogress." + upload.getState().name().toLowerCase());
