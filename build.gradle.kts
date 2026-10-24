@@ -255,7 +255,7 @@ preprocess {
         ".frag" to PreprocessTask.DEFAULT_KEYWORDS,
     ))
 
-    patternAnnotation.set("com.replaymod.gradle.remap.Pattern")
+    patternAnnotation.set("com.recap.gradle.remap.Pattern")
 }
 
 tasks.jar {

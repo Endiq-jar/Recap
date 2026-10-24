@@ -4,7 +4,7 @@ import com.google.common.util.concurrent.FutureCallback;
 import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.recap.core.mixin.MinecraftAccessor;
-import com.replaymod.gradle.remap.Pattern;
+import com.recap.gradle.remap.Pattern;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gl.Framebuffer;
 import net.minecraft.client.gui.hud.InGameHud;

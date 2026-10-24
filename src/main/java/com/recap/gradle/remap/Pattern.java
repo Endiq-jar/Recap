@@ -1,4 +1,4 @@
-package com.replaymod.gradle.remap;
+package com.recap.gradle.remap;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

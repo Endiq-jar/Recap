@@ -1,6 +1,6 @@
 package com.recap.core.versions.forge;
 
-import com.replaymod.gradle.remap.Pattern;
+import com.recap.gradle.remap.Pattern;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.EntityLivingBase;
