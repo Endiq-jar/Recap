@@ -1,0 +1,77 @@
+recap.title=Recap Mod
+
+#All of the chat messages
+recap.chat.recordingstarted=Opptak startet
+recap.chat.recordingfailed=Klarte ikke å starte opptak
+
+recap.chat.savingthumb=Lagrer forsidebilde...
+recap.chat.savedthumb=Forsidebilde har blitt lagret
+recap.chat.failedthumb=Forsidebilde kunne ikke lagres
+
+recap.chat.addedmarker=Hendelsesmarkøren har blit lagt til
+
+#Chat messages displayed in Replay Viewer
+recap.chat.morekeyframes=Minst to posisjons-nøkkelrammer og to tidsrammer må legges til
+recap.chat.pathstarted=Kamera vei startet
+recap.chat.pathfinished=Kameravei ferdig
+recap.chat.pathinterrupted=Kameravei avbrutt
+
+#Common GUI-related strings
+recap.gui.cancel=Avbryt
+recap.gui.back=Tilbake
+recap.gui.load=Åpne
+recap.gui.save=Lagre
+recap.gui.rename=Forandre navn
+recap.gui.remove=Fjern
+recap.gui.delete=Slett
+recap.gui.recording=Opptak
+recap.gui.speed=Fart
+recap.gui.pleasewait=Vennligst vent
+recap.gui.render=Last
+recap.gui.iphidden=Server IP gjemt
+recap.gui.overwrite=Overskriv
+recap.gui.saveas=Lagre som ...
+recap.gui.done=Ferdig
+recap.gui.close=Lukk
+recap.gui.notagain=Ikke vis igjen
+
+recap.gui.renderdonetitle=Video lastet
+recap.gui.openfolder=Åpne videomappe
+recap.gui.youtubeupload=Last opp til YouTube
+recap.gui.renderdone1=Din video er rendret.
+recap.gui.renderdone2=Hvordan vil du fortsette?
+recap.gui.videotitle=Tittel
+recap.gui.videodescription=Beskrivelse
+recap.gui.videotags=Tagger,Tagger,Tagger
+recap.gui.videothumbnail=Video forsidebilde
+recap.gui.videovisibility.private=Privat
+recap.gui.videovisibility.unlisted=Uoppført
+recap.gui.videovisibility.public=Offentlig
+recap.gui.ytuploadprogress.auth=[1/4] Autorisert
+recap.gui.ytuploadprogress.prepare_video=[2/4] Gjør klar video: %%d 1%%%% 2
+recap.gui.ytuploadprogress.upload=[3/4] Laster opp: %%d 1%%%% 2
+recap.gui.ytuploadprogress.cleanup=[4/4] Rydder opp
+recap.gui.ytuploadprogress.done=Ferdig: %s 1
+recap.gui.titleempty=Tittelen kan ikke være tom
+recap.gui.videothumbnailtoolarge=Forsidebildets størrelse er større en 2MB
+recap.gui.videothumbnailformat=Forsidebile må være enten JPEG eller PNG format
+
+recap.gui.hours=t
+recap.gui.minutes=min
+recap.gui.seconds=sek
+recap.gui.milliseconds=ms
+
+recap.gui.roll=Rull
+
+recap.gui.camera=Kamera
+recap.gui.position=Posisjon
+
+recap.gui.unknownerror=En ukjent feil har skjedd
+
+recap.gui.exit=Gå ut av replay
+
+recap.gui.settings=Innstillinger
+
+recap.gui.keyframerepo.delete=Er du sikker på at du vil slette disse nøkkelrammene?
+
+recap.gui.restorereplay1=Det ser ut som Minecraft ikke har sluttet normalt.

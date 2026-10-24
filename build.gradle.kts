@@ -34,12 +34,12 @@ loom {
 
 if (!platform.isUnobfuscated) {
     loom.mixin.useLegacyMixinAp = true
-    loom.mixin.defaultRefmapName.set("mixins.replaymod.refmap.json")
+    loom.mixin.defaultRefmapName.set("mixins.recap.refmap.json")
 }
 
 if (platform.isLegacyForge) {
     loom.runs.named("client") {
-        property("fml.coreMods.load", "com.replaymod.core.LoadingPlugin")
+        property("fml.coreMods.load", "com.recap.core.LoadingPlugin")
     }
 }
 
@@ -167,7 +167,7 @@ dependencies {
         lwjgl("org.lwjgl:lwjgl-tinyexr:3.3.1$suffix")
     }
     compileOnly("org.lwjgl:lwjgl-tinyexr:3.3.1")
-    shadow(prebundle(lwjgl, "com/replaymod/render/utils/lwjgl.jar"))
+    shadow(prebundle(lwjgl, "com/recap/render/utils/lwjgl.jar"))
 
     if (mcVersion < 11200) {
         // The version which MC ships is too old, we'll need to ship our own
@@ -264,11 +264,11 @@ tasks.jar {
     if (!platform.isFabric) {
         manifest {
             attributes(
-                "TweakClass" to "com.replaymod.core.tweaker.ReplayModTweaker",
+                "TweakClass" to "com.recap.core.tweaker.RecapModTweaker",
                 "TweakOrder" to "0",
                 "FMLCorePluginContainsFMLMod" to "true",
-                "FMLCorePlugin" to "com.replaymod.core.LoadingPlugin",
-                "FMLAT" to "replaymod_at.cfg",
+                "FMLCorePlugin" to "com.recap.core.LoadingPlugin",
+                "FMLAT" to "recap_at.cfg",
             )
         }
     }
@@ -301,7 +301,8 @@ val configureRelocation by tasks.registering {
                             if (!pkg.startsWith("com/google/common")) {
                                 pkgs += pkg.substring(0, pkg.indexOf("/", "com/google/".length))
                             }
-                        } else if (!pkg.startsWith("com/replaymod")) {
+                        } else if (!pkg.startsWith("com/recap")
+                            && !pkg.startsWith("com/replaymod")) { // ReplayStudio is not relocated
                             pkgs += pkg.substring(0, pkg.indexOf("/", 4))
                         }
                     } else if (pkg.startsWith("net/")) {
@@ -349,13 +350,13 @@ val bundleJar by tasks.registering(com.github.jengelman.gradle.plugins.shadow.ta
 
     from((if (platform.isUnobfuscated) jGui.tasks.jar else jGui.tasks.named<RemapJarTask>("remapJar")).flatMap { it.archiveFile }.map { zipTree(it) }) {
         filesMatching("mixins.jgui.json") {
-            filter { it.replace("de.johni0702", "com.replaymod.lib.de.johni0702") }
+            filter { it.replace("de.johni0702", "com.recap.lib.de.johni0702") }
         }
         filesMatching("mixins.jgui.refmap.json") {
-            filter { it.replace("de/johni0702", "com/replaymod/lib/de/johni0702") }
+            filter { it.replace("de/johni0702", "com/recap/lib/de/johni0702") }
         }
     }
-    relocate("de.johni0702", "com.replaymod.lib.de.johni0702")
+    relocate("de.johni0702", "com.recap.lib.de.johni0702")
 
     manifest.from(tasks.jar.get().manifest)
     from(shade.elements.map { it.map { zipTree(it) } })
@@ -367,7 +368,7 @@ val bundleJar by tasks.registering(com.github.jengelman.gradle.plugins.shadow.ta
     doFirst {
         configureRelocationOutput.get().asFile.forEachLine { pkg ->
             val pkgName = pkg.replace("/", ".")
-            relocate(pkgName, "com.replaymod.lib.$pkgName")
+            relocate(pkgName, "com.recap.lib.$pkgName")
         }
     }
 

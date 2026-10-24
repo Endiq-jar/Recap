@@ -35,7 +35,7 @@ if (dirty) {
     version = "$version-dirty"
 }
 
-group = "com.replaymod"
+group = "com.recap"
 
 val bundleJar by tasks.registering(Copy::class) {
     into("$buildDir/libs")

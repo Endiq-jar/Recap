@@ -4,7 +4,7 @@
 any perspective — including free camera movement, rendering the replay to a video file, and uploading it
 straight to YouTube.
 
-Recap Mod is a fork of the excellent [Replay Mod](https://github.com/ReplayMod/ReplayMod) and is maintained by
+Recap Mod is a fork of the excellent [ReplayMod](https://github.com/ReplayMod/ReplayMod) and is maintained by
 **TurtleOfficials**. It keeps the full feature set of the upstream project (recording, replay viewer, camera
 paths, video rendering, live streaming, simple pathing, …) while being built and versioned independently.
 
@@ -94,7 +94,7 @@ git submodule update --init --recursive
 ```
 
 The translation files used to be a submodule as well; they are vendored under
-`src/main/resources/assets/replaymod/lang` in this repository so that the Replay Mod → Recap Mod rename is
+`src/main/resources/assets/recap/lang` in this repository so that the Recap Mod → Recap Mod rename is
 applied consistently to every language.
 
 ## One download, every Minecraft version
@@ -133,7 +133,7 @@ Every jar declares exactly which Minecraft versions it accepts in its `fabric.mo
 all other builds declare their exact version, so Fabric refuses to load a jar into a game version it was
 never compiled against.
 
-CI verifies every produced jar before uploading it: mod id `replaymod`, name `Recap Mod` and the declared
+CI verifies every produced jar before uploading it: mod id `recap`, name `Recap Mod` and the declared
 Minecraft range must match the build matrix. To apply a range to a jar manually:
 
 ```bash
@@ -143,7 +143,7 @@ python3 .github/scripts/set-mc-range.py ">=1.21 <1.21.2" versions/1.21/build/lib
 ## Interface
 
 The interface is a single design system instead of per-screen vanilla widgets, implemented in
-`com.replaymod.core.gui`:
+`com.recap.core.gui`:
 
 * `RecapTheme` — colours, spacing and drawing primitives (gradient background, cards, header rails, HUD
   bars, chamfered corners). One place to change the look of the whole mod.
@@ -188,7 +188,7 @@ libs/ReplayStudio        replay file format library (submodule, included build)
 docs/                    sources of the user documentation website
 ```
 
-## What changed compared to Replay Mod?
+## What changed compared to ReplayMod?
 
 * Renamed to **Recap Mod**, author/maintainer metadata set to **TurtleOfficials**.
 * Jar artifacts are called `recapmod-<mcversion>-<version>.jar`.
@@ -198,23 +198,30 @@ docs/                    sources of the user documentation website
 * GitHub Actions workflow for automatic per-version builds and tag releases (replaces the old Jenkinsfile).
 * A single `recapmod-universal-<version>.jar` bundle with every supported Minecraft version, plus a single
   `recapmod` artifact, so a release never means hunting through eleven downloads.
-* Redesigned interface: shared theme, themed settings screen grouped by category, recording HUD pill,
-  replay control bar and rethemed recovery/compatibility screens.
+* Renamed end to end: mod id `recap`, Java package `com.recap.*`, resource namespace `assets/recap`,
+  translation keys `recap.*`, mixin configs `mixins.*.recap.json`, logo `recap_logo.png`.
+* Redesigned interface: every screen - main-menu button, replay browser, render settings, render queue,
+  keyframe repository, editor timeline, popups, recording HUD, replay control bar, upload/export screens and
+  the in-game overlays - is repainted with the Recap ink-and-neon theme.
 * Translations vendored into the repository instead of being a Git submodule.
 
-The internal mod id (`replaymod`), the Java package (`com.replaymod.*`) and the resource namespace
-(`assets/replaymod`) are intentionally unchanged: they are implementation details, and keeping them means
-existing configs, key bindings and resource paths keep working after the rename.
+There is no `replaymod` identifier left anywhere in the mod: config files are written to
+`config/recap-*.json`, key bindings live under `key.recap.*` and every assets lookup goes through the
+`recap` namespace.
 
 ## Credits
 
-Recap Mod would not exist without the Replay Mod team and community:
+Recap Mod would not exist without ReplayMod and its community - it is a rebranded fork of their work:
 
-* **CrushedPixel** and **johni0702** — original Replay Mod authors
-* all [Replay Mod contributors](https://github.com/ReplayMod/ReplayMod/graphs/contributors)
+* **CrushedPixel** and **johni0702** - original ReplayMod authors
+* all [ReplayMod contributors](https://github.com/ReplayMod/ReplayMod/graphs/contributors)
 * the translators of the language files
+
+Recap Mod itself is maintained by **TurtleOfficials**.
 
 ## License
 
 Recap Mod is licensed under the **GNU General Public License v3.0 or later**, see [`LICENSE.md`](LICENSE.md).
-It is a derivative work of Replay Mod, which is licensed under the same terms.
+It is a derivative work of [ReplayMod](https://github.com/ReplayMod/ReplayMod), which is licensed under
+the same terms; the original copyright notices are retained in [`LICENSE.md`](LICENSE.md) and
+[`NOTICE`](NOTICE).

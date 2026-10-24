@@ -1,8 +1,8 @@
 Recap Mod
 =========
 
-Recap Mod is a fork of Replay Mod (https://github.com/ReplayMod/ReplayMod),
-Copyright (C) 2013-2026 CrushedPixel, johni0702 and Replay Mod contributors.
+Recap Mod is a fork of ReplayMod (https://github.com/ReplayMod/ReplayMod),
+Copyright (C) 2013-2026 CrushedPixel, johni0702 and the ReplayMod contributors.
 
 Modifications for Recap Mod, Copyright (C) 2026 TurtleOfficials.
 Project home: https://github.com/Endiq-jar/Recap

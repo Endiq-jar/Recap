@@ -1,0 +1,5 @@
+{
+  "render_success": {
+    "sounds": [{ "name": "recap:render_success" }]
+  }
+}

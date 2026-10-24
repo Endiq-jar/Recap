@@ -1,5 +1,5 @@
 # Installation [installing]
-## Installing the Recap Mod [replaymod]
+## Installing the Recap Mod [recap]
 ### Minecraft 1.14 and above
 The **Recap Mod** for Minecraft 1.14 and above requires **Fabric** to be installed.
 
@@ -589,7 +589,7 @@ On Minecraft 1.16.5 and up you can use _Iris_, which is fully supported. For the
 
 ### Custom Main Menu [custom-main-menu]
 The _Custom Main Menu_ mod is often used in mod packs to customize their Main Menu with a button layout fitting the background image, links to their website / bug tracker and similar.
-If you are familiar with it, the button id for the Recap Mod is: **17890234** (text: `replaymod.gui.replayviewer`).
+If you are familiar with it, the button id for the Recap Mod is: **17890234** (text: `recap.gui.replayviewer`).
 
 Due to the nature of this Custom Main Menu mod, buttons added to the Main Menu by 3rd party mods like the **Recap Mod** will not show up by default.  
 Thus, to access the Replay Viewer/Editor/Center, you need to manually configure the position for those buttons.  
@@ -642,7 +642,7 @@ You can use MultiMC to workaround this problem.
 1: Create your instance then edit the instance  
 2: Click `Install Forge`  
 3: Click `Install LiteLoader`  
-4: Click `Add Empty`; use `Recap Mod` as name and `com.replaymod` as uid  
+4: Click `Add Empty`; use `Recap Mod` as name and `com.recap` as uid  
 5: Select the new *Recap Mod* and click `Edit`  
 6: Replace the contents with one of the below snippets  
 7: Save and close the text editor  
@@ -650,8 +650,8 @@ You can use MultiMC to workaround this problem.
 9: Remove the Recap Mod jar from the mods folder if you installed it previously.
 
 ** Snippet for 1.8.9 **  
-`{ "formatVersion": 1, "name": "Recap Mod", "uid": "com.replaymod", "version": "1.8.9-2.4.5", "libraries": [{ "name": "com.replaymod:replaymod:1.8.9-2.4.5", "MMC-absoluteUrl":  "https://minio.replaymod.com/replaymod/replaymod-1.8.9-2.4.5.jar" }]}`
+`{ "formatVersion": 1, "name": "Recap Mod", "uid": "com.recap", "version": "1.8.9-2.4.5", "libraries": [{ "name": "com.recap:recap:1.8.9-2.4.5", "MMC-absoluteUrl":  "https://minio.recap.com/recap/recap-1.8.9-2.4.5.jar" }]}`
 
 ** Snippet for 1.12.2 **  
-`{ "formatVersion": 1, "name": "Recap Mod", "uid": "com.replaymod", "version": "1.12.2-2.4.5", "libraries": [{ "name": "com.replaymod:replaymod:1.12.2-2.4.5", "MMC-absoluteUrl":  "https://minio.replaymod.com/replaymod/replaymod-1.12.2-2.4.5.jar" }]}`
+`{ "formatVersion": 1, "name": "Recap Mod", "uid": "com.recap", "version": "1.12.2-2.4.5", "libraries": [{ "name": "com.recap:recap:1.12.2-2.4.5", "MMC-absoluteUrl":  "https://minio.recap.com/recap/recap-1.12.2-2.4.5.jar" }]}`
 

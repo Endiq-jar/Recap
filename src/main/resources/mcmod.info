@@ -1,8 +1,8 @@
 [
   {
-    "modid": "replaymod",
+    "modid": "recap",
     "name": "Recap Mod",
-    "description": "A Mod which allows you to record, replay and share your Minecraft experience.",
+    "description": "Recap Mod - record, replay and share your Minecraft experience.",
     "version": "${version}",
     "mcversion": "${mcVersionStr}",
     "url": "https://github.com/Endiq-jar/Recap",
@@ -10,12 +10,12 @@
     "authorList": [
       "TurtleOfficials"
     ],
-    "logoFile": "replaymod_logo.png",
+    "logoFile": "recap_logo.png",
     "screenshots": [],
     "dependencies": []
   },
   {
-    "modid": "replaymod-recording",
+    "modid": "recap-recording",
     "name": "Recap Mod - Recording",
     "description": "Recording Module of the Recap Mod",
     "version": "${version}",
@@ -25,15 +25,15 @@
     "authorList": [
       "TurtleOfficials"
     ],
-    "logoFile": "replaymod_logo.png",
-    "parent": "replaymod",
+    "logoFile": "recap_logo.png",
+    "parent": "recap",
     "screenshots": [],
     "dependencies": []
   },
   {
-    "modid": "replaymod-replay",
+    "modid": "recap-replay",
     "name": "Recap Mod - Replay",
-    "description": "Replay Module of the Recap Mod",
+    "description": "Recap Mod - replay recording, playback, editing and rendering",
     "version": "${version}",
     "mcversion": "${mcVersionStr}",
     "url": "https://github.com/Endiq-jar/Recap",
@@ -41,13 +41,13 @@
     "authorList": [
       "TurtleOfficials"
     ],
-    "logoFile": "replaymod_logo.png",
-    "parent": "replaymod",
+    "logoFile": "recap_logo.png",
+    "parent": "recap",
     "screenshots": [],
     "dependencies": []
   },
   {
-    "modid": "replaymod-simplepathing",
+    "modid": "recap-simplepathing",
     "name": "Recap Mod - Simple Pathing",
     "description": "Simple Pathing Module of the Recap Mod - aka the original pathing",
     "version": "${version}",
@@ -57,13 +57,13 @@
     "authorList": [
       "TurtleOfficials"
     ],
-    "logoFile": "replaymod_logo.png",
-    "parent": "replaymod",
+    "logoFile": "recap_logo.png",
+    "parent": "recap",
     "screenshots": [],
-    "dependencies": ["required-after:replaymod-replay", "required-after:replaymod-render"]
+    "dependencies": ["required-after:recap-replay", "required-after:recap-render"]
   },
   {
-    "modid": "replaymod-render",
+    "modid": "recap-render",
     "name": "Recap Mod - Render",
     "description": "Render Module of the Recap Mod",
     "version": "${version}",
@@ -73,13 +73,13 @@
     "authorList": [
       "TurtleOfficials"
     ],
-    "logoFile": "replaymod_logo.png",
-    "parent": "replaymod",
+    "logoFile": "recap_logo.png",
+    "parent": "recap",
     "screenshots": [],
-    "dependencies": ["required-after:replaymod-replay"]
+    "dependencies": ["required-after:recap-replay"]
   },
   {
-    "modid": "replaymod-editor",
+    "modid": "recap-editor",
     "name": "Recap Mod - Replay Editor",
     "description": "Replay Editor Module of the Recap Mod",
     "version": "${version}",
@@ -89,13 +89,13 @@
     "authorList": [
       "TurtleOfficials"
     ],
-    "logoFile": "replaymod_logo.png",
-    "parent": "replaymod",
+    "logoFile": "recap_logo.png",
+    "parent": "recap",
     "screenshots": [],
     "dependencies": []
   },
   {
-    "modid": "replaymod-extras",
+    "modid": "recap-extras",
     "name": "Recap Mod - Extras",
     "description": "Extras Module of the Recap Mod - Small but neat additions",
     "version": "${version}",
@@ -105,13 +105,13 @@
     "authorList": [
       "TurtleOfficials"
     ],
-    "logoFile": "replaymod_logo.png",
-    "parent": "replaymod",
+    "logoFile": "recap_logo.png",
+    "parent": "recap",
     "screenshots": [],
     "dependencies": []
   },
   {
-      "modid": "replaymod-compat",
+      "modid": "recap-compat",
       "name": "Recap Mod - Compatibility",
       "description": "Compatibility Module of the Recap Mod - Adds compatibility with other mods",
       "version": "${version}",
@@ -121,8 +121,8 @@
       "authorList": [
       "TurtleOfficials"
     ],
-      "logoFile": "replaymod_logo.png",
-      "parent": "replaymod",
+      "logoFile": "recap_logo.png",
+      "parent": "recap",
       "screenshots": [],
       "dependencies": []
     }

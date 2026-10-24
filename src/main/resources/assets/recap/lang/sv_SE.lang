@@ -1,0 +1,319 @@
+recap.title=Recap Mod
+
+#All of the chat messages
+recap.chat.recordingstarted=Inspelningen har startats
+recap.chat.recordingfailed=Misslyckades att starta inspelning
+
+recap.chat.savingthumb=Sparar miniatyr...
+recap.chat.savedthumb=Miniatyren har sparats
+recap.chat.failedthumb=Miniatyren kunde inte sparas
+
+recap.chat.addedmarker=Händelsemarkör har lagts till
+
+#Chat messages displayed in Replay Viewer
+recap.chat.morekeyframes=Minst 2 nyckelbilder för både position och tid krävs
+recap.chat.pathstarted=Kamerabanan har startats
+recap.chat.pathfinished=Kamerabanan har slutförts
+recap.chat.pathinterrupted=Kamerabanan har avbrutits
+
+#Common GUI-related strings
+recap.gui.cancel=Avbryt
+recap.gui.back=Tillbaka
+recap.gui.load=Läs in
+recap.gui.save=Spara
+recap.gui.rename=Byt namn
+recap.gui.remove=Ta bort
+recap.gui.delete=Radera
+recap.gui.recording=Spelar in
+recap.gui.paused=Pausad
+recap.gui.speed=Hastighet
+recap.gui.pleasewait=Var god vänta
+recap.gui.render=Rendera
+recap.gui.iphidden=Dold serveradress
+recap.gui.overwrite=Skriv över
+recap.gui.saveas=Spara som...
+recap.gui.done=Färdig
+recap.gui.close=Stäng
+recap.gui.notagain=Visa inte igen
+recap.gui.edit=Redigera
+
+recap.gui.recording.resume=Återuppta inspeln.
+recap.gui.recording.pause=Pausa inspelning
+recap.gui.recording.stop=Stoppa inspelning
+recap.gui.recording.start=Starta inspelning
+
+recap.gui.renderdonetitle=Videon har renderats
+recap.gui.openfolder=Öppna videomapp
+recap.gui.youtubeupload=Ladda upp till YouTube
+recap.gui.renderdone1=Din video har renderats.
+recap.gui.renderdone2=Hur vill du fortsätta?
+recap.gui.videotitle=Titel
+recap.gui.videodescription=Beskrivning
+recap.gui.videotags=Taggar,taggar,taggar
+recap.gui.videothumbnail=Videominiatyr
+recap.gui.videovisibility.private=Privat
+recap.gui.videovisibility.unlisted=Olistad
+recap.gui.videovisibility.public=Offentlig
+recap.gui.ytuploadprogress.auth=[1/4] Auktorisering
+recap.gui.ytuploadprogress.prepare_video=[2/4] Förbereder video: %%d %%%%
+recap.gui.ytuploadprogress.upload=[3/4] Laddar upp: %%d %%%%
+recap.gui.ytuploadprogress.cleanup=[4/4] Städar upp
+recap.gui.ytuploadprogress.done=Färdig: %s
+recap.gui.titleempty=Titeln kan inte vara tom
+recap.gui.videothumbnailtoolarge=Miniatyrens storlek överstrider 2MB
+recap.gui.videothumbnailformat=Miniatyren måste antingen ha formatet JPEG eller PNG
+
+recap.gui.hours=h
+recap.gui.minutes=m
+recap.gui.seconds=s
+recap.gui.milliseconds=ms
+
+recap.gui.pitch=Vertikal lutning
+recap.gui.yaw=Horisontal lutning
+recap.gui.roll=Rotation
+
+recap.gui.camera=Kamera
+recap.gui.position=Position
+
+recap.gui.unknownerror=Ett okänt fel uppstod
+
+recap.gui.exit=Avsluta repris
+
+recap.gui.settings=Inställningar
+
+recap.gui.keyframerepo.delete=Är du säker på att du vill radera dessa nyckelbilder?
+recap.gui.keyframerepo.overwrite=Är du säker på att du vill skriva över dessa nyckelbilder?
+
+recap.gui.restorereplay1=Det verkar som att Minecraft inte avslutades normalt.
+recap.gui.restorereplay2=Reprisen "%1$s" sparades inte på rätt sätt.
+recap.gui.restorereplay3=Vill du återskapa den?
+
+recap.gui.loadentitytracker=Läser in entitetspositioner: %%d %%%%
+recap.gui.loadquickmode=Läser in snabbläge: %%d %%%%
+recap.gui.noquickmode=Snabbläget är endast tillgängligt för Minecraft %1$s och senare
+recap.gui.minimalmode.unsupported=Denna funktion är inte tillgänglig för din nuvarande Minecraft-version.
+recap.gui.minimalmode.supportedversion=(endast Minecraft %1$s har stöd för din version av Recap Mod)
+
+#Only change these if it's neccessary
+recap.gui.replayviewer=Reprisvisare
+
+#Replay Viewer GUI
+recap.gui.viewer.rename.name=Reprisnamn
+recap.gui.viewer.replayfolder=Öppna reprismapp...
+
+recap.gui.viewer.delete.linea=Är du säker på att du vill radera denna repris?
+recap.gui.viewer.delete.failed1=Ditt operativsystem lät oss inte ta bort reprisen. Det finns
+recap.gui.viewer.delete.failed2=ingenting som vi kan göra åt detta. Du måste göra det själv.
+recap.gui.viewer.delete.lineb="%1$s" kommer att försvinna för alltid! (Väldigt länge!)
+
+#Replay Editor UI 2.0 (marker based UI)
+recap.gui.edit.apply=Verkställ
+recap.gui.edit.split=Dela upp
+recap.gui.edit.split.tooltip=Dela upp reprisen i flera repriser vid markeringspunkten
+recap.gui.edit.cut.start=Infoga klippstart
+recap.gui.edit.cut.end=Infoga klippslut
+recap.gui.edit.cut.tooltip=Klipp ut (ta bort) en del av reprisen
+
+#Cancel Replay GUI
+recap.gui.cancelrender.title=Avbryt rendering
+recap.gui.cancelrender.message=Är du säker på att du vill avbryta aktuell renderingsprocess?
+#Saving Replay GUI
+recap.gui.replaysaving.title=Sparar reprisfil...
+
+#Player Overview GUI
+recap.gui.playeroverview.visible=Synlighet
+recap.gui.playeroverview.hideall=Dölj alla
+recap.gui.playeroverview.showall=Visa alla
+recap.gui.playeroverview.spectate=Synliga spelare
+recap.gui.playeroverview.remembersettings=Kom ihåg dolda spelare
+recap.gui.playeroverview.remembersettings.description=Spara spelarnas synlighet i reprisfilen
+
+#Recap Mod Settings GUI
+recap.gui.settings.title=Inställningar för Recap Mod
+
+recap.gui.settings.notifications=Visa notifikationer
+recap.gui.settings.recordserver=Spela in på servrar
+recap.gui.settings.recordsingleplayer=Spela in i enspelarläge
+recap.gui.settings.indicator=Inspelningsindikator
+recap.gui.settings.pathpreview=Förhandsvisa bana
+recap.gui.settings.camera=Kamera
+recap.gui.settings.showchat=Visa chatt
+recap.gui.settings.interpolator=Standard
+recap.gui.settings.autostartrecording=Automatisk inspelning
+
+#Recap Mod Keybindings
+recap.input.lighting=Slå på/av ljus
+recap.input.thumbnail=Skapa miniatyr
+recap.input.playeroverview=Spelaröversikt
+recap.input.clearkeyframes=Rensa nyckelbilder
+recap.input.synctimeline=Synkronisera tidslinje
+recap.input.keyframerepository=Nyckelbildsförinställn.
+recap.input.rollclockwise=Rotera medurs
+recap.input.rollcounterclockwise=Rotera moturs
+recap.input.resettilt=Återställ kameralutning
+recap.input.playpause=Spela upp/pausa repris
+recap.input.marker=Lägg till händelsemarkör
+recap.input.pathpreview=Förhandsvisa bana
+recap.input.settings=Inställningar
+recap.input.quickmode=Snabbläge
+
+# CameraControllers
+recap.camera.classic=Klassisk
+recap.camera.vanilla=Vanilla-aktig
+
+#Keyframe Presets GUI
+recap.gui.keyframerepository.title=Förinställningar för nyckelbilder
+
+#Edit Keyframe GUI
+recap.gui.editkeyframe.title.pos=Redigera nyckelbild för position
+recap.gui.editkeyframe.title.time=Redigera nyckelbild för tid
+recap.gui.editkeyframe.title.marker=Redigera händelsemarkör
+recap.gui.editkeyframe.title.spec=Redigera nyckelbild för åskådning
+recap.gui.editkeyframe.xpos=X-position
+recap.gui.editkeyframe.ypos=Y-position
+recap.gui.editkeyframe.zpos=Z-position
+recap.gui.editkeyframe.campitch=Vertikal kameralutning
+recap.gui.editkeyframe.camyaw=Horisontal kameralutning
+recap.gui.editkeyframe.camroll=Kamerarotation
+recap.gui.editkeyframe.timelineposition=Position i tidslinje
+recap.gui.editkeyframe.markername=Namn på händelsemarkör
+recap.gui.editkeyframe.timestamp=Tidsindex
+
+recap.gui.editkeyframe.interpolator=Övergång
+recap.gui.editkeyframe.interpolator.default.name=Standardövergång
+recap.gui.editkeyframe.interpolator.default.desc=Använder standardövergången som definieras i inställningarna för Recap Mod.
+recap.gui.editkeyframe.interpolator.catmullrom.name=Catmull rom spline
+recap.gui.editkeyframe.interpolator.catmullrom.desc=Beräknar en catmull rom spline med anpassat alfavärde för en exakt och mjuk kamerabana.
+recap.gui.editkeyframe.interpolator.catmullrom.alpha=Alfa:
+recap.gui.editkeyframe.interpolator.cubic.name=Kubisk spline
+recap.gui.editkeyframe.interpolator.cubic.desc=Beräknar en kubisk ekvationsmatris för alla punkter för en mjuk kamerabana.
+recap.gui.editkeyframe.interpolator.linear.name=Linjär övergång
+recap.gui.editkeyframe.interpolator.linear.desc=Ritar raka linjer mellan nyckelbilderna.
+
+recap.gui.rendersettings.renderer=Renderingsmetod
+
+recap.gui.rendersettings.renderer.default=Standardrendering
+recap.gui.rendersettings.renderer.stereoscopic=Stereoskopisk rendering
+recap.gui.rendersettings.renderer.cubic=Kubisk rendering
+recap.gui.rendersettings.renderer.equirectangular=Ekvirektangulär rendering
+recap.gui.rendersettings.renderer.ods=ODS-rendering
+recap.gui.rendersettings.renderer.blend=Blender-export [experimentiell]
+
+recap.gui.rendersettings.renderer.default.description=Renderar videon i vald upplösning. Snabbaste renderingsalternativet.
+recap.gui.rendersettings.renderer.stereoscopic.description=Renderar videon som en stereoskopisk (sida-vid-sida) 3D-film, används av olika 3D-tekniker. Bilden för ett öga är hälften så bred som videon
+recap.gui.rendersettings.renderer.cubic.description=Renderar videon med en 360-graders panoramavy som använder kubisk projektion. Detta används av flera videospelare för 360 grader (och Oculus Rift), t.ex. VR Player.
+recap.gui.rendersettings.renderer.equirectangular.description=Renderar videon med en 360-graders panoramavy som använder ekvirektangulär projektion. Detta används av YouTubes nya videofunktion för 360 grader och flera videospelare (samt Oculus Rift), t.ex. VR Player.
+recap.gui.rendersettings.renderer.ods.description=Renderar videon med en stereoskopisk 360-graders panoramavy i 3D, även känd som VR Video. Detta används av YouTubes nya VR-videofunktion.
+recap.gui.rendersettings.renderer.blend.description=Exporterar synlig geometri som en fil med formatet .blend som kan öppnas i Blender. Väldigt experimentiell: Kräver mycket RAM, har många kända problem och skapar ibland trasiga Blender-filer.
+
+recap.gui.rendersettings.customresolution=Videoupplösning
+recap.gui.rendersettings.customresolution.warning.yuv420=För denna förinställning måste bredden och höjden vara jämna siffror
+recap.gui.rendersettings.customresolution.warning.yuv420.cubic=För denna förinställning måste bredden vara delbar med 6
+recap.gui.rendersettings.customresolution.warning.cubic.height=Kubisk rendering kräver en höjd som är delbar med 3
+recap.gui.rendersettings.bitrate=Bithastighet
+recap.gui.rendersettings.framerate=Bildfrekvens
+recap.gui.rendersettings.chromakey=Färgfiltrering
+recap.gui.rendersettings.nametags=Visa namnskyltar
+recap.gui.rendersettings.outputfile=Utmatningsfil
+recap.gui.rendersettings.sphericalFov=Sfäriskt synfält
+recap.gui.rendersettings.sphericalmetadata=Injicera sfärisk metadata
+recap.gui.rendersettings.sphericalmetadata.error=Sfärisk metadata kan endast läggas till i ekvirektangulära videor och ODS-videor i MP4-format
+
+recap.gui.rendersettings.command=Kommando
+recap.gui.rendersettings.arguments=Argument för kommandoraden
+recap.gui.rendersettings.ffmpeg.description=Om du är en avancerad användare kan du anpassa parametrarna i kommandoraden som används för att exportera videon. För mer information, se http://recap.com/docs
+
+recap.gui.rendersettings.stabilizecamera=Stabilisera kameran
+
+recap.gui.rendersettings.video=Grafikinställningar
+recap.gui.rendersettings.advanced=Avancerade inställningar
+recap.gui.rendersettings.commandline=Inställningar för kommandoraden
+
+recap.gui.rendersettings.presets=Förinställningar för kodning
+recap.gui.rendersettings.presets.mp4.custom=MP4 - Anpassad bithastighet
+recap.gui.rendersettings.presets.mp4.default=MP4 - Standardkvalitet
+recap.gui.rendersettings.presets.mp4.potato=MP4 - Usel kvalitet
+recap.gui.rendersettings.presets.webm.custom=WEBM - Anpassad bithastighet
+recap.gui.rendersettings.presets.mkv.lossless=MKV - Förlustfritt
+recap.gui.rendersettings.presets.blend=Blend-fil
+recap.gui.rendersettings.presets.png=PNG-sekvens
+
+recap.gui.rendersettings.antialiasing=Kantutjämning
+recap.gui.rendersettings.antialiasing.none=Ingen
+recap.gui.rendersettings.antialiasing.x2=2x
+recap.gui.rendersettings.antialiasing.x4=4x
+recap.gui.rendersettings.antialiasing.x8=8x
+
+#Render Queue GUI
+recap.gui.renderqueue.title=Renderingskö
+recap.gui.renderqueue.add=Lägg till aktuell konfig.
+
+#Rendering GUI
+recap.gui.rendering.title=Rendera video
+recap.gui.rendering.pause=Pausa rendering
+recap.gui.rendering.resume=Fortsätt rendering
+recap.gui.rendering.cancel=Avbryt rendering
+recap.gui.rendering.cancel.callback=Är du säker?
+recap.gui.rendering.preview=Visa förhandsvisning (prestandan kan variera)
+recap.gui.rendering.progress=Renderade bildrutor: %1$d / %2$d
+recap.gui.rendering.timetaken=Renderingstid
+recap.gui.rendering.timeleft=Återstående tid
+
+#Render Errors
+recap.gui.rendering.error.title=Rendering misslyckades
+recap.gui.rendering.error.message=För att rendera en video måste du installera ffmpeg.
+recap.gui.rendering.error.ffmpeglog=FFmpeg-utmatning:
+recap.gui.rendering.error.ffmpegargs.1=Det verkar som att du har ändrat argumenten i kommandoraden.
+recap.gui.rendering.error.ffmpegargs.2=Vill du återställa dem till dess standardvärden och försöka igen?
+
+#Ingame Menu
+recap.gui.ingame.menu.addposkeyframe=Lägg till nyckelbild för position
+recap.gui.ingame.menu.removeposkeyframe=Ta bort nyckelbild för position
+recap.gui.ingame.menu.addspeckeyframe=Lägg till nyckelbild för åskådning
+recap.gui.ingame.menu.removespeckeyframe=Ta bort nyckelbild för åskådning
+recap.gui.ingame.menu.addtimekeyframe=Lägg till nyckelbild för tid
+recap.gui.ingame.menu.removetimekeyframe=Ta bort nyckelbild för tid
+recap.gui.ingame.menu.pause=Pausa repris
+recap.gui.ingame.menu.unpause=Spela upp repris
+recap.gui.ingame.menu.renderpath=Rendera kamerabana
+recap.gui.ingame.menu.playpath=Spela upp kamerabana från pekarens position
+recap.gui.ingame.menu.playpathfromstart=Spela upp kamerabanan från början
+recap.gui.ingame.menu.pausepath=Pausa kamerabana
+recap.gui.ingame.menu.zoomin=Zooma in
+recap.gui.ingame.menu.zoomout=Zooma ut
+
+recap.gui.ingame.unnamedmarker=Namnlös händelsemarkör
+
+#Clear Keyframe Callback
+recap.gui.clearcallback.title=Rensa alla nyckelbilder?
+
+#Errors
+recap.error.unknownrestriction1=Denna repris kan inte spelas upp med din nuvarande version.
+recap.error.unknownrestriction2=Den försökte tvinga %s som är okänd.
+recap.error.negativetime1=En del av dina nyckelbilder för tid är i oordning.
+recap.error.negativetime2=Det finns inget stöd för att gå bakåt i tiden.
+recap.error.negativetime3=De ogiltiga delarna är rödmarkerade.
+
+#Recap Mod Incompatibility Warning
+recap.gui.modwarning.title=Inkompatibilitet har upptäckts
+recap.gui.modwarning.message1=En möjlig inkompatibilitet mellan din nuvarande
+recap.gui.modwarning.message2=Minecraft-version och denna repris har upptäckts.
+recap.gui.modwarning.message3=Om denna repris läses in kan fel eller en krasch uppstå.
+recap.gui.modwarning.name=Modnamn:
+recap.gui.modwarning.id=Mod-ID:
+recap.gui.modwarning.missing=Moddar som saknas
+recap.gui.modwarning.version=Olika modversioner
+recap.gui.modwarning.version.expected=Förväntades
+recap.gui.modwarning.version.found=Hittades
+
+#Advanced Screenshots Gui
+recap.gui.advancedscreenshots.title=Inställningar för skärmdumpar
+recap.gui.advancedscreenshots.create=Ta skärmdump
+recap.gui.advancedscreenshots.resolution=Upplösning
+
+# Screenshot Finished Gui
+recap.gui.advancedscreenshots.finished.description=Du tog en skärmdump!
+recap.gui.advancedscreenshots.finished.description.360=Du tog en skärmdump i 360 grader!
+recap.gui.advancedscreenshots.finished.description.veer=Ladda upp och se bilden i VR på VeeR.tv eller öppna den på din hårddisk.
+recap.gui.advancedscreenshots.finished.upload.veer=Ladda upp till VeeR.tv
+recap.gui.advancedscreenshots.finished.showfile=Visa filen på hårddisken

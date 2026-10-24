@@ -75,7 +75,7 @@ val jGuiVersions = listOf(
         "26.2",
         "26.3",
 )
-val replayModVersions = listOf(
+val recapModVersions = listOf(
         // "1.7.10",
         // "1.8",
         "1.8.9",
@@ -132,7 +132,7 @@ jGuiVersions.forEach { version ->
     }
 }
 
-replayModVersions.forEach { version ->
+recapModVersions.forEach { version ->
     include(":$version")
     project(":$version").apply {
         projectDir = file("versions/$version")

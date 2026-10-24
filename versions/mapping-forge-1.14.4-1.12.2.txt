@@ -10,8 +10,8 @@ net.minecraftforge.eventbus.api.Cancelable net.minecraftforge.fml.common.eventha
 net.minecraftforge.eventbus.api.Event net.minecraftforge.fml.common.eventhandler.Event
 net.minecraftforge.fml.network.NetworkRegistry net.minecraftforge.fml.common.network.NetworkRegistry
 org.apache.maven.artifact.versioning.ComparableVersion net.minecraftforge.fml.common.versioning.ComparableVersion
-org.lwjgl.glfw.GLFW com.replaymod.core.versions.GLFW
-net.minecraft.client.MainWindow com.replaymod.core.versions.Window
+org.lwjgl.glfw.GLFW com.recap.core.versions.GLFW
+net.minecraft.client.MainWindow com.recap.core.versions.Window
 
 net.minecraft.resources.ResourcePack getInputStream() net.minecraft.client.resources.AbstractResourcePack getInputStreamByName()
 net.minecraft.util.text.ITextComponent getString() getUnformattedText()

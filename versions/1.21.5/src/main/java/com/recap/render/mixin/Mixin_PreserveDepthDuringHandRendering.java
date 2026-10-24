@@ -1,0 +1,25 @@
+package com.recap.render.mixin;
+
+import com.llamalad7.mixinextras.injector.v2.WrapWithCondition;
+import com.mojang.blaze3d.systems.CommandEncoder;
+import com.mojang.blaze3d.textures.GpuTexture;
+import com.recap.render.hooks.EntityRendererHandler;
+import net.minecraft.client.render.GameRenderer;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+
+@Mixin(GameRenderer.class)
+public abstract class Mixin_PreserveDepthDuringHandRendering {
+    @WrapWithCondition(
+            //#if MC >= 26.3
+            //$$ method = "render3dHud",
+            //#else
+            method = "renderWorld",
+            //#endif
+            at = @At(value = "INVOKE", target = "Lcom/mojang/blaze3d/systems/CommandEncoder;clearDepthTexture(Lcom/mojang/blaze3d/textures/GpuTexture;D)V")
+    )
+    private boolean recapModRender_skipClearWhenRecordingDepth(CommandEncoder instance, GpuTexture texture, double v) {
+        EntityRendererHandler handler = ((EntityRendererHandler.IEntityRenderer) this).recapModRender_getHandler();
+        return handler == null || !handler.getSettings().isDepthMap();
+    }
+}

@@ -1,0 +1,211 @@
+recap.title=Recap Mod
+
+#All of the chat messages
+recap.chat.recordingstarted=Nagrywanie rozpoczęte
+recap.chat.recordingfailed=Wystapil blad przy rozpoczynaniu nagrywania
+
+recap.chat.savingthumb=Zapisywanie miniaturki...
+recap.chat.savedthumb=Miniatura została pomyślnie zapisana
+recap.chat.failedthumb=Miniatura nie mogła zostać zapisana
+
+recap.chat.addedmarker=Marker wydarzenia zostal dodany
+
+#Chat messages displayed in Replay Viewer
+recap.chat.morekeyframes=Ustaw przynajmniej dwie pozycje kamery oraz dwa punkty na linii czasu
+recap.chat.pathstarted=Rozpoczęła się ścieżka kamery
+recap.chat.pathfinished=Ścieżka kamery została zakończona
+recap.chat.pathinterrupted=Ścieżka kamery została anulowana
+
+#Common GUI-related strings
+recap.gui.cancel=Anuluj
+recap.gui.back=Wstecz
+recap.gui.load=Załaduj
+recap.gui.save=Zapisz
+recap.gui.rename=Zmień nazwę
+recap.gui.remove=Usuń
+recap.gui.delete=Usuń
+recap.gui.recording=Nagrywanie
+recap.gui.speed=Prędkość
+recap.gui.pleasewait=Proszę czekać
+recap.gui.render=Renderuj
+recap.gui.iphidden=Adres IP serwera ukryty
+recap.gui.overwrite=Nadpisz
+recap.gui.saveas=Zapisz jako...
+recap.gui.done=Gotowe
+recap.gui.close=Zamknij
+recap.gui.notagain=Nie pokazuj ponownie
+
+recap.gui.renderdonetitle=Renderowanie filmu zostalo zakonczone
+recap.gui.openfolder=Otwórz folder wideo
+recap.gui.youtubeupload=Prześlij do YouTube
+recap.gui.renderdone1=Twój film został pomyślnie wyrenderowany.
+recap.gui.renderdone2=Jak chcesz kontynuować?
+recap.gui.videotitle=Tytuł
+recap.gui.videodescription=Opis
+recap.gui.videotags=Tagi,Tagi,Tagi
+recap.gui.videothumbnail=Miniatura wideo
+recap.gui.videovisibility.private=Prywatny
+recap.gui.videovisibility.unlisted=Niepubliczny
+recap.gui.videovisibility.public=Publiczny
+recap.gui.ytuploadprogress.auth=[1/4] Uwierzytelnianie
+recap.gui.ytuploadprogress.prepare_video=[2/4] Przygotowywanie wideo: %%d%%%%
+recap.gui.ytuploadprogress.upload=[3/4] Przesyłanie: %%d%%%%
+recap.gui.ytuploadprogress.cleanup=[4/4] Oczyszczanie
+recap.gui.ytuploadprogress.done=Gotowe: %s
+recap.gui.titleempty=Tytuł nie może być pusty
+recap.gui.videothumbnailtoolarge=Rozmiar miniatur przekracza 2MB
+recap.gui.videothumbnailformat=Miniatura musi mieć format JPEG lub PNG
+
+recap.gui.hours=g
+recap.gui.minutes=min
+recap.gui.seconds=sek
+recap.gui.milliseconds=ms
+
+recap.gui.camera=Kamera
+recap.gui.position=Pozycja
+
+recap.gui.unknownerror=Wystąpił nieznany błąd
+
+recap.gui.exit=Wyjdz z Replaya
+
+recap.gui.settings=Ustawienia
+
+recap.gui.keyframerepo.delete=Czy na pewno chcesz usunąć te klatki kluczowe?
+recap.gui.keyframerepo.overwrite=Czy na pewno chcesz nadpisać te klatki kluczowe?
+
+recap.gui.restorereplay1=Wyglada na to, ze Minecraft nie zostal zakonczony poprawnie.
+recap.gui.restorereplay2=Replay "%1$s" nie zostal zapisany poprawnie.
+recap.gui.restorereplay3=Czy chcesz go odzyskac?
+
+recap.gui.loadentitytracker=Ladowanie pozycji bytow: %%d%%%%
+
+#Only change these if it's neccessary
+recap.gui.replayviewer=Odtwarzacz Replayów
+
+#Replay Viewer GUI
+recap.gui.viewer.rename.name=Nazwa Replaya
+recap.gui.viewer.replayfolder=Otwórz folder powtórek...
+
+recap.gui.viewer.delete.linea=Czy jestes pewien ze chcesz usunac ten Replay?
+recap.gui.viewer.delete.failed1=Twoj system operacyjny nie pozwolil na usuniecie tego Replaya. Niestety,
+recap.gui.viewer.delete.failed2=nic nie mozemy z tym zrobic. Musisz zrobic to samemu.
+recap.gui.viewer.delete.lineb=zostanie stracone na zawsze! (to naprawde dlugo!)
+
+#Cancel Replay GUI
+recap.gui.cancelrender.title=Anuluj rendering
+recap.gui.cancelrender.message=Czy jestes pewien anulowania obecnego postepu renderingu?
+#Saving Replay GUI
+recap.gui.replaysaving.title=Zapisywanie pliku Replay...
+
+#Player Overview GUI
+recap.gui.playeroverview.visible=Widoczne
+recap.gui.playeroverview.hideall=Schowaj wszystkie
+recap.gui.playeroverview.showall=Pokaz wszystkie
+recap.gui.playeroverview.spectate=Obseruj gracza
+recap.gui.playeroverview.remembersettings=Zapamietaj ukrytych graczy
+recap.gui.playeroverview.remembersettings.description=Zapisz widocznosc graczy w pliku
+
+#Recap Mod Settings GUI
+recap.gui.settings.title=Ustawienia Recap Mod
+
+recap.gui.settings.notifications=Wlacz powiadomienia
+recap.gui.settings.recordserver=Nagrywaj na serwerach
+recap.gui.settings.recordsingleplayer=Nagrywaj tryb jednoosobowy
+recap.gui.settings.indicator=Wskaznik nagrywania
+recap.gui.settings.pathpreview=Pokaz podglad sciezki
+recap.gui.settings.showchat=Pokazuj czat
+
+#Recap Mod Keybindings
+recap.input.lighting=Wlacz/wylacz oswietlenie
+recap.input.thumbnail=Zapisz miniaturke
+recap.input.playeroverview=Przeglad gracza
+recap.input.synctimeline=Zsynchronizuj os czasu
+recap.input.keyframerepository=Otwórz szabony Keyframe
+recap.input.rollclockwise=Obracaj zgodnie ze wskazówkami zegara
+recap.input.rollcounterclockwise=Obracaj przeciwnie do wskazórek zegara
+recap.input.resettilt=Zresetuj nachylenie
+recap.input.playpause=Wlacz/Wstrzymaj Replay
+recap.input.marker=Dodaj marker wydarzenia
+recap.input.pathpreview=Przelacz podglad sciezki
+recap.input.settings=Ustawienia Recap Mod
+
+#Edit Keyframe GUI
+recap.gui.editkeyframe.title.pos=Edytuj pozycje kamery
+recap.gui.editkeyframe.title.time=Edytuj punkt linii czasu
+recap.gui.editkeyframe.xpos=Pozycja osi X
+recap.gui.editkeyframe.ypos=Pozycja osi Y
+recap.gui.editkeyframe.zpos=Pozycja osi Z
+recap.gui.editkeyframe.campitch=Obrót pionowy kamery
+recap.gui.editkeyframe.camyaw=Obrót poziomy kamery
+recap.gui.editkeyframe.camroll=Obrót kamery
+recap.gui.editkeyframe.timelineposition=Pozycja na linii czasu
+
+recap.gui.rendersettings.renderer=Metoda renderowania
+
+recap.gui.rendersettings.renderer.default=Domyslne renderowanie
+recap.gui.rendersettings.renderer.stereoscopic=Renderowanie stereoskopowe
+recap.gui.rendersettings.renderer.cubic=Renderowanie szescienne
+
+recap.gui.rendersettings.renderer.default.description=Renderuje wideo z obecna rodzielczoscia. Najszybsza opcja.
+recap.gui.rendersettings.renderer.stereoscopic.description=Renderuje wideo jako stereoskopowy film 3D, uzyteczne we wielu technologiach 3D.
+recap.gui.rendersettings.renderer.cubic.description=Renderuje wideo z widokiem panoramicnym (360 stopni), uzywajac szesciennej projekcji. Jest to uyteczne w paru odtwarzaczach obslugujacych filmy panoramiczne (oraz w Oculus Rift), na przyklad w VR Player.
+recap.gui.rendersettings.renderer.equirectangular.description=Renderuje wideo z widokiem panoramicnym (360 stopni), uzywajac projekcji Equirectangular. Jest to przydatne z nowa technologia odtwarzania filmów   panoramicnych oraz w paru odtwarzaczach obslugujacych filmy panoramiczne (oraz w Oculus Rift), na przyklad w VR Player.
+
+recap.gui.rendersettings.customresolution=Nistandardowa rozdzielczosc filmu
+recap.gui.rendersettings.framerate=Klatkowanie wideo
+recap.gui.rendersettings.nametags=Renderuj nazwy graczy
+recap.gui.rendersettings.outputfile=Plik wyjsciowy
+
+recap.gui.rendersettings.command=Komenda
+recap.gui.rendersettings.arguments=Parametry linii komend
+recap.gui.rendersettings.ffmpeg.description=Domyslnie Recap Mod bedzie renderowal pliki w formacie .webm. Jesli jestes zaawansowanym uzytkownikiem, mozesz dostowsowac parametry linii komend uzywanych do eksportowania filmu. Wiecej informacji znajdziesz na http://recap.com/docs
+
+recap.gui.rendersettings.stabilizecamera=Ustabilizuj kamere
+
+recap.gui.rendersettings.video=Ustawienia graficzne
+recap.gui.rendersettings.advanced=Zaawansowane ustawienia
+recap.gui.rendersettings.commandline=Ustawienia linii komend
+
+recap.gui.rendersettings.presets=Format zapisu
+recap.gui.rendersettings.presets.mp4.custom=MP4 - Niestandardowy bitrate
+recap.gui.rendersettings.presets.mp4.default=MP4 - Domyslna jakosc
+recap.gui.rendersettings.presets.mp4.potato=MP4 - Ziemniaczana jakosc
+recap.gui.rendersettings.presets.webm.custom=WEBM - Niestandardowy bitrate
+recap.gui.rendersettings.presets.mkv.lossless=MKV - Bezstratny
+recap.gui.rendersettings.presets.png=Sekwencja PNG
+
+#Rendering GUI
+recap.gui.rendering.title=Renderowanie wideo
+recap.gui.rendering.pause=Spauzuj rendering
+recap.gui.rendering.resume=Wznów rendering
+recap.gui.rendering.cancel=Anuluj rendering
+recap.gui.rendering.cancel.callback=Jestes tego pewien?
+recap.gui.rendering.preview=Pokaz podglad (Wydajnosc moze zmalec)
+recap.gui.rendering.progress=Wyrenderowanych klatek: %1$d / %2$d
+recap.gui.rendering.timetaken=Czas renderingu
+recap.gui.rendering.timeleft=Pozostaly czas
+
+#Render Errors
+recap.gui.rendering.error.title=Renderowanie zakonczone niepowodzeniem
+recap.gui.rendering.error.message=Aby wyrenderowaæ film, musisz zainstalowac ffmpeg.
+
+#Ingame Menu
+recap.gui.ingame.menu.addposkeyframe=Dodaj pozycje kamery
+recap.gui.ingame.menu.removeposkeyframe=Usun pozycje kamery
+recap.gui.ingame.menu.addspeckeyframe=Dodaj pozycje obserwatora
+recap.gui.ingame.menu.removespeckeyframe=Usun pozycje obserwatora
+recap.gui.ingame.menu.addtimekeyframe=Dodaj pozycje na linii czasu
+recap.gui.ingame.menu.removetimekeyframe=Usun pozycje na linii czasu
+recap.gui.ingame.menu.pause=Spauzuj Replay
+recap.gui.ingame.menu.unpause=Wznów Replay
+recap.gui.ingame.menu.renderpath=Renderuj sciezke
+recap.gui.ingame.menu.playpath=Odtwórz sciezke
+recap.gui.ingame.menu.playpathfromstart=Odtwórz sciezke kamery od startu
+recap.gui.ingame.menu.pausepath=Spauzuj sciezke
+recap.gui.ingame.menu.zoomin=Przybliz
+recap.gui.ingame.menu.zoomout=Oddal
+
+recap.gui.ingame.unnamedmarker=Nienazwany marker wydarzenia
+
+#Clear Keyframe Callback
+recap.gui.clearcallback.title=Usunac wszystkie pozycje kamery?

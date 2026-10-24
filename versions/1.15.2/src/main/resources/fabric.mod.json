@@ -1,60 +1,54 @@
 {
   "schemaVersion": 1,
-  "id": "replaymod",
+  "id": "recap",
   "version": "${version}",
-
   "name": "Recap Mod",
-  "description": "A Mod which allows you to record, replay and share your Minecraft experience.",
+  "description": "Recap Mod - record, replay and share your Minecraft experience. A community fork maintained by TurtleOfficials.",
   "authors": [
     "CrushedPixel",
     "johni0702"
   ],
   "contact": {
-    "homepage": "https://replaymod.com/",
-    "sources": "https://github.com/ReplayMod/ReplayMod"
+    "homepage": "https://github.com/Endiq-jar/Recap",
+    "sources": "https://github.com/Endiq-jar/Recap"
   },
-
   "license": "GPL-3.0-or-later",
-  "icon": "assets/replaymod/favicon_logo.png",
-
+  "icon": "assets/recap/favicon_logo.png",
   "environment": "client",
   "entrypoints": {
     "client": [
-      "com.replaymod.core.ReplayModBackend"
+      "com.recap.core.RecapModBackend"
     ],
     "modmenu": [
-      "com.replaymod.core.gui.ModMenuApiImpl"
+      "com.recap.core.gui.ModMenuApiImpl"
     ],
     "frex_flawless_frames": [
-      "com.replaymod.render.utils.FlawlessFrames::registerConsumer"
+      "com.recap.render.utils.FlawlessFrames::registerConsumer"
     ],
     "preLaunch": [
-      "com.replaymod.core.DummyChainLoadEntryPoint",
-      "com.replaymod.core.MixinExtrasInit"
+      "com.recap.core.DummyChainLoadEntryPoint",
+      "com.recap.core.MixinExtrasInit"
     ],
     "mm:early_risers": [
-      "com.replaymod.core.ReplayModMMLauncher"
+      "com.recap.core.RecapModMMLauncher"
     ]
   },
   "mixins": [
     "mixins.jgui.json",
-    "mixins.nonmmlauncher.replaymod.json"
+    "mixins.nonmmlauncher.recap.json"
   ],
-
   "depends": {
     "fabricloader": ">=0.7.0",
     "fabric-networking-v0": "*",
     "fabric-keybindings-v0": "*",
     "fabric-resource-loader-v0": "*"
   },
-
   "conflicts": {
     "iris": "<1.1.3"
   },
-
   "custom": {
     "mm:early_risers": [
-      "com.replaymod.core.ReplayModMMLauncher"
+      "com.recap.core.RecapModMMLauncher"
     ],
     "modmenu:clientsideOnly": true
   }

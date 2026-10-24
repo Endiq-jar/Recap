@@ -2,7 +2,7 @@
 The user documentation is generated from `content.md` using a custom Node.js script.
 
 > **Note:** the screenshots (`docs/img/`) are not vendored in this fork to keep the repository small.
-> Copy them from the upstream Replay Mod repository if you want to build the website locally.
+> Copy them from the upstream Recap Mod repository if you want to build the website locally.
 
 Using an image directly after a header will show it to the right of the text and will show the following
 text as its caption.

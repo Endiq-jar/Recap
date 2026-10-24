@@ -176,7 +176,7 @@ jobs:
                   metadata = json.loads(archive.read("fabric.mod.json").decode("utf-8"))
               declared = metadata.get("depends", {}).get("minecraft")
               print(f"{jar}: id={metadata['id']} name={metadata['name']} minecraft={declared}")
-              assert metadata["id"] == "replaymod", metadata["id"]
+              assert metadata["id"] == "recap", metadata["id"]
               assert metadata["name"] == "Recap Mod", metadata["name"]
               expected = expected_range or version
               assert declared == expected, f"expected minecraft={expected}, got {declared}"
